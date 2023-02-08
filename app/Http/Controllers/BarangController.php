@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class BarangController extends Controller
 {
@@ -98,13 +99,16 @@ class BarangController extends Controller
             'harga' => 'required|integer|min:5',
             'category_id' => 'required',
             'desc' => 'required|min:10',
-            'image' => 'required|file|max:1024'
+            'image' => 'file|max:1024'
         ]);
         if ($request->file('image')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
             $validatedData['image'] = $request->file('image')->store('barang-image');
         }
 
-        $product->upadate($validatedData);
+        $product->update($validatedData);
         return redirect('dashboard/barang')->with('success', 'barang berhasil diedit');
     }
 

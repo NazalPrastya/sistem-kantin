@@ -54,6 +54,7 @@
 
         <div class="relative z-0 w-full mb-6 group">  
             <div class="flex box-border">
+                <input type="hidden" name="oldImage" value="{{ $barang->image }}">
                 @if ($barang->image)
                 <img src="{{ asset('storage/' . $barang->image) }}" width="100px" id="img-preview" class="img-preview bg-white mr-5 border-4 ring-2 ring-blue-400 border-[#0F4061] ">
                 @else
