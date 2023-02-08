@@ -98,7 +98,7 @@ class BarangController extends Controller
             'name' => 'required|min:5|max:100',
             'harga' => 'required|integer|min:5',
             'category_id' => 'required',
-            'desc' => 'required|min:10',
+            'desc' => 'required|min:5',
             'image' => 'file|max:1024'
         ]);
         if ($request->file('image')) {
@@ -118,9 +118,13 @@ class BarangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        Product::destroy($id);
+        if ($product->image) {
+            Storage::delete($product->image);
+        }
+
+        Product::destroy($product->id);
         return redirect('/dashboard/barang')->with('success', 'Barang berhasil dihapus');
     }
 }
