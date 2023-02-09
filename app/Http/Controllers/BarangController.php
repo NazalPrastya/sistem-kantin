@@ -17,14 +17,18 @@ class BarangController extends Controller
      */
     public function index()
     {
-        // if (request('name')){
-        //     $name = Product::firstWhere('')
-        // }
-
         return view('dashboard.barang.index', [
             'barang' => Product::all(),
             'category' => Category::all()
         ]);
+    }
+
+    public function search(Request $request)
+    {
+        $keyword = $request->search;
+        // $category = Category::where('category', 'like', "%" . $keyword . "%")->paginate(5);
+        $barang = Product::where('name', 'like', "%" . $keyword . "%")->paginate(5);
+        return view('dashboard.barang.index', compact('barang'));
     }
 
     /**

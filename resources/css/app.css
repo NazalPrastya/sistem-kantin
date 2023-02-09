@@ -13,6 +13,10 @@
     @apply bg-[#eeeeee] text-[#FFAA29];
 }
 
+.btn-active {
+    @apply bg-[#FFC700] text-black;
+}
+
 @tailwind utilities;
 
 .bg-my-image {

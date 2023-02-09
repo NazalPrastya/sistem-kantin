@@ -78,7 +78,7 @@
     min-width: 78px;
     text-align: center;
     line-height: 50px;
-    color: #fff;
+    /* color: #fff; */
     font-size: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
