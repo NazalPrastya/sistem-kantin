@@ -20,7 +20,8 @@
    
     <div class="container">
     {{-- Form Search --}}
-        <form class="flex items-center max-w-xs mt-3">   
+    <div class="flex mt-3">
+        <form class="flex items-center max-w-xs ">   
             <label for="simple-search" class="sr-only">Search</label>
             <div class="relative w-full">
                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -33,6 +34,13 @@
                 <span class="sr-only">Search</span>
             </button>
         </form>
+        <div class="mx-3 mt-2">
+            <a href="" class="py-1 px-3 text-center text-[17px] rounded-md transition bg-[#FBFF29] hover:bg-[#D7DB01] ">Semua</a>
+            <a href="" class="py-1 px-3 text-center text-[17px] rounded-md transition bg-[#FBFF29] hover:bg-[#D7DB01] ">Makanan</a>
+            <a href="" class="py-1 px-3 text-center text-[17px] rounded-md transition bg-[#FBFF29] hover:bg-[#D7DB01]  ">Minuman</a>
+            <a href="" class="py-1 px-3 text-center text-[17px] rounded-md transition bg-[#FBFF29] hover:bg-[#D7DB01]  ">Pakaian</a>
+        </div> 
+    </div>
     {{-- End Form Search --}}
     <a href="/dashboard/barang/create" class="p-1 px-3 inline-block text-lg  bg-sky-700 rounded-md text-white mt-5 mb-5 hover:bg-sky-800 hover:ring-1 hover:ring-yellow-300">Tambah Barang</a>
         <div class="flex flex-wrap gap-x-6 gap-y-6">      

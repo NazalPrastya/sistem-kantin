@@ -17,6 +17,10 @@ class BarangController extends Controller
      */
     public function index()
     {
+        // if (request('name')){
+        //     $name = Product::firstWhere('')
+        // }
+
         return view('dashboard.barang.index', [
             'barang' => Product::all(),
             'category' => Category::all()
