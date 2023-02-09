@@ -15,20 +15,21 @@ class BarangController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $keyword = $request->search;
         return view('dashboard.barang.index', [
-            'barang' => Product::all(),
+            'barang' => Product::where('name', 'like', "%" . $keyword . "%")->paginate(5),
             'category' => Category::all()
         ]);
     }
 
-    public function search(Request $request)
+
+    public function category($id)
     {
-        $keyword = $request->search;
-        // $category = Category::where('category', 'like', "%" . $keyword . "%")->paginate(5);
-        $barang = Product::where('name', 'like', "%" . $keyword . "%")->paginate(5);
-        return view('dashboard.barang.index', compact('barang'));
+        $category = Category::all();
+        $barang = Product::where('category_id', $id)->paginate(6);
+        return view('dashboard.barang.index', compact('barang', 'category', 'id'));
     }
 
     /**

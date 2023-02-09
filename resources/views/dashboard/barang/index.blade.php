@@ -36,9 +36,9 @@
         </form>
         <div class="mx-5 mt-2">
             <a href="/dashboard/barang" class="py-1 px-3 text-center text-[17px] rounded-md transition  hover:bg-[#D7DB01] {{ Request::is('dashboard/barang') ? 'btn-active' : 'bg-[#FBFF29]' }} ">Semua</a>
-            <a href="" class="py-1 px-3 text-center text-[17px] rounded-md transition bg-[#FBFF29] hover:bg-[#D7DB01] ">Makanan</a>
-            <a href="" class="py-1 px-3 text-center text-[17px] rounded-md transition bg-[#FBFF29] hover:bg-[#D7DB01]  ">Minuman</a>
-            <a href="" class="py-1 px-3 text-center text-[17px] rounded-md transition bg-[#FBFF29] hover:bg-[#D7DB01]  ">Pakaian</a>
+            @foreach ($category as $c )       
+            <a href="/dashboard/barang/{{ $c->id }}" class="py-1 px-3 text-center text-[17px] rounded-md transition  hover:bg-[#D7DB01] {{ Request::is('dashboard/barang/'. $c->id ) ? 'btn-active' : 'bg-[#FBFF29]' }} ">{{ $c->name }}</a>
+            @endforeach
         </div> 
     </div>
     {{-- End Form Search --}}

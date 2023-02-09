@@ -29,8 +29,9 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
 
-Route::get('/dashboard/barang', [BarangController::class, 'index']);
-Route::get('/dashboard/barang/search', [BarangController::class, 'search'])->name('search');
+Route::get('/dashboard/barang', [BarangController::class, 'index'])->name('search');
+// Route::get('/dashboard/barang/search', [BarangController::class, 'search'])->name('search');
+Route::get('/dashboard/barang/{id}', [BarangController::class, 'category']);
 Route::get('/dashboard/barang/create', [BarangController::class, 'create']);
 Route::post('/dashboard/barang', [BarangController::class, 'store']);
 Route::get('/dashboard/barang/edit/{product:id}', [BarangController::class, 'edit']);
