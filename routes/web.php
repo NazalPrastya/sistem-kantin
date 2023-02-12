@@ -47,3 +47,4 @@ Route::post('/dashboard/saran', [SaranController::class, 'store']);
 Route::delete('dashboard/saran/{saran:id}', [SaranController::class, 'destroy']);
 
 Route::get('/dashboard/cart', [CartController::class, 'index']);
+Route::post('/dashboard/cart/store', [CartController::class, 'store'])->name('store');
