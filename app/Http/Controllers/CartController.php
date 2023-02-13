@@ -13,8 +13,8 @@ class CartController extends Controller
     public function index()
     {
         return view('dashboard.cart.index', [
-            'cart' => Cart::all(),
-            'product' => Product::all()
+            'carts' => Cart::all(),
+            'products' => Product::with('product')
         ]);
     }
 

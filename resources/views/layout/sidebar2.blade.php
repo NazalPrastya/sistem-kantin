@@ -1,6 +1,6 @@
 <div class="sidebar close">
     <div class="logo-detail">
-      <img src="/img/sidebar/shop.svg" alt="" class="mx-auto" />
+      <img src="/img/sidebar/shop.svg" alt="logo" class="mx-auto" />
     </div>
     <ul class="nav-links space-y-2">
       <li class="rounded-l-full mx-auto text-center">

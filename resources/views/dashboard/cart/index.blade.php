@@ -5,15 +5,15 @@
 </div>
 
     <div class="container pt-5 space-y-2">
-        @foreach ($cart as $c)
+        @foreach ($carts as $cart)
             
         <div class="w-full h-24 rounded-md shadow-md bg-[#A8A8A8] flex gap-2">
             <img src="/img/landing/barang/biskuat.svg" alt="" class="border-r-2 px-" width="100">
             <div class="justify-center mx-auto text-center my-auto">
-                <p class="text-2xl font-extrabold text-white">{{ $c->product->name }}</p>
+                <p class="text-2xl font-extrabold text-white">Biskuat</p>
             </div>
             <label class="text-lg font-medium mx-auto my-auto">Rp.500,00</label>
-            <label class="text-lg font-medium mx-auto my-auto">4</label>
+            <label class="text-lg font-medium mx-auto my-auto">{{ $cart->qty }}</label>
            <form action="" class="mx-auto my-auto">
                 <button type="submit" class="rounded-full px-2 bg-slate-500 text-lg text-white font-bold hover:bg-slate-600">+</button>
                 <button type="submit" class="rounded-full px-2 bg-slate-500 text-lg text-white font-bold hover:bg-slate-600">-</button>

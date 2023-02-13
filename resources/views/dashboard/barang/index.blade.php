@@ -100,7 +100,7 @@
                 <form action="{{ route('store') }}" method="post">
                     @csrf
                     <input type="hidden" value="{{ $b->id }}" name="product_id">
-                    <input type="submit" class="p-1  font-semibold rounded-md bg-[#FFC700] text-white hover:bg-yellow-400" value="Rp.{{ $b->harga }}-">
+                    <input type="submit" class="p-1  font-semibold rounded-md bg-[#FFC700] text-white hover:bg-yellow-400 cursor-pointer" value="Rp.{{ $b->harga }}-">
                 </form>
                 <a href="">
                     <i class="bi bi-cart-fill text-2xl font-extrabold text-yellow-300 hover:text-yellow-500"></i>
