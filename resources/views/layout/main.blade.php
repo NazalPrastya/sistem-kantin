@@ -46,6 +46,20 @@
         <section class="home-section">
           <div class="home-content">
             <i class="bx bx-menu"></i>
+            @if ((Auth::guard('admin')->user()))
+                
+            <div class="flex-col justify-end">
+              <div class="w-auto justify-end text-end items-end">
+              <form action="/logout" method="post" class="inline-block text-end items-end">
+                @csrf
+                <button type="submit" class="p-1 px-2 bg-red-600 rounded-lg text-white font-bold hover:bg-red-700">Logout</button>
+              </form>
+             </div>
+            </div> 
+          @endif
+          </div>
+
+
           </div>
           @yield('content')
         </section>

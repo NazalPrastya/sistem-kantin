@@ -8,7 +8,7 @@
         <a href="/dashboard/barang" class="p-1 px-2 text-white bg-blue-800 rounded-md hover:bg-blue-900 hover:ring-1 hover:ring-orange-600">Beli lagi</a>
         @foreach ($carts as $cart)
             
-        <div class="w-full h-24 rounded-md shadow-md bg-[#A8A8A8] flex gap-2">
+        <div class="w-full h-24 rounded-md shadow-md bg-[#A8A8A8] flex gap-2 text-center">
             <img src="{{ asset('storage/' . $cart->product->image) }}" alt="" class="border-r-2 px-" width="100">
             <div class="justify-center mx-auto text-center my-auto">
                 <p class="text-2xl font-extrabold text-white">{{ $cart->product->name }}</p>

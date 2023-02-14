@@ -42,7 +42,7 @@
         </div> 
     </div>
     {{-- End Form Search --}}
-    <a href="/dashboard/barang/create" class="p-1 px-3 inline-block text-lg  bg-sky-700 rounded-md text-white mt-5 mb-5 hover:bg-sky-800 hover:ring-1 hover:ring-yellow-300">Tambah Barang</a>
+    <a href="/dashboard/create" class="p-1 px-3 inline-block text-lg  bg-sky-700 rounded-md text-white mt-5 mb-5 hover:bg-sky-800 hover:ring-1 hover:ring-yellow-300">Tambah Barang</a>
         <div class="flex flex-wrap gap-x-6 gap-y-6">      
             @foreach ($barang as $b)    
             <div class="w-full md:w-1/3 lg:w-1/5 shadow-lg px-3 pb-2 max-h-72 rounded-md group hover:bg-[#0D4C77] bg-[#177DC2] transition duration-150">
@@ -102,9 +102,14 @@
                     <input type="hidden" value="{{ $b->id }}" name="product_id">
                     <input type="submit" class="p-1  font-semibold rounded-md bg-[#FFC700] text-white hover:bg-yellow-400 cursor-pointer" value="Rp.{{ $b->harga }}-">
                 </form>
-                <a href="">
+                {{-- <a href="">
                     <i class="bi bi-cart-fill text-2xl font-extrabold text-yellow-300 hover:text-yellow-500"></i>
-                </a>
+                </a> --}}
+                <form action="{{ route('store') }}" method="post">
+                    @csrf
+                    <input type="hidden" value="{{ $b->id }}" name="product_id">
+                    <input type="submit" class="p-1  font-semibold rounded-md bg-[#FFC700] text-white hover:bg-yellow-400 cursor-pointer" value=""> <i class="bi bi-cart-fill text-2xl font-extrabold text-yellow-300 hover:text-yellow-500"></i>
+                </form>
                </div>
             </div>
             @endforeach             
