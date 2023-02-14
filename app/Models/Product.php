@@ -18,8 +18,8 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function cart()
-    {
-        return $this->belongsTo(Cart::class);
-    }
+    // public function cart()
+    // {
+    //     return $this->belongsTo(Cart::class);
+    // }
 }

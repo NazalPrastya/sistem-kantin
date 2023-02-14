@@ -14,7 +14,7 @@ class CartController extends Controller
     {
         return view('dashboard.cart.index', [
             'carts' => Cart::all(),
-            'products' => Product::with('product')
+            'product' => Product::with('products')
         ]);
     }
 
@@ -30,5 +30,12 @@ class CartController extends Controller
         ]);
 
         return redirect('dashboard/cart')->with('success', 'barang berhasil ditambakan ke keranjang');
+    }
+
+
+    public function destroy($id)
+    {
+        Cart::destroy($id);
+        return redirect('/dashboard/cart')->with('success', 'barang berhasil dicancel');
     }
 }
