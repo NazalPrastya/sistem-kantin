@@ -7,6 +7,7 @@ use App\Http\Controllers\SaranController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\RiwayatController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UserBarangController;
 use App\Http\Controllers\LandingPageController;
 
 /*
@@ -25,6 +26,10 @@ Route::get('/', [LandingPageController::class, 'index']);
 Route::get('/login/admin', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
+
+
+// User Interface
+Route::get('/barang', [UserBarangController::class, 'index']);
 
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
