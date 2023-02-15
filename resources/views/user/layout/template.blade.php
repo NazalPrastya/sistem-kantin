@@ -59,7 +59,7 @@
                     </li>
       
                     <li class="group">
-                      <a href="#" class="text-4xl font-extrabold text-dark mx-8 flex py-2 text-[#FFAA29]"><i class="bx bxs-cart"></i>
+                      <a href="#" class="text-4xl font-extrabold text-dark mx-8 flex py-2 ring-1 border-1 ring-orange-500 rounded-full text-[#FFAA29]"><i class="bx bxs-cart"></i>
                       </a>
                     </li>
 
