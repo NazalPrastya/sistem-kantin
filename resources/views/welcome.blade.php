@@ -70,11 +70,6 @@
                     </div>
                     <div class="w-full px-4 self-end lg:w-1/2 ">
                         <div class="mt-10 relative lg:mt-9 lg:right-0">
-                        {{-- <img src="/img/landing/hero.svg" alt="" class="max-w-full mx-auto">
-                        <img src="/img/landing/choco.svg" alt="" class="absolute scale-50 -top-3 md:scale-75 md:top-16 md:left-9 ">
-                        <img src="/img/landing/chips.svg" alt="" class="absolute scale-50 left-56 -top-3 md:scale-75 md:top-16 md:left-96">
-                        <img src="/img/landing/garpu.svg" alt="" class="absolute scale-50 left-56 top-44 md:scale-75 md:top-96 md:left-96">
-                        <img src="/img/landing/snack.svg" alt="" class="absolute scale-50 top-40 md:scale-75 md:top-96 md:left-9"> --}}
                         <img src="/img/landing/group.svg" alt="hero" class="max-w-full mx-auto animate-wiggle ">
                         <span class="absolute -bottom-12 -z-10 left-1/2 -translate-x-1/2 md:scale-150 md:bottom-28 lg:scale-125 lg:bottom-1 xl:scale-150 xl:bottom-24">
                         <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">

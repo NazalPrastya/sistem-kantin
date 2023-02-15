@@ -59,8 +59,12 @@
                     </li>
       
                     <li class="group">
-                      <a href="#" class="text-3xl font-extrabold text-dark mx-8 flex py-2 text-[#FFAA29]"><i class="bx bxs-cart"></i>
+                      <a href="#" class="text-4xl font-extrabold text-dark mx-8 flex py-2 text-[#FFAA29]"><i class="bx bxs-cart"></i>
                       </a>
+                    </li>
+
+                    <li class="group">
+                      <a href="/login/admin" class="text-base mt-1 font-extrabold text-dark mx-8 flex group-hover:bg-yellow-400 w-auto bg-yellow-300 px-5 py-1 rounded-lg border-2 border-oren ">Admin</a>
                     </li>
                     
                   </ul>
