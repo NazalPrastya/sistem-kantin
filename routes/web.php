@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SaranController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\RiwayatController;
+use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserBarangController;
 use App\Http\Controllers\LandingPageController;
@@ -32,8 +33,9 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/barang', [UserBarangController::class, 'index']);
 
 
-Route::get('/dashboard', [DashboardController::class, 'index']);
 
+// Admin Interface
+Route::get('/dashboard', [DashboardController::class, 'index']);
 Route::get('/dashboard/barang', [BarangController::class, 'index'])->name('search');
 // Route::get('/dashboard/barang/search', [BarangController::class, 'search'])->name('search');
 Route::get('/dashboard/barang/{id}', [BarangController::class, 'category']);
@@ -42,6 +44,11 @@ Route::post('/dashboard/barang', [BarangController::class, 'store']);
 Route::get('/dashboard/barang/edit/{product:id}', [BarangController::class, 'edit']);
 Route::put('/dashboard/barang/{product:id}', [BarangController::class, 'update']);
 Route::delete('/dashboard/barang/{product:id}', [BarangController::class, 'destroy']);
+
+Route::get('/dashboard/carousel', [CarouselController::class, 'index']);
+Route::get('/dashboard/carousel/create', [CarouselController::class, 'create']);
+Route::post('/dashboard/carousel', [CarouselController::class, 'store']);
+Route::delete('/dashboard/carousel/{carousel:id}', [CarouselController::class, 'destroy']);
 
 
 

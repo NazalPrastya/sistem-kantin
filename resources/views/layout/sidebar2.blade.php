@@ -29,6 +29,16 @@
         </ul>
       </li>
 
+      <li class="group ml-3 rounded-l-full hover:bg-[#eeeeee] {{ Request::is('dashboard/carousel') ? 'active' : '' }}">
+        <a href="/dashboard/carousel" class="group">
+          <i class="bx bx-image-alt group-hover:text-[#FFAA29]  {{ Request::is('dashboard/carousel') ? 'text-[#FFAA29]' : 'text-[#eee]' }}"></i>
+          <span class="link_name text-white font-bold group-hover:text-[#ffaa29] {{ Request::is('dashboard/carousel') ? 'text-[#FFAA29]' : 'text-[#eee]' }}">Carousel</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="/dashboard/carousel">Carousel</a></li>
+        </ul>
+      </li>
+
       <li class="group ml-3 rounded-l-full hover:bg-[#eeeeee] {{ Request::is('dashboard/cart') ? 'active' : '' }}">
         <a href="/dashboard/cart" class="group">
           <i class="bx bx-cart group-hover:text-[#FFAA29] {{ Request::is('dashboard/cart') ? 'text-[#FFAA29]' : 'text-[#eee]' }}"></i>

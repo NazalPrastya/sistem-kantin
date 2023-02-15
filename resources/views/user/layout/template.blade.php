@@ -12,6 +12,9 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,700;1,800;1,900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
         <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
            
         <!-- My Style -->
@@ -23,7 +26,6 @@
             body {
                 font-family: 'Poppins', sans-serif;
             }
-            
         </style>
 
           @vite('resources/css/app.css')
@@ -69,10 +71,13 @@
         </header>
       {{-- End Navbar --}}
 
-        <div class="container pt-10">
+        <div class=" pt-10">
             @yield('content')
-          </div>
+        </div>
+
+
         <script>
+
         // Responsive sidebar
         let arrow = document.querySelectorAll(".arrow");
         for (var i = 0; i < arrow.length; i++) {
