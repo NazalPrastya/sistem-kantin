@@ -12,7 +12,7 @@ class CartController extends Controller
 {
     public function index()
     {
-        return view('dashboard.cart.index', [
+        return view('user.cart.index', [
             'carts' => Cart::all(),
             'product' => Product::with('products')
         ]);
@@ -22,20 +22,20 @@ class CartController extends Controller
     {
         $duplicate = Cart::where('product_id', $request->product_id)->first();
         if ($duplicate) {
-            return redirect('dashboard/cart')->with('error', 'Barang sudah ada di keranjang');
+            return redirect('barang/keranjang')->with('error', 'Barang sudah ada di keranjang');
         }
         Cart::create([
             'product_id' => $request->product_id,
             'qty' => 1
         ]);
 
-        return redirect('dashboard/cart')->with('success', 'barang berhasil ditambakan ke keranjang');
+        return redirect('barang/keranjang')->with('success', 'barang berhasil ditambakan ke keranjang');
     }
 
 
     public function destroy($id)
     {
         Cart::destroy($id);
-        return redirect('/dashboard/cart')->with('success', 'barang berhasil dicancel');
+        return redirect('/barang/keranjang')->with('success', 'barang berhasil dicancel');
     }
 }

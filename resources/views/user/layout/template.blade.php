@@ -49,17 +49,23 @@
                 <nav id="nav-menu" class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[200px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none">
                   <ul class="block lg:flex lg:mx-auto">
                     <li class="group">
-                      <a href="#home" class="text-lg text-dark py-2 mx-8 flex hover:text-primary active:font-bold active:text-black ">Beranda</a>
+                      <a href="/" class="text-lg text-dark py-2 mx-8 flex hover:text-primary active:font-bold active:text-black ">Beranda</a>
                     </li>
                     <li class="group">
-                      <a href="#barang" class="text-lg text-dark py-2 mx-8 flex hover:text-primary active:font-bold active:text-black">Barang</a>
+                      <a href="/barang" class="text-lg text-dark py-2 mx-8 flex hover:text-primary active:font-bold active:text-black {{ Request::is('barang') ? 'font-bold text-oren' : '' }}">Barang</a>
                     </li>
+
                     <li class="group">
-                      <a href="#footer" class="text-lg text-dark py-2 mx-8 flex hover:text-primary active:font-bold active:text-black ">Saran</a>
+                      <a href="/barang/saran" class="text-lg text-dark py-2 mx-8 flex hover:text-primary active:font-bold active:text-black {{ Request::is('barang/saran') ? 'font-bold text-oren' : '' }}">Saran</a>
                     </li>
-      
+
                     <li class="group">
-                      <a href="#" class="text-4xl font-extrabold text-dark mx-8 flex py-2 ring-1 border-1 ring-orange-500 rounded-full text-[#FFAA29]"><i class="bx bxs-cart"></i>
+                      <a href="/barang/riwayat" class="text-4xl font-extrabold text-dark ml-8 py-2 text-[#FFAA29] hover:text-yellow-300"><i class="bx bx-time"></i>
+                      </a>
+                    </li>
+
+                    <li class="group">
+                      <a href="/barang/keranjang" class="text-4xl font-extrabold text-dark mx-8 py-2 text-[#FFAA29] hover:text-yellow-300 "><i class="bx bxs-cart"></i>
                       </a>
                     </li>
 

@@ -8,6 +8,7 @@ use App\Http\Controllers\BarangController;
 use App\Http\Controllers\RiwayatController;
 use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UserSaranController;
 use App\Http\Controllers\UserBarangController;
 use App\Http\Controllers\LandingPageController;
 
@@ -28,10 +29,13 @@ Route::get('/login/admin', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
+Route::get('/barang/saran', [UserSaranController::class, 'index']);
 
 // User Interface
 Route::get('/barang', [UserBarangController::class, 'index']);
-
+Route::get('/barang/keranjang', [CartController::class, 'index']);
+Route::post('/dashboard/cart/store', [CartController::class, 'store'])->name('store');
+Route::delete('/dashboard/cart/{cart:id}', [CartController::class, 'destroy'])->name('desroy');
 
 
 // Admin Interface
@@ -57,7 +61,3 @@ Route::get('/dashboard/riwayat', [RiwayatController::class, 'index']);
 Route::get('/dashboard/saran', [SaranController::class, 'index']);
 Route::post('/dashboard/saran', [SaranController::class, 'store']);
 Route::delete('dashboard/saran/{saran:id}', [SaranController::class, 'destroy']);
-
-Route::get('/dashboard/cart', [CartController::class, 'index']);
-Route::post('/dashboard/cart/store', [CartController::class, 'store'])->name('store');
-Route::delete('/dashboard/cart/{cart:id}', [CartController::class, 'destroy'])->name('desroy');

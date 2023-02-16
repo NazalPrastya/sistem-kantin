@@ -1,3 +1,4 @@
+
 @extends('user.layout.template')
 @section('content')
 <div class="container pt-10">        
@@ -70,5 +71,6 @@
     </div>
 </div>
 
-@include('user.footer')
+@include('user.layout.footer')
 @endsection
+
