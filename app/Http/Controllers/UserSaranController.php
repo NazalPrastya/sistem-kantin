@@ -15,4 +15,15 @@ class UserSaranController extends Controller
             'saran' => $saran
         ]);
     }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'sender' => 'required|min:5|max:100',
+            'saran' => 'required|min:10'
+        ]);
+
+        Saran::create($validated);
+        return redirect('/barang/saran')->with('success', 'Terimakasih telah memberikan saran');
+    }
 }

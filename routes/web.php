@@ -29,13 +29,16 @@ Route::get('/login/admin', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::get('/barang/saran', [UserSaranController::class, 'index']);
 
 // User Interface
 Route::get('/barang', [UserBarangController::class, 'index']);
+
 Route::get('/barang/keranjang', [CartController::class, 'index']);
 Route::post('/dashboard/cart/store', [CartController::class, 'store'])->name('store');
 Route::delete('/dashboard/cart/{cart:id}', [CartController::class, 'destroy'])->name('desroy');
+
+Route::get('/barang/saran', [UserSaranController::class, 'index']);
+Route::post('/barang/saran', [UserSaranController::class, 'store']);
 
 
 // Admin Interface
@@ -56,7 +59,7 @@ Route::delete('/dashboard/carousel/{carousel:id}', [CarouselController::class, '
 
 
 
-Route::get('/dashboard/riwayat', [RiwayatController::class, 'index']);
+Route::get('/barang/riwayat', [RiwayatController::class, 'index']);
 
 Route::get('/dashboard/saran', [SaranController::class, 'index']);
 Route::post('/dashboard/saran', [SaranController::class, 'store']);
