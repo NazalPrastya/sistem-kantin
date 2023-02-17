@@ -31,7 +31,9 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 
 // User Interface
-Route::get('/barang', [UserBarangController::class, 'index']);
+Route::get('/barang', [UserBarangController::class, 'index'])->name('usearch');
+Route::get('/barang/{id}', [UserBarangController::class, 'category']);
+
 
 Route::get('/barang/keranjang', [CartController::class, 'index']);
 Route::post('/dashboard/cart/store', [CartController::class, 'store'])->name('store');
