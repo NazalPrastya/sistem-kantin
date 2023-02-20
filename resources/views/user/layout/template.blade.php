@@ -56,16 +56,16 @@
                     </li>
 
                     <li class="group">
-                      <a href="/barang/saran" class="text-lg text-dark py-2 mx-8 flex hover:text-primary active:font-bold active:text-black {{ Request::is('barang/saran') ? 'font-bold text-oren' : '' }}">Saran</a>
+                      <a href="/saran" class="text-lg text-dark py-2 mx-8 flex hover:text-primary active:font-bold active:text-black {{ Request::is('saran') ? 'font-bold text-oren' : '' }}">Saran</a>
                     </li>
 
                     <li class="group">
-                      <a href="/barang/riwayat" class="text-4xl font-extrabold text-dark ml-8 py-2 text-[#FFAA29] hover:text-yellow-300"><i class="bx bx-time"></i>
+                      <a href="/riwayat" class="text-4xl font-extrabold text-dark ml-8 py-2 text-[#FFAA29] hover:text-yellow-300"><i class="bx bx-time"></i>
                       </a>
                     </li>
 
                     <li class="group">
-                      <a href="/barang/keranjang" class="text-4xl font-extrabold text-dark mx-8 py-2 text-[#FFAA29] hover:text-yellow-300 "><i class="bx bxs-cart"></i>
+                      <a href="/keranjang" class="text-4xl font-extrabold text-dark mx-8 py-2 text-[#FFAA29] hover:text-yellow-300 "><i class="bx bxs-cart"></i>
                       </a>
                     </li>
 

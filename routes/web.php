@@ -35,12 +35,15 @@ Route::get('/barang', [UserBarangController::class, 'index'])->name('usearch');
 Route::get('/barang/{id}', [UserBarangController::class, 'category']);
 
 
-Route::get('/barang/keranjang', [CartController::class, 'index']);
-Route::post('/dashboard/cart/store', [CartController::class, 'store'])->name('store');
-Route::delete('/dashboard/cart/{cart:id}', [CartController::class, 'destroy'])->name('desroy');
+Route::get('/keranjang', [CartController::class, 'index']);
+Route::post('/cart/store', [CartController::class, 'store'])->name('ustore');
+Route::delete('/cart/{cart:id}', [CartController::class, 'destroy'])->name('udesroy');
 
-Route::get('/barang/saran', [UserSaranController::class, 'index']);
-Route::post('/barang/saran', [UserSaranController::class, 'store']);
+Route::get('/saran', [UserSaranController::class, 'index']);
+Route::post('/saran', [UserSaranController::class, 'store']);
+
+Route::get('/riwayat', [RiwayatController::class, 'index']);
+
 
 
 // Admin Interface
@@ -61,7 +64,6 @@ Route::delete('/dashboard/carousel/{carousel:id}', [CarouselController::class, '
 
 
 
-Route::get('/barang/riwayat', [RiwayatController::class, 'index']);
 
 Route::get('/dashboard/saran', [SaranController::class, 'index']);
 Route::post('/dashboard/saran', [SaranController::class, 'store']);

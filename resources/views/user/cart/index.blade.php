@@ -42,7 +42,7 @@
                     </form>
                 </div>
                 <p class="lg:text-lg">Subtotal : <span class="font-bold">Rp.{{ $cart->qty * $cart->product->harga }}</span></p>
-                <form action="/dashboard/cart/{{ $cart->id }}" method="post" class="">
+                <form action="/cart/{{ $cart->id }}" method="post" class="">
                     @method('delete')
                     @csrf
                     <button type="submit" class="text-white text-base font-bold rounded-xl px-2 bg-red-600 hover:bg-red-700 hover:ring-1 hover:ring-white lg:text-lg">Cancel</button>
@@ -51,42 +51,6 @@
         </div>
 
         @endforeach
-
-        {{-- <div class="w-full h-24 rounded-md shadow-md bg-[#A8A8A8] flex gap-2">
-            <img src="/img/landing/barang/popmie1.svg" alt="" class="border-r-2 px-" width="100">
-            <div class="justify-center mx-auto text-center my-auto">
-                <p class="text-2xl font-extrabold text-white">Biskuat</p>
-            </div>
-            <label class="text-lg font-medium mx-auto my-auto">Rp.500,00</label>
-            <label class="text-lg font-medium mx-auto my-auto">4</label>
-           <form action="" class="mx-auto my-auto">
-                <button type="submit" class="rounded-full px-2 bg-slate-500 text-lg text-white font-bold hover:bg-slate-600">+</button>
-                <button type="submit" class="rounded-full px-2 bg-slate-500 text-lg text-white font-bold hover:bg-slate-600">-</button>
-            </form>
-
-            <label class="text-lg font-medium mx-auto my-auto">Rp.2000-</label>
-            <form action="" class="mx-auto my-auto">
-                <button type="submit" class="text-white text-lg font-bold rounded-xl px-2 bg-red-600 hover:bg-red-700 hover:ring-1 hover:ring-white">Cancel</button>
-            </form>
-        </div>
-
-        <div class="w-full h-24 rounded-md shadow-md bg-[#A8A8A8] flex gap-2">
-            <img src="/img/landing/barang/pucuk.svg" alt="" class="border-r-2 px-" width="100">
-            <div class="justify-center mx-auto text-center my-auto">
-                <p class="text-2xl font-extrabold text-white">Biskuat</p>
-            </div>
-            <label class="text-lg font-medium mx-auto my-auto">Rp.500,00</label>
-            <label class="text-lg font-medium mx-auto my-auto">4</label>
-           <form action="" class="mx-auto my-auto">
-                <button type="submit" class="rounded-full px-2 bg-slate-500 text-lg text-white font-bold hover:bg-slate-600">+</button>
-                <button type="submit" class="rounded-full px-2 bg-slate-500 text-lg text-white font-bold hover:bg-slate-600">-</button>
-            </form>
-
-            <label class="text-lg font-medium mx-auto my-auto">Rp.2000-</label>
-            <form action="" class="mx-auto my-auto">
-                <button type="submit" class="text-white text-lg font-bold rounded-xl px-2 bg-red-600 hover:bg-red-700 hover:ring-1 hover:ring-white">Cancel</button>
-            </form>
-        </div> --}}
 
         {{-- Checkout Harga --}}
         <p class="text-end text-lg font-bold pr-3">Total: Rp.31.000-</p>

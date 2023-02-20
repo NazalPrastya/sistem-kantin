@@ -39,7 +39,7 @@
             <div class="flex pt-5 gap-x-5 justify-center">
                 <a href="/barang" class="hover:text-oren text-lg">Semua</a>
                 @foreach ($categories as $category)
-                    <a href="/barang/{{ $category->id }}" class="hover:text-oren text-lg">{{ $category->name }}</a>
+                    <a href="/barang/{{ $category->id }}" class="hover:text-oren text-lg {{ Request::is('barang/'. $category->id) ? 'text-oren font-bold' : '' }}">{{ $category->name }}</a>
                 @endforeach
                 <form action="{{ route('usearch') }}" class="flex items-center max-w-xs "> 
                     <label for="simple-search" class="sr-only">Search</label>
@@ -71,8 +71,10 @@
                             </a>
                             <div class="flex items-center justify-between">
                                 <span class="text-xl font-bold text-gray-900 dark:text-white">Rp. {{ $product->harga }}</span>
-                                <form action="">
-                                 <button href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to cart</button>
+                                <form action="{{ route('ustore') }}" method="post">
+                                @csrf
+                                 <input type="hidden" value="{{ $product->id }}" name="product_id">
+                                 <input type="submit" class="p-2 px-3  font-semibold rounded-md bg-blue-600 text-white hover:bg-yellow-400 cursor-pointer" value="Add to cart">
                                 </form>
                             </div>
                         </div>
