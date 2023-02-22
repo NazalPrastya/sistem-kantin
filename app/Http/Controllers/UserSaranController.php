@@ -24,6 +24,6 @@ class UserSaranController extends Controller
         ]);
 
         Saran::create($validated);
-        return redirect('/barang/saran')->with('success', 'Terimakasih telah memberikan saran');
+        return redirect('/saran')->with('success', 'Terimakasih telah memberikan saran');
     }
 }

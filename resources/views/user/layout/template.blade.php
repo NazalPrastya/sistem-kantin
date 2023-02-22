@@ -60,7 +60,7 @@
                     </li>
 
                     <li class="group">
-                      <a href="/riwayat" class="text-4xl font-extrabold text-dark ml-8 py-2 text-[#FFAA29] hover:text-yellow-300"><i class="bx bx-time"></i>
+                      <a href="/riwayat" class="text-4xl font-extrabold text-dark ml-8 py-2 text-green-400 hover:text-yellow-300"><i class="bx bx-time"></i>
                       </a>
                     </li>
 

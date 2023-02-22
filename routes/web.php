@@ -53,7 +53,7 @@ Route::group(['middleware' => ['auth:admin']], function () {
     // Route::get('/dashboard/barang/search', [BarangController::class, 'search'])->name('search');
     Route::get('/dashboard/barang/{id}', [BarangController::class, 'category']);
     Route::get('/dashboard/create', [BarangController::class, 'create']);
-    Route::post('/dashboard/barang', [BarangController::class, 'store']);
+    Route::post('/dashboard/barang', [BarangController::class, 'store'])->name('store');
     Route::get('/dashboard/barang/edit/{product:id}', [BarangController::class, 'edit']);
     Route::put('/dashboard/barang/{product:id}', [BarangController::class, 'update']);
     Route::delete('/dashboard/barang/{product:id}', [BarangController::class, 'destroy']);
