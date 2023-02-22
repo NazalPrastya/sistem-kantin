@@ -61,11 +61,11 @@ class DatabaseSeeder extends Seeder
             'image' => 'pucuk.svg'
         ]);
 
-        Admin::create([
-            'username' => 'nazal',
-            'email' => 'nazal@gmail.com',
-            'no_hp' => '089516439498',
-            'password' => bcrypt('password')
-        ]);
+        // Admin::create([
+        //     'username' => 'nazal',
+        //     'email' => 'nazal@gmail.com',
+        //     'no_hp' => '089516439498',
+        //     'password' => bcrypt('password')
+        // ]);
     }
 }

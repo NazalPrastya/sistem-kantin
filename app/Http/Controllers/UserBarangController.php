@@ -14,7 +14,7 @@ class UserBarangController extends Controller
     {
         $keyword = $request->search;
         // $barang = Product::all()->take(3);
-        $products = Product::where('name', 'like', "%" . $keyword . "%")->paginate(5);
+        $products = Product::where('name', 'like', "%" . $keyword . "%")->paginate(6);
         $carousels = Carousel::all()->take(5);
         $categories = Category::all();
         return view('user.index', compact('carousels', 'categories', 'products'));
