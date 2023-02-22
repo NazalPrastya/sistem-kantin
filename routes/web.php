@@ -23,7 +23,7 @@ use App\Http\Controllers\LandingPageController;
 |
 */
 
-Route::get('/', [LandingPageController::class, 'index']);
+Route::get('/', [LandingPageController::class, 'index'])->name('login');
 
 Route::get('/login/admin', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
@@ -47,24 +47,23 @@ Route::get('/riwayat', [RiwayatController::class, 'index']);
 
 
 // Admin Interface
-Route::get('/dashboard', [DashboardController::class, 'index']);
-Route::get('/dashboard/barang', [BarangController::class, 'index'])->name('search');
-// Route::get('/dashboard/barang/search', [BarangController::class, 'search'])->name('search');
-Route::get('/dashboard/barang/{id}', [BarangController::class, 'category']);
-Route::get('/dashboard/create', [BarangController::class, 'create']);
-Route::post('/dashboard/barang', [BarangController::class, 'store']);
-Route::get('/dashboard/barang/edit/{product:id}', [BarangController::class, 'edit']);
-Route::put('/dashboard/barang/{product:id}', [BarangController::class, 'update']);
-Route::delete('/dashboard/barang/{product:id}', [BarangController::class, 'destroy']);
+Route::group(['middleware' => ['auth:admin']], function () {
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/dashboard/barang', [BarangController::class, 'index'])->name('search');
+    // Route::get('/dashboard/barang/search', [BarangController::class, 'search'])->name('search');
+    Route::get('/dashboard/barang/{id}', [BarangController::class, 'category']);
+    Route::get('/dashboard/create', [BarangController::class, 'create']);
+    Route::post('/dashboard/barang', [BarangController::class, 'store']);
+    Route::get('/dashboard/barang/edit/{product:id}', [BarangController::class, 'edit']);
+    Route::put('/dashboard/barang/{product:id}', [BarangController::class, 'update']);
+    Route::delete('/dashboard/barang/{product:id}', [BarangController::class, 'destroy']);
 
-Route::get('/dashboard/carousel', [CarouselController::class, 'index']);
-Route::get('/dashboard/carousel/create', [CarouselController::class, 'create']);
-Route::post('/dashboard/carousel', [CarouselController::class, 'store']);
-Route::delete('/dashboard/carousel/{carousel:id}', [CarouselController::class, 'destroy']);
+    Route::get('/dashboard/carousel', [CarouselController::class, 'index']);
+    Route::get('/dashboard/carousel/create', [CarouselController::class, 'create']);
+    Route::post('/dashboard/carousel', [CarouselController::class, 'store']);
+    Route::delete('/dashboard/carousel/{carousel:id}', [CarouselController::class, 'destroy']);
 
-
-
-
-Route::get('/dashboard/saran', [SaranController::class, 'index']);
-Route::post('/dashboard/saran', [SaranController::class, 'store']);
-Route::delete('dashboard/saran/{saran:id}', [SaranController::class, 'destroy']);
+    Route::get('/dashboard/saran', [SaranController::class, 'index']);
+    Route::post('/dashboard/saran', [SaranController::class, 'store']);
+    Route::delete('dashboard/saran/{saran:id}', [SaranController::class, 'destroy']);
+});

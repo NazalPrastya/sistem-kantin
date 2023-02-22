@@ -66,7 +66,7 @@
                         <p class="font-semibold text-4xl ">Hi Guys, Selamat datang <span class="font-extrabold ">Di 
                           Kantin SMK Negeri 1 Ciomas</span></p>
                         <p class="font-medium text-2xl mt-3 text-slate-600 md:w-[28rem]">ayo habiskan uang kalian untuk berbelanja di kantin kita tercinta... <span class="text-red-700">❤</span><span class="text-green-600">💸</span></p>
-                        <a href="/dashboard" class="mt-6 px-3 py-2 inline-block w-auto font-extrabold text-xl rounded-lg border-[3px] shadow-lg border-yellow-400  bg-yellow-300 hover:bg-yellow-200 hover:border-yellow-300 hover:text-slate-500">ayo belanja</a> 
+                        <a href="/barang" class="mt-6 px-3 py-2 inline-block w-auto font-extrabold text-xl rounded-lg border-[3px] shadow-lg border-yellow-400  bg-yellow-300 hover:bg-yellow-200 hover:border-yellow-300 hover:text-slate-500">ayo belanja</a> 
                     </div>
                     <div class="w-full px-4 self-end lg:w-1/2 ">
                         <div class="mt-10 relative lg:mt-9 lg:right-0">
@@ -100,11 +100,11 @@
                     <div class="w-10/12 px-7 md:w-1/2 lg:w-1/3" >
                       <div class="bg-primary rounded-xl overflow-hidden shadow-xl mb-10 text-center mx-auto ring-1 ring-yellow-500 hover:bg-gradient-to-tl hover:from-yellow-600 hover:to-oren group">
                         <div class="pt-5 border-b-4 border-oren group-hover:border-primary">
-                            <a href="#" class="block mb-3 font-bold  group-hover:text-white truncate text-2xl text-slate-600 transition duration-100 ease-in-out">Biskuat</a>
+                            <a href="/barang" class="block mb-3 font-bold  group-hover:text-white truncate text-2xl text-slate-600 transition duration-100 ease-in-out">Biskuat</a>
                           </div>
                         <img src="/img/landing/barang/biskuat.svg" alt="programming" class="mx-auto group-hover:scale-110 transition duration-300 ease-in-out" />
                         <div class="pb-7">
-                            <a href="#" class="font-bold text-lg px-4 py-2 rounded-lg text-white group-hover:bg-yellow-300 group-hover:text-oren bg-oren transition duration-100 ease-in-out">Rp. 500-</a>
+                            <a href="/barang" class="font-bold text-lg px-4 py-2 rounded-lg text-white group-hover:bg-yellow-300 group-hover:text-oren bg-oren transition duration-100 ease-in-out">Rp. 500-</a>
                           </div>
                       </div>
                     </div>
@@ -112,11 +112,11 @@
                     <div class="w-10/12 px-7 md:w-1/2 lg:w-1/3">
                         <div class="bg-primary rounded-xl overflow-hidden shadow-xl mb-10 text-center mx-auto ring-1 ring-yellow-500 hover:bg-gradient-to-tl hover:from-yellow-600 hover:to-oren group">
                           <div class="pt-5 border-b-4 border-oren group-hover:border-primary">
-                              <a href="#" class="block mb-3 font-bold  group-hover:text-white truncate text-2xl text-slate-600 transition duration-100 ease-in-out">Teh Pucuk</a>
+                              <a href="/barang" class="block mb-3 font-bold  group-hover:text-white truncate text-2xl text-slate-600 transition duration-100 ease-in-out">Teh Pucuk</a>
                             </div>
                           <img src="/img/landing/barang/pucuk.svg" alt="programming" class="mx-auto group-hover:scale-110 transition duration-300 ease-in-out" />
                           <div class="pb-7">
-                              <a href="#" class="font-bold text-lg px-4 py-2 rounded-lg text-white group-hover:bg-yellow-300 group-hover:text-oren bg-oren transition duration-100 ease-in-out">Rp. 3000-</a>
+                              <a href="/barang" class="font-bold text-lg px-4 py-2 rounded-lg text-white group-hover:bg-yellow-300 group-hover:text-oren bg-oren transition duration-100 ease-in-out">Rp. 3000-</a>
                             </div>
                         </div>
                       </div>
@@ -124,11 +124,11 @@
                       <div class="w-10/12 px-7 md:w-1/2 lg:w-1/3">
                         <div class="bg-primary rounded-xl overflow-hidden shadow-xl mb-10 text-center mx-auto ring-1 ring-yellow-500 hover:bg-gradient-to-tl hover:from-yellow-600 hover:to-oren group">
                           <div class="pt-5 border-b-4 border-oren group-hover:border-primary">
-                              <a href="#" class="block mb-3 font-bold  group-hover:text-white truncate text-2xl text-slate-600 transition duration-100 ease-in-out">Pop Mie</a>
+                              <a href="/barang" class="block mb-3 font-bold  group-hover:text-white truncate text-2xl text-slate-600 transition duration-100 ease-in-out">Pop Mie</a>
                             </div>
                           <img src="/img/landing/barang/popmie1.svg" alt="programming" class="mx-auto group-hover:scale-110 transition duration-300 ease-in-out" />
                           <div class="pb-7">
-                              <a href="#" class="font-bold text-lg px-4 py-2 rounded-lg text-white group-hover:bg-yellow-300 group-hover:text-oren bg-oren transition duration-100 ease-in-out">Rp. 6000-</a>
+                              <a href="/barang" class="font-bold text-lg px-4 py-2 rounded-lg text-white group-hover:bg-yellow-300 group-hover:text-oren bg-oren transition duration-100 ease-in-out">Rp. 6000-</a>
                             </div>
                         </div>
                       </div>
@@ -139,7 +139,7 @@
                       
                       <div class="w-10/12 px-7 md:w-1/2  lg:w-1/3 mx-auto">
                           <div class="pt-10  text-center justify-center">
-                              <a href="/dashboard" class="font-bold text-lg px-4 py-2 rounded-lg text-white hover:bg-sky-600 hover:text-slate-200 bg-sky-700 transition duration-100 ease-in-out mx-auto">Cek Selengkapnya....</a>
+                              <a href="/barang" class="font-bold text-lg px-4 py-2 rounded-lg text-white hover:bg-sky-600 hover:text-slate-200 bg-sky-700 transition duration-100 ease-in-out mx-auto">Cek Selengkapnya....</a>
                             </div>
                         </div>
 
