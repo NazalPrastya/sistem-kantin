@@ -22,7 +22,7 @@
       <li class="group ml-3 rounded-l-full hover:bg-[#eeeeee] {{ Request::is('dashboard/barang') ? 'active' : '' }}">
         <a href="/dashboard/barang" class="group">
           <i class="bx bx-store group-hover:text-[#FFAA29]  {{ Request::is('dashboard/barang') ? 'text-[#FFAA29]' : 'text-[#eee]' }}"></i>
-          <span class="link_name text-white font-bold group-hover:text-[#ffaa29] {{ Request::is('dashboard/barang') ? 'text-[#FFAA29]' : 'text-[#eee]' }}">Barang</span>
+          <span class="link_name text-white font-bold group-hover:text-[#ffaa29] {{ Request::is('dashboard/barang*') ? 'text-[#FFAA29]' : 'text-[#eee]' }}">Barang</span>
         </a>
         <ul class="sub-menu blank">
           <li><a class="link_name" href="/dashboard/barang">Barang</a></li>
@@ -39,7 +39,7 @@
         </ul>
       </li>
 
-      <li class="group ml-3 rounded-l-full hover:bg-[#eeeeee] {{ Request::is('dashboard/cart') ? 'active' : '' }}">
+      {{-- <li class="group ml-3 rounded-l-full hover:bg-[#eeeeee] {{ Request::is('dashboard/cart') ? 'active' : '' }}">
         <a href="/dashboard/cart" class="group">
           <i class="bx bx-cart group-hover:text-[#FFAA29] {{ Request::is('dashboard/cart') ? 'text-[#FFAA29]' : 'text-[#eee]' }}"></i>
           <span class="link_name text-white font-bold group-hover:text-[#ffaa29] {{ Request::is('dashboard/cart') ? 'text-[#FFAA29]' : '' }}">Keranjang</span>
@@ -47,7 +47,7 @@
         <ul class="sub-menu blank">
           <li><a class="link_name" href="/dashboard/cart">Keranjang</a></li>
         </ul>
-      </li>
+      </li> --}}
 
       <li class="group ml-3 rounded-l-full hover:bg-[#eeeeee] {{ Request::is('dashboard/riwayat') ? 'active' : '' }}">
         <a href="/dashboard/riwayat" class="group">
