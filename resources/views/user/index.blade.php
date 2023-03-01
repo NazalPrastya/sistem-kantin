@@ -61,17 +61,17 @@
             <div class="flex flex-wrap">       
 
                 @foreach ($products as $product)
-                    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <div class="w-full h-96 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 relative">
                         <a href="#">
                             <img class="p-8 rounded-t-lg mx-auto" src="{{ asset('storage/' . $product->image) }}" alt="product image" />
                         </a>
-                        <div class="px-5 pb-5">
+                        <div class="px-5 pb-5 absolute bottom-0">
                             <a href="#">
                                 <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ $product->name }}</h5>
                             </a>
                             <div class="flex items-center justify-between">
                                 <span class="text-xl font-bold text-gray-900 dark:text-white">Rp. {{ $product->harga }}</span>
-                                <form action="{{ route('ustore') }}" method="post">
+                                <form action="{{ route('ustore') }}" method="post" class="ml-36">
                                 @csrf
                                  <input type="hidden" value="{{ $product->id }}" name="product_id">
                                  <input type="submit" class="p-2 px-3  font-semibold rounded-md bg-blue-600 text-white hover:bg-yellow-400 cursor-pointer" value="Add to cart">

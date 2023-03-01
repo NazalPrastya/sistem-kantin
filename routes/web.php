@@ -64,6 +64,7 @@ Route::group(['middleware' => ['auth:admin']], function () {
     Route::delete('/dashboard/carousel/{carousel:id}', [CarouselController::class, 'destroy']);
 
     Route::get('/dashboard/saran', [SaranController::class, 'index']);
+    Route::get('/dashboard/saran/cetak-saran', [SaranController::class, 'cetakSaran'])->name("cetak-saran");
     Route::post('/dashboard/saran', [SaranController::class, 'store']);
     Route::delete('dashboard/saran/{saran:id}', [SaranController::class, 'destroy']);
 });

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Saran;
+// use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Routing\Controller;
 
 class SaranController extends Controller
@@ -15,6 +17,15 @@ class SaranController extends Controller
             'saran' => $saran
         ]);
     }
+
+    public function cetakSaran()
+    {
+        $saran = Saran::all();
+        view()->share('saran', $saran);
+        $pdf = Pdf::loadView('dashboard.saran.cetak-saran');
+        return $pdf->download('saran.pdf');
+    }
+
 
     public function store(Request $request)
     {

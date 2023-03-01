@@ -1,6 +1,6 @@
 @extends('layout.main')
 @section('content')
-<div class="title w-full border-b-4 rounded-b-sm border-b-[#0F4061] pt-12">
+<div class="title w-full border-b-4 rounded-b-sm border-b-[#0F4061] ">
     <img src="/img/sidebar/icon/dashboard.svg" alt="" class="inline stroke mb-2 scale-125 ml-10">
     <h2 class="font-bold text-2xl inline ">Saran</h2>
 </div>
@@ -20,32 +20,8 @@
         
 
     <div class="container pt-3">     
-        {{-- Form --}}
-            {{-- <form  method="post" action="/dashboard/saran" class="max-w-4xl justify-center mx-auto">
-                @csrf
-                <div class="mb-6">
-                <label for="sender" class="block mb-2 text-lg font-medium text-gray-900">Dari :</label>
-                <input type="sender" id="sender" name="sender" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 active:ring-blue-500 active:border-blue-500 block w-full p-2.5  @error('sender')
-                    is_invalid  
-                @enderror" placeholder="Ucup Nur Jaman" required value="{{ old('sender') }}">
-                @error('sender')
-                    <div class="feedback">
-                        {{ $message }}
-                    </div>
-                @enderror
-                </div>            
-                <label for="saran" class="block mb-2 text-lg font-medium text-gray-900">Saran :</label>
-                <textarea id="saran" rows="4" name="saran" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 @error('saran')
-                    is_invalid
-                @enderror" placeholder="Masukan saran yang membangun..." required value="{{ old('saran') }}"></textarea>
-                @error('saran')
-                    <div class="feedback">
-                        {{ $message }}
-                    </div>
-                @enderror
-                <button type="submit" class="text-white  bg-blue-700 hover:bg-blue-800 mt-2 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center ">Submit</button>
-            </form> --}}
-        {{-- End Form --}}
+        <a href="{{ route('cetak-saran') }}" class="text-lg px-3 py-2 rounded-md bg-green-500 text-white hover:bg-green-700"><i class='bx bxs-file-pdf'></i>Cetak Saran</a>
+
 
         {{-- Table --}}        
             <div class="flex mx-auto justify-center">
