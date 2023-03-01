@@ -7,6 +7,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
+// use Symfony\Component\VarDumper\Cloner\Data;
 
 class CartController extends Controller
 {
@@ -37,5 +38,18 @@ class CartController extends Controller
     {
         Cart::destroy($id);
         return redirect('/keranjang')->with('success', 'barang berhasil dicancel');
+    }
+
+
+    public function addQty(Request $request)
+    {
+        // $nilai = $request->input('nilai');
+        // $data = Data::find($request->input('qty'));
+        // $data->nilai += $nilai;
+        // $data->save();
+        // return redirect()->back();
+
+        // $nilai = $request->qty;
+        // $data
     }
 }

@@ -38,6 +38,7 @@ Route::get('/barang/{id}', [UserBarangController::class, 'category']);
 Route::get('/keranjang', [CartController::class, 'index']);
 Route::post('/cart/store', [CartController::class, 'store'])->name('ustore');
 Route::delete('/cart/{cart:id}', [CartController::class, 'destroy'])->name('udesroy');
+// Route::post('/cart/plus', [CartController::class, 'addQty'])->name('tambah-qty');
 
 Route::get('/saran', [UserSaranController::class, 'index']);
 Route::post('/saran', [UserSaranController::class, 'store']);

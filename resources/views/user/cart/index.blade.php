@@ -52,10 +52,15 @@
                 <p class="lg:text-lg">Rp.{{ $cart->product->harga }}</p>
                 <div class="flex flex-row">
                     <p class="inline lg:text-lg">Jumlah : {{ $cart->qty }}</p>
-                    <form action="" class="inline ml-2">
+                    <form method="post" action="" class="inline ml-2">
+                      @csrf
+                       <input type="hidden" name="tambah" value="{{ $cart->qty }}">
                         <button type="submit" class="rounded-full px-2 bg-slate-500 text-lg text-white hover:bg-slate-600">+</button>
-                        <button type="submit" class="rounded-full px-2 bg-slate-500 text-lg text-white hover:bg-slate-600">-</button>
                     </form>
+
+                    <form action="" class="inline ml-2">
+                      <button type="submit" class="rounded-full px-2 bg-slate-500 text-lg text-white hover:bg-slate-600">-</button>
+                  </form>
                 </div>
                 <p class="lg:text-lg">Subtotal : <span class="font-bold">Rp.{{ $cart->qty * $cart->product->harga }}</span></p>
                 <form action="/cart/{{ $cart->id }}" method="post" class="">
