@@ -19,7 +19,7 @@ class BarangController extends Controller
     {
         $keyword = $request->search;
         return view('dashboard.barang.index', [
-            'barang' => Product::where('name', 'like', "%" . $keyword . "%")->paginate(5),
+            'barang' => Product::where('name', 'like', "%" . $keyword . "%")->paginate(6),
             'category' => Category::all()
         ]);
     }
@@ -80,12 +80,6 @@ class BarangController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Product $product)
     {
         return view('dashboard.barang.edit', [
@@ -94,13 +88,7 @@ class BarangController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, Product $product)
     {
         $validatedData = $request->validate([
@@ -121,12 +109,6 @@ class BarangController extends Controller
         return redirect('dashboard/barang')->with('success', 'barang berhasil diedit');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Product $product)
     {
         if ($product->image) {

@@ -74,7 +74,7 @@
                                 <form action="{{ route('ustore') }}" method="post" class="ml-36">
                                 @csrf
                                  <input type="hidden" value="{{ $product->id }}" name="product_id">
-                                 <input type="submit" class="p-2 px-3  font-semibold rounded-md bg-blue-600 text-white hover:bg-yellow-400 cursor-pointer" value="Add to cart">
+                                 <input type="submit" class="p-2 px-3  font-semibold rounded-md bg-blue-600 text-white hover:bg-yellow-400 cursor-pointer " value="Add to cart">
                                 </form>
                             </div>
                         </div>

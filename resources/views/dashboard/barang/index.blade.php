@@ -114,6 +114,9 @@
             </div>
             @endforeach             
         </div>    
+      
     </div>    
-
+    <div class="p-5 pl-10">
+        {{ $barang->links() }}
+    </div>
 @endsection

@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Biskuat',
             'harga' => '500',
             'desc' => 'Biskuit dengan rasa cruncy dan membuat kita sekuat macan',
-            'image' => 'biskuat.svg'
+            'image' => 'barang-image/biskuat.svg'
         ]);
 
         Product::create([
@@ -50,7 +50,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Pop Mie',
             'harga' => '6000',
             'desc' => 'Makanan pengganjal perut sampai usus buntu',
-            'image' => 'popmie1.svg'
+            'image' => 'barang-image/popmie1.svg'
         ]);
 
         Product::create([
@@ -58,7 +58,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Teh Pucuk',
             'harga' => '4000',
             'desc' => 'Minuman teh menyegarkan sampai ke jiwa raga',
-            'image' => 'pucuk.svg'
+            'image' => 'barang-image/pucuk.svg'
         ]);
 
         // Admin::create([
