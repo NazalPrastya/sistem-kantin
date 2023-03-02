@@ -12,7 +12,9 @@
         <div class="w-full border-1 ring-1 rounded-lg ">
             <img src="{{ asset('storage/' . $carousel->image ) }}" alt="" class="w-full h-56 lg:h-80 rounded-lg">
             <div class="py-2 px-2">
-                <form action="">
+                <form action="/dashboard/carousel/{{ $carousel->id }}" method="post">
+                    @csrf
+                    @method('delete')
                     <button class="py-1 px-3 rounded-lg bg-red-600 text-white hover:bg-red-500">Delete</button>
                 </form>
             </div>

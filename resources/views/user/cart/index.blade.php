@@ -52,8 +52,8 @@
                 <p class="lg:text-lg">Rp.{{ $cart->product->harga }}</p>
                 <div class="flex flex-row">
                     <p class="inline lg:text-lg">Jumlah : {{ $cart->qty }}</p>
-                    <form method="post" action="" class="inline ml-2">
-                      @csrf
+                    <form method="" action="" class="inline ml-2">
+                      {{-- @csrf --}}
                        <input type="hidden" name="tambah" value="{{ $cart->qty }}">
                         <button type="submit" class="rounded-full px-2 bg-slate-500 text-lg text-white hover:bg-slate-600">+</button>
                     </form>

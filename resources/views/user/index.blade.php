@@ -37,7 +37,7 @@
 
         <section id="category">
             <div class="flex pt-5 gap-x-5 justify-center">
-                <a href="/barang" class="hover:text-oren text-lg">Semua</a>
+                <a href="/barang" class="hover:text-oren text-lg {{ Request::is('barang') ? 'text-oren font-bold' : '' }}">Semua</a>
                 @foreach ($categories as $category)
                     <a href="/barang/{{ $category->id }}" class="hover:text-oren text-lg {{ Request::is('barang/'. $category->id) ? 'text-oren font-bold' : '' }}">{{ $category->name }}</a>
                 @endforeach

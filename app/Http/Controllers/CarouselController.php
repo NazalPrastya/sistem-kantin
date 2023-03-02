@@ -57,6 +57,7 @@ class CarouselController extends Controller
 
     public function destroy($id)
     {
-        //
+        Carousel::destroy($id);
+        return redirect('/dashboard/carousel')->with('success', 'Carousel berhasil dihapus');
     }
 }
