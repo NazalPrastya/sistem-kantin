@@ -15,7 +15,8 @@ class CartController extends Controller
     {
         return view('user.cart.index', [
             'carts' => Cart::all(),
-            'product' => Product::with('products')
+            'product' => Product::with('products'),
+            'cart' => Cart::all()
         ]);
     }
 
@@ -41,15 +42,25 @@ class CartController extends Controller
     }
 
 
-    public function addQty(Request $request)
+    public function tambahQty(Request $request, $id)
     {
-        // $nilai = $request->input('nilai');
-        // $data = Data::find($request->input('qty'));
-        // $data->nilai += $nilai;
-        // $data->save();
-        // return redirect()->back();
+        $no = 1;
+        $cart = Cart::find($id);
+        $cart->product_id = $request->input('product_id');
+        $cart->qty = $request->input('qty');
+        $cart->update();
+        return redirect('/keranjang')->with('success', 'Jumlah berhasil ditambahkan');
+        // dd($nilai);
+    }
 
-        // $nilai = $request->qty;
-        // $data
+    public function kurangQty(Request $request, $id)
+    {
+        $no = 1;
+        $cart = Cart::find($id);
+        $cart->product_id = $request->input('product_id');
+        $cart->qty = $request->input('qty');
+        $cart->update();
+        return redirect('/keranjang')->with('success', 'Jumlah berhasil dikurangi');
+        // dd($nilai);
     }
 }

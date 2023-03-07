@@ -7,6 +7,7 @@ use App\Http\Controllers\SaranController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\RiwayatController;
 use App\Http\Controllers\CarouselController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserSaranController;
 use App\Http\Controllers\UserBarangController;
@@ -38,7 +39,11 @@ Route::get('/barang/{id}', [UserBarangController::class, 'category']);
 Route::get('/keranjang', [CartController::class, 'index']);
 Route::post('/cart/store', [CartController::class, 'store'])->name('ustore');
 Route::delete('/cart/{cart:id}', [CartController::class, 'destroy'])->name('udesroy');
-// Route::post('/cart/plus', [CartController::class, 'addQty'])->name('tambah-qty');
+Route::put('/cart/plus/{cart:id}', [CartController::class, 'tambahQty'])->name('tambah-qty');
+Route::put('/cart/min/{cart:id}', [CartController::class, 'kurangQty'])->name('kurang-qty');
+
+Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout');
+
 
 Route::get('/saran', [UserSaranController::class, 'index']);
 Route::post('/saran', [UserSaranController::class, 'store']);

@@ -65,7 +65,8 @@
                     </li>
 
                     <li class="group">
-                      <a href="/keranjang" class="text-4xl font-extrabold text-dark mx-8 py-2 text-[#FFAA29] hover:text-yellow-300 "><i class="bx bxs-cart"></i>
+                      <a href="/keranjang" class="text-4xl font-extrabold text-dark mx-8 py-2 text-[#FFAA29] hover:text-yellow-300 relative"><i class="bx bxs-cart"></i>
+                        <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full top-1 -right-3 dark:border-gray-900">{{ $cart->count() }}</div>
                       </a>
                     </li>
 

@@ -25,41 +25,41 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        // Category::create([
-        //     'name' => 'Makanan'
-        // ]);
+        Category::create([
+            'name' => 'Makanan'
+        ]);
 
-        // Category::create([
-        //     'name' => 'Minuman'
-        // ]);
+        Category::create([
+            'name' => 'Minuman'
+        ]);
 
-        // Category::create([
-        //     'name' => 'Pakaian'
-        // ]);
+        Category::create([
+            'name' => 'Pakaian'
+        ]);
 
-        // Product::create([
-        //     'category_id' => 1,
-        //     'name' => 'Biskuat',
-        //     'harga' => '500',
-        //     'desc' => 'Biskuit dengan rasa cruncy dan membuat kita sekuat macan',
-        //     'image' => 'barang-image/biskuat.svg'
-        // ]);
+        Product::create([
+            'category_id' => 1,
+            'name' => 'Biskuat',
+            'harga' => '500',
+            'desc' => 'Biskuit dengan rasa cruncy dan membuat kita sekuat macan',
+            'image' => 'barang-image/biskuat.svg'
+        ]);
 
-        // Product::create([
-        //     'category_id' => 1,
-        //     'name' => 'Pop Mie',
-        //     'harga' => '6000',
-        //     'desc' => 'Makanan pengganjal perut sampai usus buntu',
-        //     'image' => 'barang-image/popmie1.svg'
-        // ]);
+        Product::create([
+            'category_id' => 1,
+            'name' => 'Pop Mie',
+            'harga' => '6000',
+            'desc' => 'Makanan pengganjal perut sampai usus buntu',
+            'image' => 'barang-image/popmie1.svg'
+        ]);
 
-        // Product::create([
-        //     'category_id' => 2,
-        //     'name' => 'Teh Pucuk',
-        //     'harga' => '4000',
-        //     'desc' => 'Minuman teh menyegarkan sampai ke jiwa raga',
-        //     'image' => 'barang-image/pucuk.svg'
-        // ]);
+        Product::create([
+            'category_id' => 2,
+            'name' => 'Teh Pucuk',
+            'harga' => '4000',
+            'desc' => 'Minuman teh menyegarkan sampai ke jiwa raga',
+            'image' => 'barang-image/pucuk.svg'
+        ]);
 
         Admin::create([
             'username' => 'nazal',
