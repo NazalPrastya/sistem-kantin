@@ -27,7 +27,7 @@
                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                     <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
                 </div>
-                <input type="text" name="search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search">
+                <input type="text" name="search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search" value="{{ old('search') }}">       
             </div>
             <button type="submit" class="p-2.5 ml-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
@@ -45,17 +45,19 @@
     <a href="/dashboard/create" class="p-1 px-3 inline-block text-lg  bg-sky-700 rounded-md text-white mt-5 mb-5 hover:bg-sky-800 hover:ring-1 hover:ring-yellow-300">Tambah Barang</a>
         <div class="flex flex-wrap gap-x-6 gap-y-6">      
             @foreach ($barang as $b)    
-            <div class="w-full md:w-1/3 lg:w-1/5 shadow-lg px-3 pb-2 max-h-72 rounded-md group hover:bg-[#0D4C77] bg-[#177DC2] transition duration-150">
+            <div class="w-full md:w-1/3 lg:w-1/5 shadow-lg px-3 pb-2 h-72 rounded-md group hover:bg-[#0D4C77] bg-[#177DC2] transition duration-150 relative">
                <img src="{{ asset('storage/'.$b->image) }}" alt="" class="mx-auto group-hover:scale-110 transition">
 
-               <p class=" text-center -mt-2 text-2xl font-extrabold tracking-wider text-white">{{ $b->name }}</p>
                
                <div class="flex justify-center space-x-2 pt-2">                    
             <!-- Modal toggle -->
-                    <button data-modal-target="modal-{{ $b->name }}" data-modal-toggle="modal-{{ $b->name }}" class="block text-white focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm  text-center " type="button">
+            <div class="absolute bottom-2">
+               <p class=" text-center -mt-2 text-xl font-extrabold tracking-wider text-white truncate">{{ $b->name }}</p>
+                    <button data-modal-target="modal-{{ $b->name }}" data-modal-toggle="modal-{{ $b->name }}" class="text-white focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm  text-center inline" type="button">
                         <i class="bi bi-eye-fill text-2xl font-extrabold text-slate-300 hover:text-slate-400"></i>
                     </button>
-                
+                    <button type="submit" class="p-1  font-semibold rounded-md bg-[#FFC700] text-white hover:bg-yellow-400 inline">Rp. {{number_format($b->harga) }}-</button>
+            </div>  
             <!-- Main modal -->
                     <div id="modal-{{ $b->name }}" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full ">
                         <div class="relative w-full max-w-md h-full md:h-auto ">
@@ -97,19 +99,18 @@
                     </div>
                 
                 </a>
-                <form action="{{ route('store') }}" method="post">
-                    @csrf
-                    <input type="hidden" value="{{ $b->id }}" name="product_id">
-                    <input type="submit" class="p-1  font-semibold rounded-md bg-[#FFC700] text-white hover:bg-yellow-400 cursor-pointer" value="Rp.{{ $b->harga }}-">
-                </form>
+
+                    {{-- <input type="hidden" value="{{ $b->id }}" name="product_id"> --}}
+                    
+
                 {{-- <a href="">
                     <i class="bi bi-cart-fill text-2xl font-extrabold text-yellow-300 hover:text-yellow-500"></i>
                 </a> --}}
-                <form action="{{ route('store') }}" method="post">
+                {{-- <form action="{{ route('store') }}" method="post">
                     @csrf
                     <input type="hidden" value="{{ $b->id }}" name="product_id">
                     <input type="submit" class="p-1  font-semibold rounded-md bg-[#FFC700] text-white hover:bg-yellow-400 cursor-pointer" value=""> <i class="bi bi-cart-fill text-2xl font-extrabold text-yellow-300 hover:text-yellow-500"></i>
-                </form>
+                </form> --}}
                </div>
             </div>
             @endforeach             

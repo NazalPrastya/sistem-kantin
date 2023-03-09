@@ -1,45 +1,49 @@
-@extends('user.layout.template')
+@extends('layout.main')
 @section('content')
-    <div class="container pt-10">
-        <h4 class="font-bold text-lg ml-6">Riwayat Belanja.....</h4>
+    <div class="title w-full border-b-4 rounded-b-sm border-b-[#0F4061]">
+        <img src="/img/sidebar/icon/dashboard.svg" alt="" class="inline stroke mb-2 scale-125 ml-10">
+        <h2 class="font-bold text-2xl inline ">Riwayat Pembelian</h2>
+    </div>
 
-        
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg pt-8">
-    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-                <th scope="col" class="px-6 py-3">
-                    No
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Waktu Pembelian
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Total Harga
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Detail
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @php
-            $total = 0;
-            @endphp
-            @foreach ($histories as $history)
-                
-            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    {{ $loop->iteration }}
-                </th>
-                <td class="px-6 py-4">
-                    {{ $history->created_at }}
-                </td>
-                <td class="px-6 py-4">
-                    Rp. {{ number_format($history->total) }}
-                </td>
-                <td class="px-6 py-4">        
-                        <!-- Modal toggle -->
+    <div class="container pt-10">  
+        <a href="{{ route('cetak-Riwayat', 1) }}" class="text-sm mx-2 py-1 px-3 bg-green-500 rounded-md text-slate-100 hover:bg-green-600 "> <i class='bx bxs-file-pdf'></i>1 Hari</a>
+        <a href="{{ route('cetak-Riwayat', 3) }}" class="text-sm mx-2 py-1 px-3 bg-green-500 rounded-md text-slate-100 hover:bg-green-600 "> <i class='bx bxs-file-pdf'></i>3 Hari</a>      
+        <a href="{{ route('cetak-Riwayat', 7) }}" class="text-sm mx-2 py-1 px-3 bg-green-500 rounded-md text-slate-100 hover:bg-green-600 "> <i class='bx bxs-file-pdf'></i>7 Hari</a>      
+        <a href="{{ route('cetak-Riwayat', 30) }}" class="text-sm mx-2 py-1 px-3 bg-green-500 rounded-md text-slate-100 hover:bg-green-600 "> <i class='bx bxs-file-pdf'></i>30 Hari</a>      
+
+        <div class="relative overflow-x-auto">
+            <table class="w-full text-sm text-left ">
+                <thead class="text-lg">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 font-bold">
+                           Waktu Pembelian
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Email pembeli
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Total Harga
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Detail
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($histories as $history)
+                        
+                    <tr class="bg-white border-b rounded-lg mt-2">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap rounded-lg">
+                           {{ $history->created_at->diffForHumans() }}
+                        </th>
+                        <td class="px-6 py-4">
+                            {{ $history->email }}
+                        </td>
+                        <td class="px-6 py-4">
+                            Rp. {{ number_format($history->total) }}
+                        </td>
+                        <td class="px-6 py-4  rounded-lg">
+                            <!-- Modal toggle -->
                         <button data-modal-target="detail-riwayat-{{ $history->id }}" data-modal-toggle="detail-riwayat-{{ $history->id }}" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
                             Detail
                         </button>
@@ -56,7 +60,7 @@
                                     <div class="px-6 py-6 lg:px-8">
                                         <h3 class="mb-4 text-xl font-medium text-gray-900 ">Detail Riwayat</h3>
                              
-                                            <p>Tanggal : {{ date('d-m-Y', strtotime($history->created_at)) }}</p>
+                                            <p>Tanggal :</p>
                                             <p>Email : {{ $history->email }}</p>
                                             <table width="100%" >
                                                 <thead class="border-b-[1px] border-b-black pb-5">
@@ -70,7 +74,7 @@
                                                 </thead>
                                                 <tbody class="pb-10 border-b-[1px] border-dashed border-black">
                                                     @foreach ($history->history as $h)
-                                                    {{-- @if ($history->transaction_id == $history->transaction_id) --}}
+
                                                     <tr class="p-5">
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ $h->product->name }}</td>
@@ -78,32 +82,19 @@
                                                         <td>{{ $h->qty }}</td>
                                                         <td>Rp. {{number_format($h->qty * $h->product->harga) }}</td>
                                                     </tr>
-                                                    {{-- @endif --}}
-                                                    
+        
                                                     @endforeach
-
                                                 </tbody>
                                             </table>
-                                            {{-- @php
-                                            $total += ($history->history->product->harga * $history->history->qty);
-                                            @endphp --}}
                                             <p class="mt-3 justify-end text-end font-bold text-sm text-black">Total Harga : Rp. {{ number_format($history->total) }}</p>
                                     </div>
-                                    <div id="#footer" class="p-3 bg-slate-300 rounded-b-md">
-                                        <p class="text-center text-sm text-black">Terimakasih telah berbelanja di koperasi kami</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> 
-                        
-                </td>
-                
-            </tr>
-            @endforeach
+                        </td>
+                    </tr>
+                    @endforeach
 
-        </tbody>
-    </table>
-</div>
-
+                </tbody>
+            </table>
+        </div>
     </div>
+
 @endsection

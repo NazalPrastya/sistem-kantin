@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -10,15 +11,24 @@ class LoginController extends Controller
 {
     public function index()
     {
-        return view('login.index');
+        $admin = Admin::all();
+        return view('login.index', compact('admin'));
     }
 
     public function authenticate(Request $request)
     {
-        $credentials = $request->validate([
-            'email' => 'required|email:dns',
-            'password' => 'required'
-        ]);
+        $credentials = $request->validate(
+            [
+                'email' => 'required|email:dns',
+                'password' => 'required'
+            ],
+            [
+                'email.required' => 'Email harus diisi',
+                'email.email' => 'Email tidak valid',
+                'password.required' => 'Password harus diisi'
+            ]
+        );
+
         if (Auth::guard('admin')->attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->intended('/dashboard');

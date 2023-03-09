@@ -64,6 +64,9 @@ Route::group(['middleware' => ['auth:admin']], function () {
     Route::put('/dashboard/barang/{product:id}', [BarangController::class, 'update']);
     Route::delete('/dashboard/barang/{product:id}', [BarangController::class, 'destroy']);
 
+    Route::get('/dashboard/riwayat', [RiwayatController::class, 'indexAdmin']);
+    Route::get('/dashboard/riwayat/cetak-Riwayat/{days}', [RiwayatController::class, 'cetakRiwayat'])->name("cetak-Riwayat");
+
     Route::get('/dashboard/carousel', [CarouselController::class, 'index']);
     Route::get('/dashboard/carousel/create', [CarouselController::class, 'create']);
     Route::post('/dashboard/carousel', [CarouselController::class, 'store']);

@@ -22,9 +22,6 @@
     <div class="container pt-3">     
         <a href="{{ route('cetak-saran') }}" class="text-lg px-3 py-2 rounded-md bg-green-500 text-white hover:bg-green-700"><i class='bx bxs-file-pdf'></i>Cetak Saran</a>
 
-
-        {{-- Table --}}        
-            <div class="flex mx-auto justify-center">
             <div class="overflow-x-auto sm:rounded-lg mx-auto items-center">
                 <table class="w-full text-sm text-left text-gray-500 mt-5">
                     <thead class="text-base text-gray-700 capitalize bg-gray-50   ">
@@ -72,7 +69,7 @@
                     </tbody>
                 </table>
             </div>
-        </div>
+        {{-- </div> --}}
 
 
     </div>

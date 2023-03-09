@@ -24,6 +24,13 @@ class UserSaranController extends Controller
         $validated = $request->validate([
             'sender' => 'required|min:5|max:100',
             'saran' => 'required|min:10'
+        ], [
+            'sender.required' => 'Wajib isi pengirim',
+            'sender.min' => 'Minimal 5 huruf masbro',
+            'sender.max' => 'Maximal 100 huruf massseh',
+            'saran' => 'Wajib diisi sarannya yah',
+            'saran.min' => 'Minimal 10 huruf'
+
         ]);
 
         Saran::create($validated);

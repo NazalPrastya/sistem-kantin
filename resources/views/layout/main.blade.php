@@ -48,7 +48,7 @@
             <i class="bx bx-menu"></i>
             @if ((Auth::guard('admin')->user()))
                 
-            <div class="flex-col justify-end">
+            <div class="absolute right-3  top-5">
               <div class="w-auto justify-end text-end items-end">
               <form action="/logout" method="post" class="inline-block text-end items-end">
                 @csrf

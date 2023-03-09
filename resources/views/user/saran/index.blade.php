@@ -23,7 +23,7 @@
         <label for="sender" class="block mb-2 text-lg font-medium text-gray-900">Dari :</label>
         <input type="sender" id="sender" name="sender" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 active:ring-blue-500 active:border-blue-500 block w-full p-2.5  @error('sender')
             is_invalid  
-        @enderror" placeholder="Ucup Nur Jaman" required value="{{ old('sender') }}">
+        @enderror" placeholder="Ucup Nur Jaman" value="{{ old('sender') }}">
         @error('sender')
             <div class="feedback">
                 {{ $message }}
@@ -33,7 +33,7 @@
         <label for="saran" class="block mb-2 text-lg font-medium text-gray-900">Saran :</label>
         <textarea id="saran" rows="4" name="saran" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 @error('saran')
             is_invalid
-        @enderror" placeholder="Masukan saran yang membangun..." required value="{{ old('saran') }}"></textarea>
+        @enderror" placeholder="Masukan saran yang membangun..." value="{{ old('saran') }}"></textarea>
         @error('saran')
             <div class="feedback">
                 {{ $message }}

@@ -17,9 +17,17 @@ class BarangController extends Controller
      */
     public function index(Request $request)
     {
-        $keyword = $request->search;
+        // $keyword = $request->search;
+
+        $query = $request->input('search');
+
+        $results = Product::where('name', 'LIKE', "%$query%")
+            ->orWhere('harga', 'LIKE', "%$query%")
+            ->get();
+
+
         return view('dashboard.barang.index', [
-            'barang' => Product::where('name', 'like', "%" . $keyword . "%")->paginate(6),
+            'barang' => $results->paginate(6),
             'category' => Category::all()
         ]);
     }
@@ -55,10 +63,19 @@ class BarangController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|min:5|max:100',
-            'harga' => 'required|integer|min:5',
+            'harga' => 'required|integer|min:3',
             'category_id' => 'required',
             'desc' => 'required|min:10',
             'image' => 'required|file|max:1024'
+        ], [
+            'name.required' => 'product harus diisi',
+            'name.min' => 'minimal 5 huruf',
+            'name.max' => 'maximal 100 huruf',
+            'harga.required' => 'harga harus diisi',
+            'harga.integer' => 'harga harus berisi angka tanpa' .  '.' . ',' .  'atau Rp',
+            'harga.min' => 'minimal harga 100 perak',
+            'desc.required' => 'dekripsi harus diisi',
+            'image.required' => 'image harus diisi'
         ]);
         if ($request->file('image')) {
             $validatedData['image'] = $request->file('image')->store('barang-image');
@@ -97,6 +114,8 @@ class BarangController extends Controller
             'category_id' => 'required',
             'desc' => 'required|min:5',
             'image' => 'file|max:1024'
+        ], [
+            'name.required' => 'Product harus diisi'
         ]);
         if ($request->file('image')) {
             if ($request->oldImage) {

@@ -18,6 +18,12 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function history()
+    {
+        // return $this->hasMany(History::class, 'product_id', 'product_id');
+        return $this->hasMany(History::class, 'product_id', 'id');
+    }
+
     // public function cart()
     // {
     //     return $this->belongsTo(Cart::class);

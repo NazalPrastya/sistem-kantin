@@ -14,20 +14,24 @@ class CheckoutController extends Controller
     {
         $carts = Cart::all();
 
-        $transaction = Transaction::create([
-            'email' => $request->input('email'),
-            'total' => $request->input('total')
-        ]);
+        if ($carts->count() > 0) {
 
-        foreach ($carts as $c) {
-            $transaction->detail()->create([
-                'product_id' => $c->product_id,
-                'qty' => $c->qty,
+            $transaction = Transaction::create([
+                'email' => $request->input('email'),
+                'total' => $request->input('total')
             ]);
+
+            foreach ($carts as $c) {
+                $transaction->detail()->create([
+                    'product_id' => $c->product_id,
+                    'qty' => $c->qty,
+                ]);
+            }
+
+            Cart::destroy($carts);
+            return redirect('/keranjang')->with('success', 'Checkout anda telah berhasil');
         }
 
-        Cart::destroy($carts);
-
-        return redirect('/keranjang')->with('success', 'Checkout anda telah berhasil');
+        return redirect('/keranjang')->with('error', 'Keranjang anda kosong masbro');
     }
 }

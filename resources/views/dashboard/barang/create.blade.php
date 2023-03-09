@@ -9,8 +9,8 @@
             @csrf
             <div class="relative z-0 w-full mb-6 group">
                 <input type="text" name="name" id="name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer rounded-sm @error('name')
-                is_invalid
-                 @enderror" placeholder=" " required value="{{ old('name') }}" />
+                 border-dashed border-b-red-600
+                 @enderror" placeholder=" " value="{{ old('name') }}" />
                  @error('name')
                  <div class="feedback">
                      {{ $message }}
@@ -20,8 +20,8 @@
             </div>
             <div class="relative z-0 w-full mb-6 group">
                 <input type="text" name="harga" id="harga" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer rounded-sm @error('harga')
-                is_invalid
-                 @enderror" placeholder=" " required value="{{ old('harga') }}"/>
+                border-dashed border-b-red-700
+                 @enderror" placeholder=" " value="{{ old('harga') }}"/>
                  @error('harga')
                  <div class="feedback">
                      {{ $message }}
@@ -59,6 +59,11 @@
                     <input name="image" type="file" id="image" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:border-1 focus:border-sky-600 @error('image')
                     is_invalid
                     @enderror" id="file_input" type="file" value="{{ old('image') }}" onchange="previewImage()" >
+                    @error('image')
+                    <div class="feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                     <p class="mt-1 text-sm text-gray-500" id="file_input_help">SV, PNG, JPG(MAX. 800x400px).</p>
                 </div>
             </div>

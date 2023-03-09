@@ -5,6 +5,10 @@
     @apply border-2 border-red-600 ring-1 ring-red-600;
 }
 
+.is-invalid {
+    @apply border-[1px] border-red-600 ring-1 ring-red-600;
+}
+
 .feedback {
     @apply text-sm text-red-600 italic mt-1;
 }

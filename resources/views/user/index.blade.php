@@ -68,9 +68,11 @@
                         <div class="px-5 pb-5 absolute bottom-0">
                             <a href="#">
                                 <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ $product->name }}</h5>
+                                <span class="text-sm font-bold text-yellow-600 dark:text-white block">{{ $product->category->name }}</span>
                             </a>
                             <div class="flex items-center justify-between">
-                                <span class="text-xl font-bold text-gray-900 dark:text-white">Rp. {{ $product->harga }}</span>
+                                
+                                <span class="text-lg font-bold text-gray-900 dark:text-white">Rp. {{ $product->harga }}</span>
                                 <form action="{{ route('ustore') }}" method="post" class="ml-36">
                                 @csrf
                                  <input type="hidden" value="{{ $product->id }}" name="product_id">

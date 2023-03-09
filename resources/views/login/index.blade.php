@@ -43,12 +43,26 @@
                         <div class="mb-6">
                         <label for="email" class="block mb-2 text-sm font-medium text-white">Your email</label>
 
-                        <input type="email" name="email" id="email" class="bg-[#46829B] text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 placeholder:text-center placeholder:text-white placeholder:italic placeholder:text-md" placeholder="Email" required>
+                        <input  name="email" id="email" class="bg-[#46829B] text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 placeholder:text-center placeholder:text-white placeholder:italic placeholder:text-md @error('email')
+                            is-invalid
+                        @enderror" placeholder="Email" value="{{ old('email') }}" autocomplete="off">
+                        @error('email')
+                            <div class="feedback text-pink-600 text-base">
+                                {{ $message }}
+                            </div>
+                        @enderror
                         </div>
                         <div class="mb-6">
                         <label for="password" class="block mb-2 text-sm font-medium ">Your password</label>
 
-                        <input type="password" name="password" id="password" class="bg-[#46829B] font-thin   text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 placeholder:italic placeholder:text-white placeholder:text-center placeholder:font-thin" placeholder="Password" required>
+                        <input type="password" name="password" id="password" class="bg-[#46829B] font-thin   text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 placeholder:italic placeholder:text-white placeholder:text-center placeholder:font-thin @error('password')
+                            is-invalid
+                        @enderror" placeholder="Password" >
+                        @error('password')
+                        <div class="feedback text-pink-600 text-base">
+                            {{ $message }}
+                        </div>
+                        @enderror
                         </div>
                         <div class="flex items-start mb-6">
    

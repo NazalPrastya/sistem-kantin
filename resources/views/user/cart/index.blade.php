@@ -117,7 +117,14 @@
                         <div class="mb-6">
                           <input type="hidden" name="total" value="{{ $total }}">
                           <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Masukan Email</label>
-                          <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="nazal@gmail.com" required>
+                          <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 @error('email')
+                            is_invalid
+                          @enderror " placeholder="nazal@gmail.com" required>
+                          @error('email')
+                            <div class="feedback">
+                              {{ $message }}
+                            </div>
+                          @enderror
                         </div>
                   </div>
             <!-- Modal footer -->

@@ -2,7 +2,7 @@
 @section('content')
 <div class="title w-full border-b-4 rounded-b-sm border-b-[#0F4061]">
     <img src="/img/sidebar/icon/dashboard.svg" alt="" class="inline stroke mb-2 ml-10 scale-125">
-    <h2 class="font-bold text-2xl inline">Tambah Data Carousel</h2>
+    <h2 class="font-bold text-2xl inline">Tambah Gambar Carousel</h2>
 </div>
     <div class="container pt-5">             
         <form method="post" action="/dashboard/carousel" enctype="multipart/form-data">
