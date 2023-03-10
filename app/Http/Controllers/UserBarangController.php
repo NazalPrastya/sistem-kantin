@@ -13,10 +13,14 @@ class UserBarangController extends Controller
 {
     public function index(Request $request)
     {
-        $cart = Cart::all();
         $keyword = $request->search;
-        // $barang = Product::all()->take(3);
-        $products = Product::where('name', 'like', "%" . $keyword . "%")->paginate(6);
+        $products = Product::where('name', 'like', "%" . $keyword . "%")
+            ->orWhere('harga', 'like', "%" . $keyword . "%")
+            ->orWhere('desc', 'like', "%" . $keyword . "%")
+            ->paginate(6);
+
+
+        $cart = Cart::all();
         $carousels = Carousel::all()->take(5);
         $categories = Category::all();
         return view('user.index', compact('carousels', 'categories', 'products', 'cart'));
