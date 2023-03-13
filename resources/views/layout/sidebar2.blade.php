@@ -29,25 +29,27 @@
         </ul>
       </li>
 
-      <li class="group ml-3 rounded-l-full hover:bg-[#eeeeee] {{ Request::is('dashboard/carousel') ? 'active' : '' }}">
-        <a href="/dashboard/carousel" class="group">
-          <i class="bx bx-image-alt group-hover:text-[#FFAA29]  {{ Request::is('dashboard/carousel') ? 'text-[#FFAA29]' : 'text-[#eee]' }}"></i>
-          <span class="link_name text-white font-bold group-hover:text-[#ffaa29] {{ Request::is('dashboard/carousel') ? 'text-[#FFAA29]' : 'text-[#eee]' }}">Carousel</span>
+      <li class="group ml-3 rounded-l-full hover:bg-[#eeeeee] {{ Request::is('dashboard/admin') ? 'active' : '' }}">
+        <a href="/dashboard/admin" class="group">
+          <i class="bx bx-user-plus group-hover:text-[#FFAA29]  {{ Request::is('dashboard/admin') ? 'text-[#FFAA29]' : 'text-[#eee]' }}"></i>
+          <span class="link_name text-white font-bold group-hover:text-[#ffaa29] {{ Request::is('dashboard/admin*') ? 'text-[#FFAA29]' : 'text-[#eee]' }}">Admin</span>
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="/dashboard/carousel">Carousel</a></li>
+          <li><a class="link_name" href="/dashboard/admin">Admin</a></li>
         </ul>
       </li>
 
-      {{-- <li class="group ml-3 rounded-l-full hover:bg-[#eeeeee] {{ Request::is('dashboard/cart') ? 'active' : '' }}">
-        <a href="/dashboard/cart" class="group">
-          <i class="bx bx-cart group-hover:text-[#FFAA29] {{ Request::is('dashboard/cart') ? 'text-[#FFAA29]' : 'text-[#eee]' }}"></i>
-          <span class="link_name text-white font-bold group-hover:text-[#ffaa29] {{ Request::is('dashboard/cart') ? 'text-[#FFAA29]' : '' }}">Keranjang</span>
+
+      <li class="group ml-3 rounded-l-full hover:bg-[#eeeeee] {{ Request::is('dashboard/carousel') ? 'active' : '' }}">
+        <a href="/dashboard/carousel" class="group">
+          <i class="bx bx-image-alt group-hover:text-[#FFAA29]  {{ Request::is('dashboard/carousel') ? 'text-[#FFAA29]' : 'text-[#eee]' }}"></i>
+          <span class="link_name text-white font-bold group-hover:text-[#ffaa29] {{ Request::is('dashboard/carousel') ? 'text-[#FFAA29]' : 'text-[#eee]' }}">Banner</span>
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="/dashboard/cart">Keranjang</a></li>
+          <li><a class="link_name" href="/dashboard/carousel">Banner</a></li>
         </ul>
-      </li> --}}
+      </li>
+
 
       <li class="group ml-3 rounded-l-full hover:bg-[#eeeeee] {{ Request::is('dashboard/riwayat') ? 'active' : '' }}">
         <a href="/dashboard/riwayat" class="group">

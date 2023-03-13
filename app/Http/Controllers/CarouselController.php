@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Carousel;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class CarouselController extends Controller
 {
@@ -55,9 +57,12 @@ class CarouselController extends Controller
     }
 
 
-    public function destroy($id)
+    public function destroy(Carousel $carousel)
     {
-        Carousel::destroy($id);
+        if ($carousel->image) {
+            Storage::delete($carousel->image);
+        }
+        Carousel::destroy($carousel->id);
         return redirect('/dashboard/carousel')->with('success', 'Carousel berhasil dihapus');
     }
 }

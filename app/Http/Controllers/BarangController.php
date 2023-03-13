@@ -19,15 +19,15 @@ class BarangController extends Controller
     {
         // $keyword = $request->search;
 
-        $query = $request->input('search');
-
-        $results = Product::where('name', 'LIKE', "%$query%")
-            ->orWhere('harga', 'LIKE', "%$query%")
-            ->get();
+        $keyword = $request->search;
+        $products = Product::where('name', 'like', "%" . $keyword . "%")
+            ->orWhere('harga', 'like', "%" . $keyword . "%")
+            ->orWhere('desc', 'like', "%" . $keyword . "%")
+            ->paginate(8);
 
 
         return view('dashboard.barang.index', [
-            'barang' => $results->paginate(6),
+            'barang' => $products,
             'category' => Category::all()
         ]);
     }
@@ -84,17 +84,6 @@ class BarangController extends Controller
         Product::create($validatedData);
 
         return redirect('dashboard/barang')->with('success', 'barang berhasil ditambahkan');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     public function edit(Product $product)

@@ -16,14 +16,9 @@ class RiwayatController extends Controller
 {
     public function index()
     {
-
-
-        // $id = History::get('transaction_id');
-        // $details = History::find($id);
         $details = Transaction::with('history', 'history.product')->get();
         return view('user.riwayat.index', [
             'cart' => Cart::all(),
-            // 'histories' => Transaction::all(),
             'histories' => $details,
             'detail' => History::where('transaction_id' == $details)
         ]);
@@ -35,7 +30,6 @@ class RiwayatController extends Controller
         $details = Transaction::with('history', 'history.product')->get();
         return view('dashboard.riwayat', [
             'cart' => Cart::all(),
-            // 'histories' => Transaction::all(),
             'histories' => $details,
             'detail' => History::where('transaction_id' == $details)
         ]);
@@ -43,11 +37,6 @@ class RiwayatController extends Controller
 
     public function cetakRiwayat($days)
     {
-        // $history = Transaction::with('history', 'history.product')->get();
-        // view()->share('history', $history);
-        // $pdf = Pdf::loadView('dashboard.cetak-history');
-        // return $pdf->download('history.pdf');
-
         // Menghitung tanggal awal dan akhir berdasarkan rentang hari
         $today = Carbon::now()->toDateString();
         $start_date = Carbon::now()->subDays($days)->toDateString();
@@ -60,5 +49,12 @@ class RiwayatController extends Controller
 
         // Download file PDF
         return $pdf->download('data-' . $days . '-hari-' . $today . '.pdf');
+    }
+
+    public function destroy($id)
+    {
+        $details = History::with('transaction')->get($id);
+        History::destroy($details);
+        return redirect('/dashboard/riwayat')->with('success', 'Riwayat berhasil dihapus');
     }
 }
