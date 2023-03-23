@@ -5,11 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="/img/logo.png" class="scale-150">
 
-        <title>Sistem Informasi Koperasi</title>
+        <title>Sistem Informasi Kantin Jujur</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
         <style>
             body {
@@ -25,7 +26,7 @@
             <div class="container">
               <div class="flex items-center justify-between relative">
                 <div class="px-4">
-                  <a href="#home" class="font-[1000] text-3xl text-black block py-6 tracking-tight" style="-webkit-text-stroke: 0.1rem #FBFF29">SIIKOOPER</a>
+                  <a href="#home" class="font-[1000] text-3xl text-black block py-6 tracking-tight" style="-webkit-text-stroke: 0.1rem #FBFF29">SIKANTIN</a>
                 </div>
                 <div class="flex items-center px-4">
                   <button id="hamburger" name="hamburger" class="block absoulute right-4 lg:hidden" type="button">
@@ -62,13 +63,13 @@
         <section id="home" class="pt-10">
             <div class="container">
                 <div class="flex flex-wrap ">
-                    <div class="w-full self-center pt-10 px-5 lg:w-1/2 ">
+                    <div class="w-full self-center pt-10 px-5 lg:w-1/2 " data-aos="fade-right" data-aos-duration="2000">
                         <p class="font-semibold text-4xl ">Hi Guys, Selamat datang <span class="font-extrabold ">Di 
-                          Kantin SMK Negeri 1 Ciomas</span></p>
+                          Kantin Jujur SMK Negeri 1 Ciomas</span></p>
                         <p class="font-medium text-2xl mt-3 text-slate-600 md:w-[28rem]">ayo habiskan uang kalian untuk berbelanja di kantin kita tercinta... <span class="text-red-700">❤</span><span class="text-green-600">💸</span></p>
                         <a href="/barang" class="mt-6 px-3 py-2 inline-block w-auto font-extrabold text-xl rounded-lg border-[3px] shadow-lg border-yellow-400  bg-yellow-300 hover:bg-yellow-200 hover:border-yellow-300 hover:text-slate-500">ayo belanja</a> 
                     </div>
-                    <div class="w-full px-4 self-end lg:w-1/2 ">
+                    <div class="w-full px-4 self-end lg:w-1/2 " data-aos="zoom-in-left" data-aos-duration="1500">
                         <div class="mt-10 relative lg:mt-9 lg:right-0">
                         <img src="/img/landing/group.svg" alt="hero" class="max-w-full mx-auto animate-wiggle ">
                         <span class="absolute -bottom-12 -z-10 left-1/2 -translate-x-1/2 md:scale-150 md:bottom-28 lg:scale-125 lg:bottom-1 xl:scale-150 xl:bottom-24">
@@ -97,7 +98,7 @@
             
                 <div class="flex flex-wrap justify-evenly lg:justify-between my-10">  
 
-                    <div class="w-10/12 px-7 md:w-1/2 lg:w-1/3" >
+                    <div class="w-10/12 px-7 md:w-1/2 lg:w-1/3" data-aos="fade-up" data-aos-duration="2000">
                       <div class="bg-primary rounded-xl overflow-hidden shadow-xl mb-10 text-center mx-auto ring-1 ring-yellow-500 hover:bg-gradient-to-tl hover:from-yellow-600 hover:to-oren group">
                         <div class="pt-5 border-b-4 border-oren group-hover:border-primary">
                             <a href="/barang" class="block mb-3 font-bold  group-hover:text-white truncate text-2xl text-slate-600 transition duration-100 ease-in-out">Biskuat</a>
@@ -109,7 +110,7 @@
                       </div>
                     </div>
 
-                    <div class="w-10/12 px-7 md:w-1/2 lg:w-1/3">
+                    <div class="w-10/12 px-7 md:w-1/2 lg:w-1/3" data-aos="fade-up" data-aos-duration="2500">
                         <div class="bg-primary rounded-xl overflow-hidden shadow-xl mb-10 text-center mx-auto ring-1 ring-yellow-500 hover:bg-gradient-to-tl hover:from-yellow-600 hover:to-oren group">
                           <div class="pt-5 border-b-4 border-oren group-hover:border-primary">
                               <a href="/barang" class="block mb-3 font-bold  group-hover:text-white truncate text-2xl text-slate-600 transition duration-100 ease-in-out">Teh Pucuk</a>
@@ -121,7 +122,7 @@
                         </div>
                       </div>
 
-                      <div class="w-10/12 px-7 md:w-1/2 lg:w-1/3">
+                      <div class="w-10/12 px-7 md:w-1/2 lg:w-1/3" data-aos="fade-up" data-aos-duration="3000">
                         <div class="bg-primary rounded-xl overflow-hidden shadow-xl mb-10 text-center mx-auto ring-1 ring-yellow-500 hover:bg-gradient-to-tl hover:from-yellow-600 hover:to-oren group">
                           <div class="pt-5 border-b-4 border-oren group-hover:border-primary">
                               <a href="/barang" class="block mb-3 font-bold  group-hover:text-white truncate text-2xl text-slate-600 transition duration-100 ease-in-out">Pop Mie</a>
@@ -139,7 +140,7 @@
                       
                       <div class="w-10/12 px-7 md:w-1/2  lg:w-1/3 mx-auto">
                           <div class="pt-10  text-center justify-center">
-                              <a href="/barang" class="font-bold text-lg px-4 py-2 rounded-lg text-white hover:bg-sky-600 hover:text-slate-200 bg-sky-700 transition duration-100 ease-in-out mx-auto">Cek Selengkapnya....</a>
+                              <a href="/barang" class="font-bold text-lg px-4 py-2 rounded-lg text-white hover:bg-sky-600 hover:text-slate-200 bg-sky-700 transition duration-100 ease-in-out mx-auto" data-aos="fade-up" data-aos-duration="3200">Cek Selengkapnya....</a>
                             </div>
                         </div>
 
@@ -201,5 +202,9 @@
 
         @vite('resources/js/app.js')
         <script src="../path/to/flowbite/dist/flowbite.js"></script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+          AOS.init();
+        </script>
     </body>
 </html>

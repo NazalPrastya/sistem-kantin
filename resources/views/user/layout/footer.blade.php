@@ -1,6 +1,6 @@
-<section id="footer " class="bg-[#0F4061] mt-5">
-<footer class="p-4  sm:p-6 dark:bg-gray-900">
-    <div class="md:flex md:justify-between">
+<section id="footer " class="bg-[#0F4061] mt-5" >
+<footer class="p-4  sm:p-6 dark:bg-gray-900" >
+    <div class="md:flex md:justify-between" >
         <div class="mb-6 md:mb-0">
             <a href="/" class="flex items-center">
                 <a href="#home" class="font-[1000] text-3xl text-black block py-6 tracking-tight" style="-webkit-text-stroke: 0.1rem #ffffff">SIKANTIN</a>

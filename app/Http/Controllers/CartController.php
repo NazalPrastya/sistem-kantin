@@ -7,6 +7,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 // use Symfony\Component\VarDumper\Cloner\Data;
 
 class CartController extends Controller
@@ -30,8 +31,8 @@ class CartController extends Controller
             'product_id' => $request->product_id,
             'qty' => 1
         ]);
-
-        return redirect('/keranjang')->with('success', 'barang berhasil ditambakan ke keranjang');
+        Alert::success('Success', 'Barang berhasil masuk keranjang');
+        return redirect('/keranjang');
     }
 
 
@@ -55,12 +56,17 @@ class CartController extends Controller
 
     public function kurangQty(Request $request, $id)
     {
-        $no = 1;
         $cart = Cart::find($id);
-        $cart->product_id = $request->input('product_id');
-        $cart->qty = $request->input('qty');
-        $cart->update();
-        return redirect('/keranjang')->with('success', 'Jumlah berhasil dikurangi');
+
+        if ($cart->qty > 1) {
+            $cart->product_id = $request->input('product_id');
+            $cart->qty = $request->input('qty');
+            $cart->update();
+            return redirect('/keranjang')->with('success', 'Jumlah berhasil dikurangi');
+        } else {
+            return redirect('/keranjang')->with('error', 'jumlah minimal 1');
+        }
+
         // dd($nilai);
     }
 }

@@ -5,7 +5,7 @@
         <h2 class="font-bold text-2xl inline ">Dashboard</h2>
     </div>
     <div class="container pt-5">
-        <h3 class="text-lg font-medium">Selamat datang di</h3>
+        <h3 class="text-lg font-medium">Selamat datang Kembali {{ Auth::guard('admin')->user()->username }} di</h3>
         <h4 class="text-xl font-bold">Sistem Informasi Koperasi SMKN 1 Ciomas</h4>
 
         <div class="flex flex-wrap gap-x-5 space-y-2 pt-3">
@@ -21,7 +21,7 @@
                 <h5 class="text-center text-2xl font-bold text-white bg-[#6B6B6B] rounded-t-lg p-2">Aksesoris Seragam</h5>
                 <img src="/img/dashboard/seragam.svg" alt="" class="mx-auto ">
                 <div class="mx-auto justify-center flex">
-                <a href="" class=" m-auto bg-[#2B7D69] font-bold  py-1 px-3 text-lg text-white rounded-md hover:bg-[#02FCBF]  hover:text-[#21735F]">Detail</a>
+                <a href="/dashboard/barang/3" class=" m-auto bg-[#2B7D69] font-bold  py-1 px-3 text-lg text-white rounded-md hover:bg-[#02FCBF]  hover:text-[#21735F]">Detail</a>
                 </div>
             </div>
 
@@ -29,7 +29,7 @@
                 <h5 class="text-center text-2xl font-bold text-white bg-[#6B6B6B] rounded-t-lg p-2">Riwayat Pembelian</h5>
                 <img src="/img/dashboard/riwayat.svg" alt="" class="mx-auto scale-125">
                 <div class="mx-auto justify-center flex">
-                <a href="" class=" m-auto bg-[#2B7D69] font-bold  py-1 px-3 text-lg text-white rounded-md hover:bg-[#02FCBF]  hover:text-[#21735F]">Detail</a>
+                <a href="/dashboard/riwayat" class=" m-auto bg-[#2B7D69] font-bold  py-1 px-3 text-lg text-white rounded-md hover:bg-[#02FCBF]  hover:text-[#21735F]">Detail</a>
                 </div>
             </div>
     </div>

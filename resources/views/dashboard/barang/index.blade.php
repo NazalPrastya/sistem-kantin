@@ -43,6 +43,7 @@
     </div>
     {{-- End Form Search --}}
     <a href="/dashboard/create" class="p-1 px-3 inline-block text-lg  bg-sky-700 rounded-md text-white mt-5 mb-5 hover:bg-sky-800 hover:ring-1 hover:ring-yellow-300">Tambah Barang</a>
+
         <div class="flex flex-wrap gap-x-6 gap-y-6">      
             @foreach ($barang as $b)    
             <div class="w-full md:w-1/3 lg:w-1/5 shadow-lg px-3 pb-2 h-72 rounded-md group hover:bg-[#0D4C77] bg-[#177DC2] transition duration-150 relative">
@@ -53,10 +54,19 @@
             <!-- Modal toggle -->
             <div class="absolute bottom-2">
                <p class=" text-center -mt-2 text-xl font-extrabold tracking-wider text-white truncate">{{ $b->name }}</p>
+                    
+                    <a href="/dashboard/barang/edit/{{ $hash->encodeHex($b->id) }}"><i class="bx bx-edit text-3xl text-[#00D1FF] hover:text-[#0093B4]"></i></a>
+                    
                     <button data-modal-target="modal-{{ $b->name }}" data-modal-toggle="modal-{{ $b->name }}" class="text-white focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm  text-center inline" type="button">
                         <i class="bi bi-eye-fill text-2xl font-extrabold text-slate-300 hover:text-slate-400"></i>
                     </button>
-                    <button type="submit" class="p-1  font-semibold rounded-md bg-[#FFC700] text-white hover:bg-yellow-400 inline">Rp. {{number_format($b->harga) }}-</button>
+                    
+                    <form method="post" action="/dashboard/barang/{{ $b->id }}" class="inline">
+                        @csrf @method('delete')
+                        <button type="submit
+                        " onclick="confirm('Mau hapus barang ini?')"><i class="bx bx-trash text-3xl text-red-600 hover:text-red-700"></i></button>
+                    </form>
+                    
             </div>  
             <!-- Main modal -->
                     <div id="modal-{{ $b->name }}" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full ">
@@ -99,18 +109,6 @@
                     </div>
                 
                 </a>
-
-                    {{-- <input type="hidden" value="{{ $b->id }}" name="product_id"> --}}
-                    
-
-                {{-- <a href="">
-                    <i class="bi bi-cart-fill text-2xl font-extrabold text-yellow-300 hover:text-yellow-500"></i>
-                </a> --}}
-                {{-- <form action="{{ route('store') }}" method="post">
-                    @csrf
-                    <input type="hidden" value="{{ $b->id }}" name="product_id">
-                    <input type="submit" class="p-1  font-semibold rounded-md bg-[#FFC700] text-white hover:bg-yellow-400 cursor-pointer" value=""> <i class="bi bi-cart-fill text-2xl font-extrabold text-yellow-300 hover:text-yellow-500"></i>
-                </form> --}}
                </div>
             </div>
             @endforeach             

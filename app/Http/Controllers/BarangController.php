@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Hashids\Hashids;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Storage;
 
@@ -28,7 +29,8 @@ class BarangController extends Controller
 
         return view('dashboard.barang.index', [
             'barang' => $products,
-            'category' => Category::all()
+            'category' => Category::all(),
+            'hash' => new Hashids()
         ]);
     }
 
@@ -86,10 +88,12 @@ class BarangController extends Controller
         return redirect('dashboard/barang')->with('success', 'barang berhasil ditambahkan');
     }
 
-    public function edit(Product $product)
+    public function edit($id)
     {
+        $hash = new Hashids();
+        $barang = Product::findOrFail($hash->decodeHex($id));
         return view('dashboard.barang.edit', [
-            'barang' => $product,
+            'barang' => $barang,
             'category' => Category::all()
         ]);
     }

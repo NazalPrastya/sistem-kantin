@@ -7,6 +7,7 @@ use App\Models\History;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CheckoutController extends Controller
 {
@@ -29,7 +30,8 @@ class CheckoutController extends Controller
             }
 
             Cart::destroy($carts);
-            return redirect('/keranjang')->with('success', 'Checkout anda telah berhasil');
+            Alert::success('Pembelian Berhasil', 'Silahkan bayar di kotak sebelah ya, ingat Allah maha melihat');
+            return redirect('/keranjang');
         }
 
         return redirect('/keranjang')->with('error', 'Keranjang anda kosong masbro');

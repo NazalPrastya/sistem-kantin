@@ -53,8 +53,9 @@ class RiwayatController extends Controller
 
     public function destroy($id)
     {
-        $details = History::with('transaction')->get($id);
-        History::destroy($details);
+        $details = Transaction::find($id);
+        $details->history()->delete();
+        $details->delete();
         return redirect('/dashboard/riwayat')->with('success', 'Riwayat berhasil dihapus');
     }
 }

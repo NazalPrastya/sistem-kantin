@@ -10,7 +10,7 @@
             <div class="relative z-0 w-full mb-6 group">
                 <input type="text" name="name" id="name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer rounded-sm @error('name')
                  border-dashed border-b-red-600
-                 @enderror" placeholder=" " value="{{ old('name') }}" />
+                 @enderror" placeholder=" " value="{{ old('name') }}" autocomplete="off"/>
                  @error('name')
                  <div class="feedback">
                      {{ $message }}
@@ -21,7 +21,7 @@
             <div class="relative z-0 w-full mb-6 group">
                 <input type="text" name="harga" id="harga" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer rounded-sm @error('harga')
                 border-dashed border-b-red-700
-                 @enderror" placeholder=" " value="{{ old('harga') }}"/>
+                 @enderror" placeholder=" " value="{{ old('harga') }}" autocomplete="off"/>
                  @error('harga')
                  <div class="feedback">
                      {{ $message }}
@@ -43,7 +43,7 @@
                     <label for="desc" class="block mb-2 text-sm font-medium text-gray-900 ">Deskripsi Barang</label>
                     <textarea id="desc" name="desc" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 @error('desc')
                     is_invalid
-                     @enderror" placeholder="Masukan Deskripsi" value="{{ old('desc') }}"></textarea>
+                     @enderror" placeholder="Masukan Deskripsi">{{ old('desc') }}</textarea>
                      @error('desc')
                     <div class="feedback">
                         {{ $message }}

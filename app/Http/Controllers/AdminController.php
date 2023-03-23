@@ -4,14 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
     public function index()
     {
+        $auth =  Auth::guard('admin')->user();
         return view('dashboard.admin.admin', [
-            'admins' => Admin::all()
+            'admins' => Admin::where('id', '!=', $auth->id)->get()
         ]);
     }
 

@@ -9,6 +9,8 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
@@ -19,7 +21,7 @@
           @vite('resources/css/app.css')
     </head>
     <body class="bg-[#003146] bg-no-repeat">
-        <div class=" bg-no-repeat z-10" >
+        <div class="w-full h-full absolute bg-bottom bottom-0 bg-[url('/public/img/login/wave.svg')] bg-no-repeat  z-10" >
         <section class="pt-20" >
             <div class="container text-white">
                 <div class="w-full md:w-6/12 lg:w-5/12 mx-auto">
@@ -69,11 +71,16 @@
                         </div>
                         <button type="submit" class="text-white text-lg font-extrabold bg-[#5FBD50] hover:bg-[#379B26] focus:ring-1 focus:outline-none focus:ring-green-400  rounded-lg  w-full px-5 py-2.5 text-center ">Login</button>
                     </form>
-                    <a href="/" class="italic underline text-sky-500 font-light text-end block mt-1 text-md">back</a>
+                    <a href="/" class="italic underline text-slate-0 font-light text-end block mt-1 text-md">back</a>
                 </div>  
             </div>
         </section>
          @vite('resources/js/app.js')
         </div>
+
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init();
+          </script>
     </body>
 </html>

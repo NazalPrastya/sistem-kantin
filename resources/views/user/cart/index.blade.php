@@ -4,6 +4,7 @@
 <div class="title w-full rounded-b-sm pt-10">
     <h2 class="font-semibold text-lg md:text-xl inline ml-14"></i>Keranjangku....</h2>
 </div>
+@include('sweetalert::alert')
     
     @php
         $total = 0;

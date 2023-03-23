@@ -22,7 +22,7 @@
                 </th>
             </tr>
         </thead>
-        <tbody>
+        <tbody> 
             @php
             $total = 0;
             @endphp
