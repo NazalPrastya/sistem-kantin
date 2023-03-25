@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Cetak Saran</title>
+    <title>Laporan Penjualan</title>
 </head>
 <style>
     body{
@@ -44,7 +44,7 @@
 </style>
 <body>
     <div class="form">
-        <p>Cetak Saran</p>
+        <p>Laporan Penjualan</p>
         <table class="static" rules="all" border="1px" align="center">
             <tr class="thead" align="center">
                 <td>No</td>
