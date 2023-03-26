@@ -71,28 +71,5 @@
         </ul>
       </li>
 
-      <li class="group ml-3 rounded-l-full hover:bg-[#eeeeee] {{ Request::is('/ ') ? 'active' : '' }}">
-        <a href="/" class="group">
-          <i class="bx bx-arrow-back group-hover:text-[#FFAA29] {{ Request::is('/') ? 'text-[#FFAA29]' : 'text-[#eee]' }}"></i>
-          <span class="link_name text-white font-bold group-hover:text-[#ffaa29] {{ Request::is('/') ? 'text-[#FFAA29]' : '' }}">Layar Utama</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="/">Layar Utama</a></li>
-        </ul>
-      </li>
-
-
-      <!-- <li>
-        <div class="profile-details">
-          <div class="profile-content">
-            <img src="image/profile.jpg" alt="profileImg">-->
-      <!-- </div>
-          <div class="name-job">
-            <div class="profile_name">Prem Shahi</div>
-            <div class="job">Web Desginer</div>
-          </div>
-          <i class="bx bx-log-out"></i>
-        </div>
-      </li> -->
     </ul>
   </div>
