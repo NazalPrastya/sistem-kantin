@@ -1,5 +1,4 @@
 import "./bootstrap";
-
 // navbar fixed
 window.onscroll = function () {
     const header = document.querySelector("header");
@@ -22,27 +21,13 @@ hamburger.addEventListener("click", function () {
     navMenu.classList.toggle("hidden");
 });
 
-// Preview Image
+// loading
+const loader = document.querySelector("#loader");
 
-// Sidebar;
-// const menu = document.getElementById("menu-label");
-// const sidebar = document.getElementsByClassName("sidebar")[0];
+window.addEventListener("load", function () {
+    loader.style.display = "none";
+});
 
-// menu.addEventListener("click", function () {
-//     sidebar.classList.toggle("hide");
-// });
-
-// // Responsive sidebar
-// let arrow = document.querySelectorAll(".arrow");
-// for (var i = 0; i < arrow.length; i++) {
-//     arrow[i].addEventListener("click", (e) => {
-//         let arrowParent = e.target.parentElement.parentElement; //selecting main parent of arrow
-//         arrowParent.classList.toggle("showMenu");
-//     });
-// }
-// let sidebar = document.querySelector(".sidebar");
-// let sidebarBtn = document.querySelector(".bx-menu");
-// console.log(sidebarBtn);
-// sidebarBtn.addEventListener("click", () => {
-//     sidebar.classList.toggle("close");
-// });
+// Chart
+// window.Chart = require("chart.js");
+//

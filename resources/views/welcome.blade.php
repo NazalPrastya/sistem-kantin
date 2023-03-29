@@ -21,6 +21,7 @@
           @vite('resources/css/app.css')
     </head>
     <body>
+      <div id="loader"></div>
         {{-- Start Navbar --}}
         <header class="bg-transparent absolute top-0 left-0 w-full flex items-center z-10">
             <div class="container">
@@ -99,37 +100,37 @@
                 <div class="flex flex-wrap justify-evenly lg:justify-between my-10">  
 
                     <div class="w-10/12 px-7 md:w-1/2 lg:w-1/3" data-aos="fade-up" data-aos-duration="2000">
-                      <div class="bg-primary rounded-xl overflow-hidden shadow-xl mb-10 text-center mx-auto ring-1 ring-yellow-500 hover:bg-gradient-to-tl hover:from-yellow-600 hover:to-oren group">
+                      <div class="bg-primary rounded-xl overflow-hidden shadow-xl mb-10 text-center mx-auto ring-1 ring-yellow-500 hover:bg-gradient-to-tl hover:from-yellow-600 hover:to-oren group relative pb-10">
                         <div class="pt-5 border-b-4 border-oren group-hover:border-primary">
                             <a href="/barang" class="block mb-3 font-bold  group-hover:text-white truncate text-2xl text-slate-600 transition duration-100 ease-in-out">Biskuat</a>
                           </div>
                         <img src="/img/landing/barang/biskuat.svg" alt="programming" class="mx-auto group-hover:scale-110 transition duration-300 ease-in-out" />
-                        <div class="pb-7">
-                            <a href="/barang" class="font-bold text-lg px-4 py-2 rounded-lg text-white group-hover:bg-yellow-300 group-hover:text-oren bg-oren transition duration-100 ease-in-out">Rp. 500-</a>
+                        <div class=" absolute bottom-5 right-0 left-0">
+                            <a href="/barang" class="font-bold text-lg px-4 py-2 rounded-lg text-white group-hover:bg-yellow-300 group-hover:text-blue-700 bg-oren transition duration-100 ease-in-out">Rp. 500-</a>
                           </div>
                       </div>
                     </div>
 
-                    <div class="w-10/12 px-7 md:w-1/2 lg:w-1/3" data-aos="fade-up" data-aos-duration="2500">
-                        <div class="bg-primary rounded-xl overflow-hidden shadow-xl mb-10 text-center mx-auto ring-1 ring-yellow-500 hover:bg-gradient-to-tl hover:from-yellow-600 hover:to-oren group">
+                    <div class="w-10/12 px-7 md:w-1/2 lg:w-1/3 " data-aos="fade-up" data-aos-duration="2500">
+                        <div class="bg-primary rounded-xl overflow-hidden shadow-xl mb-10 text-center mx-auto ring-1 ring-yellow-500 hover:bg-gradient-to-tl hover:from-yellow-600 hover:to-oren group relative pb-10">
                           <div class="pt-5 border-b-4 border-oren group-hover:border-primary">
                               <a href="/barang" class="block mb-3 font-bold  group-hover:text-white truncate text-2xl text-slate-600 transition duration-100 ease-in-out">Teh Pucuk</a>
                             </div>
                           <img src="/img/landing/barang/pucuk.svg" alt="programming" class="mx-auto group-hover:scale-110 transition duration-300 ease-in-out" />
-                          <div class="pb-7">
-                              <a href="/barang" class="font-bold text-lg px-4 py-2 rounded-lg text-white group-hover:bg-yellow-300 group-hover:text-oren bg-oren transition duration-100 ease-in-out">Rp. 3000-</a>
+                          <div class=" absolute bottom-5 right-0 left-0">
+                              <a href="/barang" class="font-bold text-lg px-4 py-2 rounded-lg text-white group-hover:bg-yellow-300 group-hover:text-blue-700 bg-oren transition duration-100 ease-in-out ">Rp. 3000-</a>
                             </div>
                         </div>
                       </div>
 
                       <div class="w-10/12 px-7 md:w-1/2 lg:w-1/3" data-aos="fade-up" data-aos-duration="3000">
-                        <div class="bg-primary rounded-xl overflow-hidden shadow-xl mb-10 text-center mx-auto ring-1 ring-yellow-500 hover:bg-gradient-to-tl hover:from-yellow-600 hover:to-oren group">
+                        <div class="bg-primary rounded-xl overflow-hidden shadow-xl mb-10 text-center mx-auto ring-1 ring-yellow-500 hover:bg-gradient-to-tl hover:from-yellow-600 hover:to-oren group relative pb-16">
                           <div class="pt-5 border-b-4 border-oren group-hover:border-primary">
                               <a href="/barang" class="block mb-3 font-bold  group-hover:text-white truncate text-2xl text-slate-600 transition duration-100 ease-in-out">Pop Mie</a>
                             </div>
                           <img src="/img/landing/barang/popmie1.svg" alt="programming" class="mx-auto group-hover:scale-110 transition duration-300 ease-in-out" />
-                          <div class="pb-7">
-                              <a href="/barang" class="font-bold text-lg px-4 py-2 rounded-lg text-white group-hover:bg-yellow-300 group-hover:text-oren bg-oren transition duration-100 ease-in-out">Rp. 6000-</a>
+                          <div class="absolute bottom-5 right-0 left-0">
+                              <a href="/barang" class="font-bold text-lg px-4 py-2 rounded-lg text-white group-hover:bg-yellow-300 group-hover:text-blue-700 bg-oren transition duration-100 ease-in-out">Rp. 6000-</a>
                             </div>
                         </div>
                       </div>
@@ -185,16 +186,6 @@
                             <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <title>YouTube</title><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                             </a>
-
-                        <a href="nazalprastya@gmail.com" class="w-9 h-9 mr-3 rounded-full flex justify-center item-center border border-white hover:border-primary hover:bg-primary hover:text-white text-white">
-                            <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <title>Gmail</title><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
-                            </a>
-                       
-                        {{-- <a href="#" class="text-white hover:text-gray-900 dark:hover:text-white w-9 h-9 mr-3 rounded-full border-slate-400 border item-center justify-center ">
-                            <svg class="w-5 h-5 fill-current" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z" clip-rule="evenodd" /></svg>
-                            <span class="sr-only">Dribbble account</span>
-                        </a> --}}
                     </div>
                 </div>
             </footer>

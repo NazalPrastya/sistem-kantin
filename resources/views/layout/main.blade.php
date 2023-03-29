@@ -17,7 +17,8 @@
             {{-- <link rel="stylesheet" href="/css/dashboard/style.css" /> --}}
             <link rel="stylesheet" href="/css/dashboard/sidebar/style.css" />
 
-
+        {{-- Chart --}}
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
@@ -28,20 +29,6 @@
           @vite('resources/css/app.css')
     </head>
     <body>
-        {{-- <div class="containers">
-            @include('layout.sidebar')
-          <div class="main-content">
-            <div id="menu-button" class="ml-2 mt-2">
-              <input type="checkbox" id="menu-checkbox" />
-              <label for="menu-checkbox" id="menu-label">
-                <div id="hamburger"></div>
-              </label>
-            </div>
-            <div style="margin-left: 10px">
-              @yield('content')
-            </div>
-          </div>
-        </div> --}}
         @include('layout.sidebar2')
         <section class="home-section">
           <div class="home-content">
@@ -95,11 +82,14 @@
                 imgPreview.src = oFREvent.target.result;
             }
         }
-        
+
       </script>
+
         @vite('resources/js/app.js')
         <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.2/flowbite.min.js"></script>
         <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        {{-- <script src="{{ asset('js/Chart.min.js') }}"></script> --}}
     </body>
 </html>

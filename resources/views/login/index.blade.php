@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Sistem Informasi Koperasi | Login</title>
+        <title>Sistem Informasi Kantin | Login</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -21,11 +21,11 @@
           @vite('resources/css/app.css')
     </head>
     <body class="bg-[#003146] bg-no-repeat">
-        <div class="w-full h-full absolute bg-bottom bottom-0 bg-[url('/public/img/login/wave.svg')] bg-no-repeat  z-10" >
+        <div class="w-full h-full absolute z bg-bottom bottom-0 bg-[url('/public/img/login/wave.svg')] bg-no-repeat  z-10" >
         <section class="pt-20" >
             <div class="container text-white">
                 <div class="w-full md:w-6/12 lg:w-5/12 mx-auto">
-                    <h2 class="text-3xl font-[1000] bold text-center text-lime-600 tracking-wider stroke-white stroke-2 store" style="-webkit-text-stroke: 0.1rem white">SIIKOPER</h2>
+                    <h2 class="text-3xl font-[1000] bold text-center text-lime-600 tracking-wider stroke-white stroke-2 store" style="-webkit-text-stroke: 0.1rem white">SIKANTIN</h2>
                     <h3 class="text-2xl font-semibold text-center mt-3 ">Sign In</h3>
                     <p class="text-center font-medium mt-3">Welcome Back, are you admin?, Sign in as admin and manage your website brother!</p>
                     <form action="/login" method="post" class="mt-3 justify-center">

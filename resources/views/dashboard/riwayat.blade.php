@@ -6,15 +6,26 @@
     </div>
 
     <div class="container pt-10">  
+        {{-- <form action="{{  }}">
+            
+        </form> --}}
         <a href="{{ route('cetak-Riwayat', 1) }}" class="text-sm mx-2 py-1 px-3 bg-green-500 rounded-md text-slate-100 hover:bg-green-600 "> <i class='bx bxs-file-pdf'></i>1 Hari</a>
         <a href="{{ route('cetak-Riwayat', 3) }}" class="text-sm mx-2 py-1 px-3 bg-green-500 rounded-md text-slate-100 hover:bg-green-600 "> <i class='bx bxs-file-pdf'></i>3 Hari</a>      
         <a href="{{ route('cetak-Riwayat', 7) }}" class="text-sm mx-2 py-1 px-3 bg-green-500 rounded-md text-slate-100 hover:bg-green-600 "> <i class='bx bxs-file-pdf'></i>7 Hari</a>      
         <a href="{{ route('cetak-Riwayat', 30) }}" class="text-sm mx-2 py-1 px-3 bg-green-500 rounded-md text-slate-100 hover:bg-green-600 "> <i class='bx bxs-file-pdf'></i>30 Hari</a>      
-
+        
+        <div class="w-full h-[60vh] flex justify-center my-10">
+            <canvas id="myChart" ></canvas>
+        </div>
+        
         <div class="relative overflow-x-auto">
+            <p id="total" class="font-semibold text-lg"></p>
             <table class="w-full text-sm text-left ">
                 <thead class="text-lg">
                     <tr>
+                        <th scope="col" class="px-6 py-3 font-bold">
+                            No
+                         </th>
                         <th scope="col" class="px-6 py-3 font-bold">
                            Waktu Pembelian
                         </th>
@@ -33,6 +44,9 @@
                     @foreach ($histories as $history)
                         
                     <tr class="bg-white border-b rounded-lg mt-2">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap rounded-lg">
+                            {{ $loop->iteration }}
+                         </th>
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap rounded-lg">
                            {{ $history->created_at->diffForHumans() }}
                         </th>
@@ -103,4 +117,60 @@
         </div>
     </div>
 
+
+    <script>
+        var total = {{ Js::from($total) }}
+        document.getElementById('total').innerHTML = "Total Pembelanjaan Sampai Hari Ini : Rp." + (total)
+
+
+        var labels = {{ Js::from($labels) }}
+        var data = {{ Js::from($data) }}
+        const ctx = document.getElementById("myChart").getContext("2d");
+        const myChart = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: "Penjualan Rp",
+                        data: data,
+                        backgroundColor: [
+                            "rgba(255, 99, 132, 0.2)",
+                            "rgba(54, 162, 235, 0.2)",
+                            "rgba(255, 206, 86, 0.2)",
+                            "rgba(75, 192, 192, 0.2)",
+                            "rgba(153, 102, 255, 0.2)",
+                            "rgba(255, 159, 64, 0.2)",
+                        ],
+                        borderColor: [
+                            "rgba(255, 99, 132, 3)",
+                            "rgba(54, 162, 235, 3)",
+                            "rgba(255, 206, 86, 3)",
+                            "rgba(75, 192, 192, 3)",
+                            "rgba(153, 102, 255, 3)",
+                            "rgba(255, 159, 64, 3)",
+                            "rgba(75, 192, 192, 3)",
+                            "rgba(153, 102, 255, 3)",
+                            "rgba(255, 159, 64, 3)",
+                            "rgba(75, 192, 192, 3)",
+                            "rgba(153, 102, 255, 3)",
+                            "rgba(255, 159, 64, 3)",
+                        ],
+                        borderWidth: 1,
+                    },
+                ],
+            },
+            options: {
+                scales: {
+                    yAxes: [
+                        {
+                            ticks: {
+                                beginAtZero: true,
+                            },
+                        },
+                    ],
+                },
+            },
+        });
+        </script>
 @endsection

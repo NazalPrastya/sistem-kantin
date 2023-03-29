@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="/img/logo.png" class="scale-150">
 
-        <title>Sistem Informasi Koperasi |</title>
+        <title>Sistem Informasi Kantin</title>
         
 
         <!-- Fonts -->
