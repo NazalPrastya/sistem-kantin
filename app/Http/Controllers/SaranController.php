@@ -12,9 +12,15 @@ class SaranController extends Controller
 {
     public function index()
     {
+        $sensor = ['bodoh', 'bego', 'tolol', 'kontol', 'bloon', 'memek'];
+        foreach ($sensor as $s) {
+            $replace = str_repeat("*", strlen($s));
+        };
         $saran = Saran::all();
         return view('dashboard.saran.index', [
-            'saran' => $saran
+            'saran' => $saran,
+            'replace' => $replace,
+            'sensor' => $sensor
         ]);
     }
 

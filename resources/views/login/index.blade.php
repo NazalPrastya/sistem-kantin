@@ -17,7 +17,6 @@
             }
             
         </style>
-
           @vite('resources/css/app.css')
     </head>
     <body class="bg-[#003146] bg-no-repeat">

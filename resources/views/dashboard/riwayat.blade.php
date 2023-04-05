@@ -78,8 +78,9 @@
                                         <span class="sr-only">Close modal</span>
                                     </button>
                                     <div class="px-6 py-6 lg:px-8">
-                                        <h3 class="mb-4 text-xl font-medium text-gray-900 ">Detail Riwayat</h3>
-                             
+                                        <h3 class="mb-4 text-xl font-medium text-gray-900 inline">Detail Riwayat</h3>
+                                        <a href="{{ route("cetakDetail", $history->id) }}" class="inline ml-10 font-semibold p-1 px-4 bg-green-500 rounded-md text-white hover:bg-green-700">Cetak</a>
+                                        
                                             <p>Tanggal :</p>
                                             <p>Email : {{ $history->email }}</p>
                                             <table width="100%" >

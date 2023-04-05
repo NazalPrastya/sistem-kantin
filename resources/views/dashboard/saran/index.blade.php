@@ -56,7 +56,7 @@
                                 {{ $s->created_at->diffForHumans() }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $s->saran }}
+                                {{ str_replace($sensor, $replace, $s->saran) }}
                             </td>
                             <td class="px-6 py-4">
                                 <form action="/dashboard/saran/{{ $s->id }}" method="post" >

@@ -17,7 +17,7 @@ class UserBarangController extends Controller
         $products = Product::where('name', 'like', "%" . $keyword . "%")
             ->orWhere('harga', 'like', "%" . $keyword . "%")
             ->orWhere('desc', 'like', "%" . $keyword . "%")
-            ->paginate(6);
+            ->paginate(9);
 
 
         $cart = Cart::all();

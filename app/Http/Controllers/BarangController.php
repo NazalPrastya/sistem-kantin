@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use Hashids\Hashids;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class BarangController extends Controller
@@ -37,9 +38,10 @@ class BarangController extends Controller
 
     public function category($id)
     {
+        $hash = new Hashids();
         $category = Category::all();
-        $barang = Product::where('category_id', $id)->paginate(6);
-        return view('dashboard.barang.index', compact('barang', 'category', 'id'));
+        $barang = Product::where('category_id', $hash->decodeHex($id))->paginate(6);
+        return view('dashboard.barang.index', compact('barang', 'category', 'id', 'hash'));
     }
 
     /**
@@ -65,7 +67,7 @@ class BarangController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|min:5|max:100',
-            'harga' => 'required|integer|min:3',
+            'harga' => 'required|min:3',
             'category_id' => 'required',
             'desc' => 'required|min:10',
             'image' => 'required|file|max:1024'
@@ -74,7 +76,6 @@ class BarangController extends Controller
             'name.min' => 'minimal 5 huruf',
             'name.max' => 'maximal 100 huruf',
             'harga.required' => 'harga harus diisi',
-            'harga.integer' => 'harga harus berisi angka tanpa' .  '.' . ',' .  'atau Rp',
             'harga.min' => 'minimal harga 100 perak',
             'desc.required' => 'dekripsi harus diisi',
             'image.required' => 'image harus diisi'
@@ -82,6 +83,7 @@ class BarangController extends Controller
         if ($request->file('image')) {
             $validatedData['image'] = $request->file('image')->store('barang-image');
         }
+        $validatedData['harga'] = str_replace(['IDR', 'Rp', '.', 'RP', 'Idr'], '', $request->harga);
 
         Product::create($validatedData);
 

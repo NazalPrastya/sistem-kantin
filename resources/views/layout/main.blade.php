@@ -86,6 +86,7 @@
       </script>
 
         @vite('resources/js/app.js')
+
         <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.2/flowbite.min.js"></script>
         <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>

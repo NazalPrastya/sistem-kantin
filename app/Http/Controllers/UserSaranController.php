@@ -13,9 +13,15 @@ class UserSaranController extends Controller
     {
         $cart = Cart::all();
         $saran = Saran::all();
+        $sensor = ['bodoh', 'bego', 'tolol', 'kontol', 'bloon'];
+        foreach ($sensor as $s) {
+            $replace = str_repeat("*", strlen($s));
+        };
         return view('user.saran.index', [
             'saran' => $saran,
-            'cart' => $cart
+            'cart' => $cart,
+            'sensor' => $sensor,
+            'replace' => $replace
         ]);
     }
 

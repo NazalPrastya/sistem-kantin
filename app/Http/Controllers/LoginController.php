@@ -32,13 +32,16 @@ class LoginController extends Controller
         if (Auth::guard('admin')->attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->intended('/dashboard');
+        } elseif (Auth::guard('user')->attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect()->intended('/barang');
         }
         return back()->with('loginError', 'Login Failed!');
     }
 
     public function logout()
     {
-        Auth::guard('admin')->logout();
+        Auth::guard('admin', 'user')->logout();
 
         request()->session()->invalidate();
 

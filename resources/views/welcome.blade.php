@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="/img/logo.png" class="scale-150">
 
-        <title>Sistem Informasi Kantin Jujur</title>
+        <title>Sistem Informasi Kantin</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -49,7 +49,7 @@
                       </li>
 
                       <li class="group">
-                        <a href="/login/admin" class="text-lg font-extrabold text-dark mx-8 flex group-hover:bg-yellow-400 w-auto bg-yellow-300 px-5 py-1 rounded-lg border-2 border-oren ">Admin</a>
+                        <a href="/login" class="text-lg font-extrabold text-dark mx-8 flex group-hover:bg-yellow-400 w-auto bg-yellow-300 px-5 py-1 rounded-lg border-2 border-oren ">Admin</a>
                       </li>
                       
                     </ul>
@@ -66,7 +66,7 @@
                 <div class="flex flex-wrap ">
                     <div class="w-full self-center pt-10 px-5 lg:w-1/2 " data-aos="fade-right" data-aos-duration="2000">
                         <p class="font-semibold text-4xl ">Hi Guys, Selamat datang <span class="font-extrabold ">Di 
-                          Kantin Jujur SMK Negeri 1 Ciomas</span></p>
+                          Kantin SMK Negeri 1 Ciomas</span></p>
                         <p class="font-medium text-2xl mt-3 text-slate-600 md:w-[28rem]">ayo habiskan uang kalian untuk berbelanja di kantin kita tercinta... <span class="text-red-700">❤</span><span class="text-green-600">💸</span></p>
                         <a href="/barang" class="mt-6 px-3 py-2 inline-block w-auto font-extrabold text-xl rounded-lg border-[3px] shadow-lg border-yellow-400  bg-yellow-300 hover:bg-yellow-200 hover:border-yellow-300 hover:text-slate-500">ayo belanja</a> 
                     </div>
@@ -192,6 +192,7 @@
         </section>
 
         @vite('resources/js/app.js')
+
         <script src="../path/to/flowbite/dist/flowbite.js"></script>
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
         <script>

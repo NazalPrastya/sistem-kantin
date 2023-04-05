@@ -40,7 +40,11 @@ class RiwayatController extends Controller
         $transactionTotal = Transaction::select(
             DB::raw("SUM(total) as total"),
             DB::raw("MONTHNAME(created_at) as month_name")
-        )->whereMonth('created_at', date('m'))->groupBy(DB::raw("month_name"))->orderBy('id', 'DESC')->pluck('total', 'month_name');
+        )->groupBy(DB::raw("month_name"))
+            ->orderBy('id', 'DESC')
+            ->get();
+
+        $total = $transactionTotal->sum('total');
 
         $details = Transaction::with('history', 'history.product')->get();
         return view('dashboard.riwayat', [
@@ -49,7 +53,7 @@ class RiwayatController extends Controller
             'detail' => History::where('transaction_id' == $details),
             'labels' => $labels,
             'data' => $data,
-            'total' => $transactionTotal->values()
+            'total' => $total
         ]);
         // @dd($labels);
     }
@@ -70,6 +74,13 @@ class RiwayatController extends Controller
         return $pdf->download('data-' . $days . '-hari-' . $today . '.pdf');
     }
 
+    public function cetakDetail($id)
+    {
+        $data = Transaction::findOrFail($id);
+        // $data = Transaction
+        $pdf = PDF::loadView('dashboard.cetak-detail', compact('data'));
+        return $pdf->download('data riwayat ' . $data->email . '.pdf');
+    }
     public function destroy($id)
     {
         $details = Transaction::find($id);

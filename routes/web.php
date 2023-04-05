@@ -26,31 +26,29 @@ use App\Http\Controllers\LandingPageController;
 |
 */
 
-Route::get('/', [LandingPageController::class, 'index'])->name('login');
-
-Route::get('/login/admin', [LoginController::class, 'index']);
+Route::get('/', [LandingPageController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
-
-// User Interface
 Route::get('/barang', [UserBarangController::class, 'index'])->name('usearch');
 Route::get('/barang/{id}', [UserBarangController::class, 'category']);
 
+// User Interface
+Route::group(['middleware' => ['auth:user']], function () {
+    Route::get('/keranjang', [CartController::class, 'index']);
+    Route::post('/cart/store', [CartController::class, 'store'])->name('ustore');
+    Route::delete('/cart/{cart:id}', [CartController::class, 'destroy'])->name('udesroy');
+    Route::put('/cart/plus/{cart:id}', [CartController::class, 'tambahQty'])->name('tambah-qty');
+    Route::put('/cart/min/{cart:id}', [CartController::class, 'kurangQty'])->name('kurang-qty');
 
-Route::get('/keranjang', [CartController::class, 'index']);
-Route::post('/cart/store', [CartController::class, 'store'])->name('ustore');
-Route::delete('/cart/{cart:id}', [CartController::class, 'destroy'])->name('udesroy');
-Route::put('/cart/plus/{cart:id}', [CartController::class, 'tambahQty'])->name('tambah-qty');
-Route::put('/cart/min/{cart:id}', [CartController::class, 'kurangQty'])->name('kurang-qty');
+    Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout');
 
-Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout');
+    Route::get('/saran', [UserSaranController::class, 'index']);
+    Route::post('/saran', [UserSaranController::class, 'store']);
 
-
-Route::get('/saran', [UserSaranController::class, 'index']);
-Route::post('/saran', [UserSaranController::class, 'store']);
-
-Route::get('/riwayat', [RiwayatController::class, 'index']);
+    Route::get('/riwayat', [RiwayatController::class, 'index']);
+});
 
 
 
@@ -68,6 +66,7 @@ Route::group(['middleware' => ['auth:admin']], function () {
 
     Route::get('/dashboard/riwayat', [RiwayatController::class, 'indexAdmin']);
     Route::get('/dashboard/riwayat/cetak-Riwayat/{days}', [RiwayatController::class, 'cetakRiwayat'])->name("cetak-Riwayat");
+    route::get('/dashboard/riwayat/cetak-detail/{history:id}', [RiwayatController::class, 'cetakDetail'])->name("cetakDetail");
     Route::delete('/dashboard/riwayat/{history:id}', [RiwayatController::class, 'destroy']);
 
 

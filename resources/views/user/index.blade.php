@@ -36,11 +36,14 @@
     </div>
 
         <section id="category">
-            <div class="flex pt-5 gap-x-5 justify-center">
-                <a href="/barang" class="hover:text-oren text-lg {{ Request::is('barang') ? 'text-oren font-bold' : '' }}">Semua</a>
-                @foreach ($categories as $category)
-                    <a href="/barang/{{ $category->id }}" class="hover:text-oren text-lg {{ Request::is('barang/'. $category->id) ? 'text-oren font-bold' : '' }}">{{ $category->name }}</a>
-                @endforeach
+            <div class="flex flex-col md:flex-row pt-5 justify-center text-center">
+                <div class="category ">
+                    <a href="/barang" class=" md:px-5 hover:text-oren text-base md:text-lg {{ Request::is('barang') ? 'text-oren font-bold' : '' }}">Semua</a>
+                    @foreach ($categories as $category)
+                        <a href="/barang/{{ $category->id }}" class="md:px-3 hover:text-oren text-base md:text-lg {{ Request::is('barang/'. $category->id) ? 'text-oren font-bold' : '' }}">{{ $category->name }}</a>
+                    @endforeach
+                </div>
+                
                 <form action="{{ route('usearch') }}" method="get" class="flex items-center max-w-xs "> 
                     <label for="simple-search" class="sr-only">Search</label>
                     <div class="relative w-full">
@@ -58,20 +61,17 @@
         </section>
 
         <section id="barang" class="pt-10">
-            <div class="flex flex-wrap">       
+            <div class="flex flex-wrap justify-center">       
 
                 @foreach ($products as $product)
                     <div class="w-full h-96 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 relative">
-                        <a href="#">
                             <img class="p-8 rounded-t-lg mx-auto" src="{{ asset('storage/' . $product->image) }}" alt="product image" />
-                        </a>
-                        <div class="px-5 pb-5 absolute bottom-0">
+                        <div class="p-5 pt-3 absolute bottom-0 bg-white bg-opacity-40">
                             <a href="#">
                                 <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ $product->name }}</h5>
                                 <span class="text-sm font-bold text-yellow-600 dark:text-white block">{{ $product->category->name }}</span>
                             </a>
                             <div class="flex items-center justify-between">
-                                
                                 <span class="text-lg font-bold text-gray-900 dark:text-white">Rp. {{ $product->harga }}</span>
                                 <form action="{{ route('ustore') }}" method="post" class="ml-36">
                                 @csrf

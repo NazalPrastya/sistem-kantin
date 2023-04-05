@@ -28,7 +28,6 @@
                 font-family: 'Poppins', sans-serif;
             }
         </style>
-
           @vite('resources/css/app.css')
     </head>
     <body>
@@ -72,7 +71,7 @@
                     </li>
 
                     <li class="group">
-                      <a href="/login/admin" class="text-base mt-1 font-extrabold text-dark mx-8 flex group-hover:bg-yellow-400 w-auto bg-yellow-300 px-5 py-1 rounded-lg border-2 border-oren ">Admin</a>
+                      <a href="/login" class="text-base mt-1 font-extrabold text-dark mx-8 flex group-hover:bg-yellow-400 w-auto bg-yellow-300 px-5 py-1 rounded-lg border-2 border-oren ">Admin</a>
                     </li>
                     
                   </ul>
@@ -121,6 +120,7 @@
         } 
       </script>
         @vite('resources/js/app.js')
+
         <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.2/flowbite.min.js"></script>
         <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>

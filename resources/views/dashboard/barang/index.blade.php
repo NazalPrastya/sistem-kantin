@@ -37,7 +37,7 @@
         <div class="mx-5 mt-2">
             <a href="/dashboard/barang" class="py-1 px-3 text-center text-[17px] rounded-md transition  hover:bg-[#D7DB01] {{ Request::is('dashboard/barang') ? 'btn-active' : 'bg-[#FBFF29]' }} ">Semua</a>
             @foreach ($category as $c )       
-            <a href="/dashboard/barang/{{ $c->id }}" class="py-1 px-3 text-center text-[17px] rounded-md transition  hover:bg-[#D7DB01] {{ Request::is('dashboard/barang/'. $c->id ) ? 'btn-active' : 'bg-[#FBFF29]' }} ">{{ $c->name }}</a>
+            <a href="/dashboard/barang/{{ $hash->encodeHex($c->id) }}" class="py-1 px-3 text-center text-[17px] rounded-md transition  hover:bg-[#D7DB01] {{ Request::is('dashboard/barang/'. $hash->encodeHex($c->id) ) ? 'btn-active' : 'bg-[#FBFF29]' }} ">{{ $c->name }}</a>
             @endforeach
         </div> 
     </div>
