@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\User;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -14,20 +15,23 @@ class CartController extends Controller
 {
     public function index()
     {
+        $userId = Auth::id();
+        $user = User::with('carts')->find($userId);
         return view('user.cart.index', [
-            'carts' => Cart::all(),
+            'carts' => $user->carts,
             'product' => Product::with('products'),
-            'cart' => Cart::all()
+            // 'cart' => Cart::all()
         ]);
     }
 
     public function store(Request $request)
     {
-        $duplicate = Cart::where('product_id', $request->product_id)->first();
+        $duplicate = Cart::where('product_id', $request->product_id)->where('user_id', auth()->id())->first();
         if ($duplicate) {
             return redirect('/keranjang')->with('error', 'Barang sudah ada di keranjang');
         }
         Cart::create([
+            'user_id' => Auth::id(),
             'product_id' => $request->product_id,
             'qty' => 1
         ]);

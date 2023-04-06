@@ -62,7 +62,7 @@
     <div class="form">
         <p class="title">Detail Riwayat</p>
         <p>Tanggal : {{ \Carbon\Carbon::parse($data->created_at)->format('d/m/Y') }}</p>
-        <p>Email : {{ $data->email }}</p>
+        <p>Nama : {{ $data->user->name }}</p>
         <table class="static"  align="center">
             <tr class="thead" align="center" style="border-bottom:1px solid black;">
                 <td>No</td>

@@ -7,18 +7,19 @@ use App\Models\History;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class CheckoutController extends Controller
 {
     public function store(Request $request, History $history)
     {
-        $carts = Cart::all();
+        $carts = Cart::where('user_id', auth()->id())->get();
 
         if ($carts->count() > 0) {
 
             $transaction = Transaction::create([
-                'email' => $request->input('email'),
+                'user_id' => Auth::id(),
                 'total' => $request->input('total')
             ]);
 

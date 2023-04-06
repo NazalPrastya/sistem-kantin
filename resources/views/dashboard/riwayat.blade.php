@@ -51,7 +51,7 @@
                            {{ $history->created_at->diffForHumans() }}
                         </th>
                         <td class="px-6 py-4">
-                            {{ $history->email }}
+                            {{ $history->user->email }}
                         </td>
                         <td class="px-6 py-4">
                             Rp. {{ number_format($history->total) }}
@@ -81,8 +81,8 @@
                                         <h3 class="mb-4 text-xl font-medium text-gray-900 inline">Detail Riwayat</h3>
                                         <a href="{{ route("cetakDetail", $history->id) }}" class="inline ml-10 font-semibold p-1 px-4 bg-green-500 rounded-md text-white hover:bg-green-700">Cetak</a>
                                         
-                                            <p>Tanggal :</p>
-                                            <p>Email : {{ $history->email }}</p>
+                                            <p>Tanggal : {{ $history->created_at }}</p>
+                                            <p>Nama : {{ $history->user->name }}</p>
                                             <table width="100%" >
                                                 <thead class="border-b-[1px] border-b-black pb-5">
                                                     <tr class="font-bold text-black">

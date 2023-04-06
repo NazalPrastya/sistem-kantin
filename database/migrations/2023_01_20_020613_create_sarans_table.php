@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('sarans', function (Blueprint $table) {
             $table->id();
-            $table->string('sender');
+            $table->string('sender', 20);
             $table->text('saran');
             $table->timestamps();
         });

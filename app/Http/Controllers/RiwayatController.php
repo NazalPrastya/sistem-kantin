@@ -4,25 +4,29 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\Cart;
+use App\Models\User;
 use App\Models\History;
+// use Barryvdh\DomPDF\PDF;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\VarDumper\Cloner\Data;
 
 class RiwayatController extends Controller
 {
     public function index()
     {
-        // $labels = ['Januari', 'Februari', 'Maret', 'April', 'May', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
-        $details = Transaction::with('history', 'history.product')->get();
+        $userId = Auth::id();
+        $user = User::with('carts')->find($userId);
+        $details = Transaction::where('user_id', auth()->id())->get();
         return view('user.riwayat.index', [
-            'cart' => Cart::all(),
+            'carts' => $user->carts,
             'histories' => $details,
             'detail' => History::where('transaction_id' == $details),
-            // 'label' => $labels
+
         ]);
     }
 

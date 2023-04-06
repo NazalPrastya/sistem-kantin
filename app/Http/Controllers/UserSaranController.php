@@ -3,15 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\User;
 use App\Models\Saran;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class UserSaranController extends Controller
 {
     public function index()
     {
-        $cart = Cart::all();
+        $userId = Auth::id();
+        $user = User::with('carts')->find($userId);
+
         $saran = Saran::all();
         $sensor = ['bodoh', 'bego', 'tolol', 'kontol', 'bloon'];
         foreach ($sensor as $s) {
@@ -19,7 +23,7 @@ class UserSaranController extends Controller
         };
         return view('user.saran.index', [
             'saran' => $saran,
-            'cart' => $cart,
+            'carts' => $user->carts,
             'sensor' => $sensor,
             'replace' => $replace
         ]);

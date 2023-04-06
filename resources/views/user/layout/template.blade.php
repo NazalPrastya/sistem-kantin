@@ -55,6 +55,8 @@
                       <a href="/barang" class="text-lg text-dark py-2 mx-8 flex hover:text-primary active:font-bold active:text-black {{ Request::is('barang') ? 'font-bold text-oren' : '' }}">Barang</a>
                     </li>
 
+                    @if ((Auth::guard('user')->user()))
+                        
                     <li class="group">
                       <a href="/saran" class="text-lg text-dark py-2 mx-8 flex hover:text-primary active:font-bold active:text-black {{ Request::is('saran') ? 'font-bold text-oren' : '' }}">Saran</a>
                     </li>
@@ -66,14 +68,34 @@
 
                     <li class="group">
                       <a href="/keranjang" class="text-4xl font-extrabold text-dark mx-8 py-2 text-[#FFAA29] hover:text-yellow-300 relative"><i class="bx bxs-cart"></i>
-                        <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full top-1 -right-3 dark:border-gray-900">{{ $cart->count() }}</div>
+                        <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full top-1 -right-3 dark:border-gray-900">{{ $carts->count() }}</div>
                       </a>
                     </li>
+                    @endif
 
+                    @if ((Auth::guard('user')->user()))
+                      
+                    <button id="dropdownDividerButton" data-dropdown-toggle="dropdownDivider" class="text-white bg-primary hover:bg-oren focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center " type="button">{{ auth()->guard()->user()->name }}<svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+
+                    <!-- Dropdown menu -->
+                    <div id="dropdownDivider" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDividerButton">
+                          <li>
+                            <a href="/profile" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profile</a>
+                          </li>
+                          <li>
+                            <form action="/logout" method="post" class="p-3 hover:bg-red-100">
+                              @csrf
+                              <button type="submit">Logout</button>
+                            </form>
+                          </li>
+                        </ul>
+                    </div>
+                    @else
                     <li class="group">
-                      <a href="/login" class="text-base mt-1 font-extrabold text-dark mx-8 flex group-hover:bg-yellow-400 w-auto bg-yellow-300 px-5 py-1 rounded-lg border-2 border-oren ">Admin</a>
+                      <a href="/login" class="text-base mt-1 font-extrabold text-dark mx-8 flex group-hover:bg-yellow-400 w-auto bg-yellow-300 px-5 py-1 rounded-lg border-2 border-oren ">Login</a>
                     </li>
-                    
+                    @endif
                   </ul>
                 </nav>
               </div>

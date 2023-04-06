@@ -54,10 +54,10 @@
                                         <span class="sr-only">Close modal</span>
                                     </button>
                                     <div class="px-6 py-6 lg:px-8">
-                                        <h3 class="mb-4 text-xl font-medium text-gray-900 ">Detail Riwayat</h3>
-                             
+                                        <h3 class="mb-4 text-xl font-medium text-gray-900 inline">Detail Riwayat</h3>
+                                        <a href="{{ route("cetakDetail", $history->id) }}" class="inline ml-10 font-semibold p-1 px-4 bg-green-500 rounded-md text-white hover:bg-green-700">Cetak</a>
                                             <p>Tanggal : {{ date('d-m-Y', strtotime($history->created_at)) }}</p>
-                                            <p>Email : {{ $history->email }}</p>
+                                            <p>Nama : {{ $history->user->name }}</p>
                                             <table width="100%" >
                                                 <thead class="border-b-[1px] border-b-black pb-5">
                                                     <tr class="font-bold text-black">
@@ -90,7 +90,7 @@
                                             <p class="mt-3 justify-end text-end font-bold text-sm text-black">Total Harga : Rp. {{ number_format($history->total) }}</p>
                                     </div>
                                     <div id="#footer" class="p-3 bg-slate-300 rounded-b-md">
-                                        <p class="text-center text-sm text-black">Terimakasih telah berbelanja di koperasi kami</p>
+                                        <p class="text-center text-sm text-black">Terimakasih telah berbelanja di kantin kami</p>
                                     </div>
                                 </div>
                             </div>

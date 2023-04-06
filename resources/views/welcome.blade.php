@@ -47,11 +47,9 @@
                       <li class="group">
                         <a href="#footer" class="text-lg text-dark py-2 mx-8 flex group-hover:font-bold hover:text-primary active:font-bold active:text-black ">Tentang Saya</a>
                       </li>
-
                       <li class="group">
-                        <a href="/login" class="text-lg font-extrabold text-dark mx-8 flex group-hover:bg-yellow-400 w-auto bg-yellow-300 px-5 py-1 rounded-lg border-2 border-oren ">Admin</a>
-                      </li>
-                      
+                        <a href="/login" class="text-lg font-extrabold text-dark mx-8 flex group-hover:bg-yellow-400 w-auto bg-yellow-300 px-5 py-1 rounded-lg border-2 border-oren ">Login</a>
+                      </li>                   
                     </ul>
                   </nav>
                 </div>

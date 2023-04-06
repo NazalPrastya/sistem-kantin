@@ -3,6 +3,7 @@
 use App\Models\Admin;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SaranController;
@@ -31,11 +32,16 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::get('/barang', [UserBarangController::class, 'index'])->name('usearch');
-Route::get('/barang/{id}', [UserBarangController::class, 'category']);
+Route::get('/register', [UserController::class, 'create']);
+Route::post('/register', [UserController::class, 'store']);
+
 
 // User Interface
 Route::group(['middleware' => ['auth:user']], function () {
+    Route::get('/profile', [UserController::class, 'index']);
+    Route::get('/barang', [UserBarangController::class, 'index'])->name('usearch');
+    Route::get('/barang/{id}', [UserBarangController::class, 'category']);
+
     Route::get('/keranjang', [CartController::class, 'index']);
     Route::post('/cart/store', [CartController::class, 'store'])->name('ustore');
     Route::delete('/cart/{cart:id}', [CartController::class, 'destroy'])->name('udesroy');
@@ -50,7 +56,9 @@ Route::group(['middleware' => ['auth:user']], function () {
     Route::get('/riwayat', [RiwayatController::class, 'index']);
 });
 
-
+Route::group(['middleware' => ['auth:admin,user']], function () {
+    route::get('/dashboard/riwayat/cetak-detail/{history:id}', [RiwayatController::class, 'cetakDetail'])->name("cetakDetail");
+});
 
 // Admin Interface
 Route::group(['middleware' => ['auth:admin']], function () {
@@ -66,7 +74,6 @@ Route::group(['middleware' => ['auth:admin']], function () {
 
     Route::get('/dashboard/riwayat', [RiwayatController::class, 'indexAdmin']);
     Route::get('/dashboard/riwayat/cetak-Riwayat/{days}', [RiwayatController::class, 'cetakRiwayat'])->name("cetak-Riwayat");
-    route::get('/dashboard/riwayat/cetak-detail/{history:id}', [RiwayatController::class, 'cetakDetail'])->name("cetakDetail");
     Route::delete('/dashboard/riwayat/{history:id}', [RiwayatController::class, 'destroy']);
 
 

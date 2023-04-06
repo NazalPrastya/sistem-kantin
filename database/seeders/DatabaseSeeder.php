@@ -4,9 +4,10 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\User;
 use App\Models\Admin;
-use App\Models\Category;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -65,6 +66,26 @@ class DatabaseSeeder extends Seeder
             'username' => 'nazal',
             'email' => 'nazal@gmail.com',
             'no_hp' => '089516439498',
+            'password' => bcrypt('password')
+        ]);
+
+        User::create([
+            'name' => 'Nazal Gusti Prastya',
+            'email' => 'nazalprastya@gmail.com',
+            'kelas' => '11',
+            'jurusan' => 'Pengembangan Perangkat Lunak dan Gim',
+            'no_telp' => '089516439498',
+            'alamat' => 'Ciomas',
+            'password' => bcrypt('password')
+        ]);
+
+        User::create([
+            'name' => 'Nazal Gusti Prastya',
+            'email' => 'zulfan@gmail.com',
+            'kelas' => '11',
+            'jurusan' => 'Pengembangan Perangkat Lunak dan Gim',
+            'no_telp' => '089516439498',
+            'alamat' => 'Ciomas',
             'password' => bcrypt('password')
         ]);
     }
