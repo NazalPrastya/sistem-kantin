@@ -31,7 +31,7 @@
           @vite('resources/css/app.css')
     </head>
     <body>
-
+      @include('sweetalert::alert')
         {{-- Start Navbar --}}
         <header class="bg-transparent absolute top-0 left-0 w-full flex items-center z-10">
           <div class="container">

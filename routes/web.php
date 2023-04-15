@@ -39,6 +39,11 @@ Route::post('/register', [UserController::class, 'store']);
 // User Interface
 Route::group(['middleware' => ['auth:user']], function () {
     Route::get('/profile', [UserController::class, 'index']);
+    Route::get('/edit/profile', [UserController::class, 'edit']);
+    Route::put('/change-img', [UserController::class, 'gantiImage'])->name('gantiImg');
+    Route::get('/change-password', [UserController::class, 'gantiPassword']);
+    Route::put('/chnage-password/update', [UserController::class, 'updatePassword'])->name('updatePassword');
+
     Route::get('/barang', [UserBarangController::class, 'index'])->name('usearch');
     Route::get('/barang/{id}', [UserBarangController::class, 'category']);
 

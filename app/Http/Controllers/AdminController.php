@@ -29,7 +29,7 @@ class AdminController extends Controller
             [
                 'username' => 'required|min:5',
                 'email' => 'required|email:dns|unique:admins',
-                'no_hp' =>  'required|min:10|max:14',
+                'no_hp' =>  'required|min:10|max:14|unique:admins',
                 'password' => 'required|min:5'
             ],
             [

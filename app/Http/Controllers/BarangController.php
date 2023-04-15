@@ -66,7 +66,7 @@ class BarangController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required|min:5|max:100',
+            'name' => 'required|min:3|max:100',
             'harga' => 'required|min:3',
             'category_id' => 'required',
             'desc' => 'required|min:10',
@@ -104,7 +104,7 @@ class BarangController extends Controller
     public function update(Request $request, Product $product)
     {
         $validatedData = $request->validate([
-            'name' => 'required|min:5|max:100',
+            'name' => 'required|min:3|max:100',
             'harga' => 'required|integer|min:5',
             'category_id' => 'required',
             'desc' => 'required|min:5',
