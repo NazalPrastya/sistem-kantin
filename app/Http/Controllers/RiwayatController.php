@@ -6,7 +6,6 @@ use Carbon\Carbon;
 use App\Models\Cart;
 use App\Models\User;
 use App\Models\History;
-// use Barryvdh\DomPDF\PDF;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -50,7 +49,7 @@ class RiwayatController extends Controller
 
         $total = $transactionTotal->sum('total');
 
-        $details = Transaction::with('history', 'history.product')->get();
+        $details = Transaction::with('history', 'history.product')->paginate(10);
         return view('dashboard.riwayat', [
             'cart' => Cart::all(),
             'histories' => $details,
@@ -59,23 +58,22 @@ class RiwayatController extends Controller
             'data' => $data,
             'total' => $total
         ]);
-        // @dd($labels);
     }
 
-    public function cetakRiwayat($days)
+    public function cetakRiwayat(Request $request)
     {
-        // Menghitung tanggal awal dan akhir berdasarkan rentang hari
-        $today = Carbon::now()->toDateString();
-        $start_date = Carbon::now()->subDays($days)->toDateString();
+        $request->validate([
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after_or_equal:start_date',
+        ]);
+        $start_date = $request->input('start_date');
+        $end_date = $request->input('end_date');
 
-        // Query data dari database berdasarkan tanggal awal dan akhir
-        $data = Transaction::whereBetween('created_at', [$start_date, $today])->with('history', 'history.product')->get();
+        $data = Transaction::whereBetween('created_at', [$start_date, $end_date])->with('history', 'history.product')->get();
 
-        // Generate PDF dengan DOMPDF
-        $pdf = PDF::loadView('dashboard.cetak-history', compact('data', 'start_date', 'today'));
+        $pdf = PDF::loadView('dashboard.cetak-history', compact('data', 'start_date', 'end_date'));
 
-        // Download file PDF
-        return $pdf->download('data-' . $days . '-hari-' . $today . '.pdf');
+        return $pdf->download('data dari' . $start_date . 'sampai' . $end_date . '.pdf');
     }
 
     public function cetakDetail($id)

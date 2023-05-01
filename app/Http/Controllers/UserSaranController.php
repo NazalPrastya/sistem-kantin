@@ -17,7 +17,7 @@ class UserSaranController extends Controller
         $user = User::with('carts')->find($userId);
 
         $saran = Saran::all();
-        $sensor = ['bodoh', 'bego', 'tolol', 'kontol', 'bloon'];
+        $sensor = ['bodoh', 'bego', 'tolol', 'kontol', 'bloon', 'memek', 'anjing', 'babi', 'bajingan', 'jelek'];
         foreach ($sensor as $s) {
             $replace = str_repeat("*", strlen($s));
         };
@@ -32,8 +32,8 @@ class UserSaranController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'sender' => 'required|min:5|max:100',
-            'saran' => 'required|min:10'
+            'sender' => 'required|min:2|max:100',
+            'saran' => 'required|min:5'
         ], [
             'sender.required' => 'Wajib isi pengirim',
             'sender.min' => 'Minimal 5 huruf masbro',

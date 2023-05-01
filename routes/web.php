@@ -78,7 +78,7 @@ Route::group(['middleware' => ['auth:admin']], function () {
     Route::delete('/dashboard/barang/{product:id}', [BarangController::class, 'destroy']);
 
     Route::get('/dashboard/riwayat', [RiwayatController::class, 'indexAdmin']);
-    Route::get('/dashboard/riwayat/cetak-Riwayat/{days}', [RiwayatController::class, 'cetakRiwayat'])->name("cetak-Riwayat");
+    Route::post('/dashboard/riwayat/cetak-Riwayat', [RiwayatController::class, 'cetakRiwayat'])->name("cetak-Riwayat");
     Route::delete('/dashboard/riwayat/{history:id}', [RiwayatController::class, 'destroy']);
 
 

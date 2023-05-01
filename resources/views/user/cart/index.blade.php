@@ -87,58 +87,75 @@
         <p class="text-end text-lg font-bold pr-3">Total belanja <span class="text-orange-500 font-extrabold">Rp.{{ number_format($total) }}</span></p>
 
         <div class="m-auto flex justify-center">            
-        <!-- Modal toggle -->
-        {{-- <button data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-5 py-1 text-center text-lg" type="button">
+                  
+        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2 text-center " type="button">
           Checkout
-        </button> --}}
-        <form action="{{ route('checkout') }}" method="post">
-          @csrf
-          <input type="hidden" value="{{ $total }}" name="total">
-          <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Checkout</button>
-        </form>
+        </button>
 
-      <!-- Main modal -->
-      {{-- <div id="defaultModal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
-          <div class="relative w-full h-full max-w-2xl md:h-auto">
-              <!-- Modal content -->
-              <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                  <!-- Modal header -->
-                  <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-                      <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                          Checkout
-                      </h3>
-                      <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="defaultModal">
-                          <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                          <span class="sr-only">Close modal</span>
-                      </button>
-                  </div>
-                  <!-- Modal body -->
-                  <div class="p-6 space-y-6">
-                      <form action="{{ route('checkout') }}" method="post">
-                        @csrf
-                        <div class="mb-6">
-                          <input type="hidden" name="total" value="{{ $total }}">
-                          <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Masukan Email</label>
-                          <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 @error('email')
-                            is_invalid
-                          @enderror " placeholder="nazal@gmail.com" required>
-                          @error('email')
-                            <div class="feedback">
-                              {{ $message }}
-                            </div>
-                          @enderror
+        <div id="popup-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+            <div class="relative w-full max-w-md max-h-full">
+                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                    <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center " data-modal-hide="popup-modal">
+                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                    <div class="p-6 text-center">
+                        {{-- <svg aria-hidden="true" class="mx-auto mb-4 text-gray-400 w-14 h-14 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> --}}
+                        <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Pilih metode pembayaran</h3>
+                        <form action="{{ route('checkout') }}" method="post" class="inline" id="checkout">
+                          @csrf
+                          <input type="hidden" value="{{ $total }}" name="total">
+                          <button data-modal-hide="popup-modal" type="submit" class="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2 text-center mr-2">
+                            Cash
+                          </button>
+                        </form>
+                        {{-- <form action="{{ route('midtrans') }}" method="post" class="inline">
+                          @csrf
+                          <input type="hidden" value="{{ $total }}" name="total_payment"> --}}
+                          <button data-modal-hide="popup-modal" type="submit" class="text-white bg-primary hover:bg-oren focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2 focus:z-10 " id="pay-button">Digital Payment</button>
+
+
+
+                          <script type="text/javascript">
+                            // For example trigger on button clicked, or any time you need
+                            var payButton = document.getElementById('pay-button');
+                            payButton.addEventListener('click', function () {
+                              // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
+                              window.snap.pay('{{ $snapToken }}', {
+                                onSuccess: function(result){
+                                  /* You may add your own implementation here */
+                                  alert("payment success!"); console.log(result);
+                                  submit_form();
+                                },
+                                onPending: function(result){
+                                  /* You may add your own implementation here */
+                                  alert("wating your payment!"); console.log(result);
+                                  submit_form();
+                                },
+                                onError: function(result){
+                                  /* You may add your own implementation here */
+                                  alert("payment failed!"); console.log(result);
+                                  submit_form();
+                                },
+                                onClose: function(){
+                                  /* You may add your own implementation here */
+                                  alert('you closed the popup without finishing the payment');
+                                }
+                              })
+                            });
+
+                            function submit_form(){
+                              document.getElementById('checkout').submit();
+                              
+                            }
+                          </script>
                         </div>
-                  </div>
-            <!-- Modal footer -->
-                    <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                        <button data-modal-hide="defaultModal" type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Checkout</button>
-                      </form>
-                    </div>
-                  </div>
-              </div>
-          </div>
+                      {{-- </form> --}}
+                </div>
+            </div>
+        </div>
 
-        </div> --}}
+
     </div>
 @endsection
 

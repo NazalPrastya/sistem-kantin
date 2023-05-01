@@ -20,7 +20,7 @@
           @vite('resources/css/app.css')
     </head>
     <body class="bg-[#003146] bg-no-repeat">
-        <div class="w-full h-full absolute z bg-bottom bottom-0 bg-[url('/public/img/login/wave.svg')] bg-no-repeat  z-10" >
+        <div class="w-full h-full absolute z bg-bottom -bottom-20 bg-[url('/public/img/login/wave.svg')] bg-no-repeat  z-10 bg-cover">
         <section class="pt-20" >
             <div class="container text-white">
                 <div class="w-full md:w-6/12 lg:w-5/12 mx-auto">

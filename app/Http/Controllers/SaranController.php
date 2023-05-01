@@ -12,7 +12,7 @@ class SaranController extends Controller
 {
     public function index()
     {
-        $sensor = ['bodoh', 'bego', 'tolol', 'kontol', 'bloon', 'memek'];
+        $sensor = ['bodoh', 'bego', 'tolol', 'kontol', 'bloon', 'memek', 'anjing', 'babi'];
         foreach ($sensor as $s) {
             $replace = str_repeat("*", strlen($s));
         };

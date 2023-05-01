@@ -57,7 +57,7 @@
             <tr>
                 <td align="center">{{ $loop->iteration }}</td>
                 <td>{{ $d->created_at }}</td>
-                <td>{{ $d->email }}</td>
+                <td>{{ $d->user->email }}</td>
                 <td>Rp.{{ number_format($d->total) }}</td>
                 <td>@foreach ($d->history as $c)
                     <p>Produk: <span class="bold">{{ $c->product->name }}</span> | Harga:  <span class="bold">Rp. {{ number_format($c->product->harga) }}</span>  | Qty: <span class="bold">{{ $c->qty }}</span> | Subtotal: <span class="bold">{{ number_format($c->qty * $c->product->harga) }}</span></p>

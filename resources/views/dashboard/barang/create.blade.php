@@ -64,7 +64,6 @@
                         {{ $message }}
                     </div>
                     @enderror
-                    <p class="mt-1 text-sm text-gray-500" id="file_input_help">SV, PNG, JPG(MAX. 800x400px).</p>
                 </div>
             </div>
             </div>

@@ -6,14 +6,31 @@
     </div>
 
     <div class="container pt-10">  
-        {{-- <form action="{{  }}">
-            
-        </form> --}}
-        <a href="{{ route('cetak-Riwayat', 1) }}" class="text-sm mx-2 py-1 px-3 bg-green-500 rounded-md text-slate-100 hover:bg-green-600 "> <i class='bx bxs-file-pdf'></i>1 Hari</a>
-        <a href="{{ route('cetak-Riwayat', 3) }}" class="text-sm mx-2 py-1 px-3 bg-green-500 rounded-md text-slate-100 hover:bg-green-600 "> <i class='bx bxs-file-pdf'></i>3 Hari</a>      
-        <a href="{{ route('cetak-Riwayat', 7) }}" class="text-sm mx-2 py-1 px-3 bg-green-500 rounded-md text-slate-100 hover:bg-green-600 "> <i class='bx bxs-file-pdf'></i>7 Hari</a>      
-        <a href="{{ route('cetak-Riwayat', 30) }}" class="text-sm mx-2 py-1 px-3 bg-green-500 rounded-md text-slate-100 hover:bg-green-600 "> <i class='bx bxs-file-pdf'></i>30 Hari</a>      
+        {{-- <a href="{{ route('cetak-Riwayat', 1) }}" class="text-sm mx-2 py-1 px-3 bg-green-500 rounded-md text-slate-100 hover:bg-green-600 "> <i class='bx bxs-file-pdf'></i>1 Hari</a>
+        --}}
+        <form action="{{ route('cetak-Riwayat') }}" method="post">
+            @csrf
+            <label for="start_date" class="block mb-2 font-medium text-gray-900">Tanggal Awal:</label>
+            <input type="date" id="start_date" name="start_date" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/4 p-2.5 mb-3 @error('start_date')
+                is_invalid
+            @enderror" value="{{ old('start_date') }}">
+            @error('start_date')
+                <div class="feedback">
+                    {{ $message }}
+                </div>
+            @enderror
         
+            <label for="end_date" class="block mb-2 font-medium text-gray-900 ">Tanggal Akhir:</label>
+            <input type="date" id="end_date" name="end_date" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/4 p-2.5 mb-3 @error('end_date')
+                is_invalid
+            @enderror" value="{{ old('end_date') }}">
+            @error('end_date')
+                <div class="feedback">
+                    {{ $message }}
+                </div>
+            @enderror
+            <button type="submit" class="px-4 py-1 bg-blue-600 hover:bg-blue-800 rounded-md text-white">Print Data</button>
+        </form>
         <div class="w-full h-[60vh] flex justify-center my-10">
             <canvas id="myChart" ></canvas>
         </div>
@@ -41,11 +58,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($histories as $history)
+                    @foreach ($histories as $index => $history)
                         
                     <tr class="bg-white border-b rounded-lg mt-2">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap rounded-lg">
-                            {{ $loop->iteration }}
+                            {{ $index + $histories->firstItem() }}
                          </th>
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap rounded-lg">
                            {{ $history->created_at->diffForHumans() }}
@@ -115,6 +132,7 @@
 
                 </tbody>
             </table>
+            {{ $histories->withQueryString()->links() }}
         </div>
     </div>
 

@@ -81,7 +81,7 @@
                     {{ $s->created_at->diffForHumans() }}
                 </td>
                 <td class="px-6 py-4">
-                    {{ str_replace($sensor, $replace, $s->saran) }}
+                        {{ str_replace($sensor, $replace, $s->saran) }}
                 </td>
                 @if ((Auth::guard('admin')->user()))
                 <td class="px-6 py-4">
