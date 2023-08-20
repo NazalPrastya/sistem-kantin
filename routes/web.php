@@ -27,10 +27,14 @@ use App\Http\Controllers\LandingPageController;
 |
 */
 
+Route::get('/landing-page-jadul', [LandingPageController::class, 'index2']);
 Route::get('/', [LandingPageController::class, 'index']);
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
+Route::get('/auth/redirect', [LoginController::class, 'redirect'])->name('goggle.redirect');
+Route::get('/goggle/redirect', [LoginController::class, 'goggleCallback'])->name('goggle.callback');
+
 
 Route::get('/register', [UserController::class, 'create']);
 Route::post('/register', [UserController::class, 'store']);

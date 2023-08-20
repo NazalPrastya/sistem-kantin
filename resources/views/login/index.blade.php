@@ -17,16 +17,23 @@
             }
             
         </style>
-          @vite('resources/css/app.css')
+          {{-- mystyle --}}
+        {{-- <link rel="preload" as="style" href="/build/assets/app-91987c3c.css" />
+        <link rel="stylesheet" href="/build/assets/app-91987c3c.css" /> --}}
+        @vite('resources/css/app.css')
     </head>
     <body class="bg-[#003146] bg-no-repeat">
         <div class="w-full h-full absolute z bg-bottom -bottom-20 bg-[url('/public/img/login/wave.svg')] bg-no-repeat  z-10 bg-cover">
-        <section class="pt-20" >
+        <section class="pt-10" >
             <div class="container text-white">
                 <div class="w-full md:w-6/12 lg:w-5/12 mx-auto">
                     <h2 class="text-3xl font-[1000] bold text-center text-lime-600 tracking-wider stroke-white stroke-2 store" style="-webkit-text-stroke: 0.1rem white">SIKANTIN</h2>
                     <h3 class="text-2xl font-semibold text-center mt-3 ">Sign In</h3>
                     <p class="text-center font-medium mt-3">Welcome Back, are you admin?, Sign in as admin and manage your website brother!</p>
+                    <a href="{{ route('goggle.redirect') }}" class="text-center flex justify-center gap-2 text-yellow-300 hover:text-yellow-400 text-sm items-center border border-white rounded-full py-2 hover:bg-slate-200 duration-300">
+                        Login With Google
+                        <img src="/img/goggle.png" alt="google" width="30" class="inline" >
+                    </a>
                     <form action="/login" method="post" class="mt-3 justify-center">
                         {{-- Alert Start --}}
                         @if (session()->has('loginError'))
@@ -86,7 +93,9 @@
                 </div>  
             </div>
         </section>
-         @vite('resources/js/app.js')
+          {{-- my js --}}
+        <link rel="modulepreload" href="http://127.0.0.1:8000/build/assets/app-d4180086.js" />
+        <script type="module" src="http://127.0.0.1:8000/build/assets/app-d4180086.js"></script>
         </div>
 
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

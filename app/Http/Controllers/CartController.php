@@ -17,7 +17,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class CartController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
         $history = History::latest()->first();
         $userId = Auth::id();
@@ -38,7 +38,7 @@ class CartController extends Controller
 
         $params = array(
             'transaction_details' => array(
-                'order_id' => $history->id + 1,
+                'order_id' => rand(),
                 'gross_amount' =>  $total,
             ),
             'customer_details' => array(
@@ -109,7 +109,7 @@ class CartController extends Controller
 
     public function callback(Request $request)
     {
-        $userId = Auth::id();
+        // $userId = Auth::id();
         $carts = Cart::where('user_id', auth()->id())->get();
         if ($carts->count() > 0) {
 
@@ -117,21 +117,20 @@ class CartController extends Controller
             $hashed = hash("sha512", $request->order_id . $request->status_code . $request->gross_amount . $serverKey);
             if ($hashed == $request->signature_key) {
                 if ($request->transaction_status == 'capture') {
+                    // $transaction = Transaction::create([
+                    //     'user_id' => $userId,
+                    //     'total' => $request->gross_amount
+                    // ]);
 
-                    $transaction = Transaction::create([
-                        'user_id' => $userId,
-                        'total' => $request->gross_amount
-                    ]);
-
-                    foreach ($carts as $c) {
-                        $transaction->detail()->create([
-                            'product_id' => $c->product_id,
-                            'qty' => $c->qty,
-                        ]);
-                    }
-                    Cart::destroy($carts);
-                    Alert::success('Pembelian Berhasil', 'Terimakasih telah berbelanja di sini');
-                    return redirect('/keranjang');
+                    // foreach ($carts as $c) {
+                    //     $transaction->detail()->create([
+                    //         'product_id' => $c->product_id,
+                    //         'qty' => $c->qty,
+                    //     ]);
+                    // }
+                    // Cart::destroy($carts);
+                    // Alert::success('Pembelian Berhasil', 'Terimakasih telah berbelanja di sini');
+                    // return redirect('/keranjang');
                 }
             }
         }

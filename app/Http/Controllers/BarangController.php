@@ -84,6 +84,7 @@ class BarangController extends Controller
             $validatedData['image'] = $request->file('image')->store('barang-image');
         }
         $validatedData['harga'] = str_replace(['IDR', 'Rp', '.', 'RP', 'Idr'], '', $request->harga);
+        $validatedData['status'] = 'enable';
 
         Product::create($validatedData);
 
@@ -105,9 +106,10 @@ class BarangController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|min:3|max:100',
-            'harga' => 'required|integer|min:5',
+            'harga' => 'required|min:3',
             'category_id' => 'required',
             'desc' => 'required|min:5',
+            'status' => 'required',
             'image' => 'file|max:1024'
         ], [
             'name.required' => 'Product harus diisi'
@@ -118,6 +120,7 @@ class BarangController extends Controller
             }
             $validatedData['image'] = $request->file('image')->store('barang-image');
         }
+        $validatedData['harga'] = str_replace(['IDR', 'Rp', '.', 'RP', 'Idr'], '', $request->harga);
 
         $product->update($validatedData);
         return redirect('dashboard/barang')->with('success', 'barang berhasil diedit');

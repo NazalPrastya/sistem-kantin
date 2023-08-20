@@ -104,6 +104,7 @@
                         <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Pilih metode pembayaran</h3>
                         <form action="{{ route('checkout') }}" method="post" class="inline" id="checkout">
                           @csrf
+                          <input type="hidden" value="Cash" name="payment" id="payment">
                           <input type="hidden" value="{{ $total }}" name="total">
                           <button data-modal-hide="popup-modal" type="submit" class="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2 text-center mr-2">
                             Cash
@@ -145,8 +146,8 @@
                             });
 
                             function submit_form(){
+                              document.getElementById('payment').value = "Digital Payment";
                               document.getElementById('checkout').submit();
-                              
                             }
                           </script>
                         </div>

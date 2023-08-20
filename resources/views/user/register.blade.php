@@ -7,7 +7,9 @@
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <title>Sistem Informasi Kantin| Register</title>
-@vite('resources/css/app.css')
+{{-- mystyle --}}
+<link rel="preload" as="style" href="/build/assets/app-91987c3c.css" />
+<link rel="stylesheet" href="/build/assets/app-91987c3c.css" />
 <body>
     <!--  Application Details Start -->
     <div class="w-full bg-[#003146] ">
@@ -110,15 +112,17 @@
                       
                         </div>
 
-                        <div class="mb-4">
+                        <div class="mb-4 inline">
                             <button
-                                class="mb-2 mx-16 rounded-full py-1 px-24 bg-gradient-to-r from-green-400 to-blue-500 ">
+                                class="mb-2 mx-16 rounded-full py-1 px-20 bg-gradient-to-r from-green-400 to-blue-500 ">
                                 Save
                             </button>
+                            <a href="/login" class="px-4 py-1 bg-green-400 rounded-md hover:bg-green-700 text-center">back</a>
+
                         </div>
                     </div>
                 </form>
-
+              
             </div>
 
         </div>
@@ -138,7 +142,9 @@
 
 
 
-    @vite('resources/js/app.js')
+    {{-- my js --}}
+    <link rel="modulepreload" href="http://127.0.0.1:8000/build/assets/app-d4180086.js" />
+    <script type="module" src="http://127.0.0.1:8000/build/assets/app-d4180086.js"></script>
 </body>
 
 </html>

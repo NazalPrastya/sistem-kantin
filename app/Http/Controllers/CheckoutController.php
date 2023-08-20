@@ -20,6 +20,7 @@ class CheckoutController extends Controller
 
             $transaction = Transaction::create([
                 'user_id' => Auth::id(),
+                'metode_pembayaran' => $request->input('payment'),
                 'total' => $request->input('total')
             ]);
 

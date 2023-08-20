@@ -1,39 +1,18 @@
-
 @extends('user.layout.template')
 @section('content')
 <div class="container pt-10">        
-    <div id="indicators-carousel" class="relative" data-carousel="static">
-        <!-- Carousel wrapper -->
-        <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-            @foreach ($carousels as $carousel)
-            <!-- Item 1 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-                <img src="{{ asset('storage/' . $carousel->image) }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                @foreach ($carousels as $carousel)
+                <div class="swiper-slide">
+                    <img src="{{ asset('storage/' . $carousel->image) }}" class="w-full">
+                </div>       
+                @endforeach
             </div>
-            <!-- Item 2 -->
-            @endforeach
-        <!-- Slider indicators -->
-        <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
-            <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
-            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
-        <!-- Slider controls -->
-        <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                <span class="sr-only">Previous</span>
-            </span>
-        </button>
-        <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                <span class="sr-only">Next</span>
-            </span>
-        </button>
-    </div>
 
         <section id="category">
             <div class="flex flex-col md:flex-row pt-5 justify-center text-center">
@@ -64,23 +43,31 @@
             <div class="flex flex-wrap justify-center">       
 
                 @foreach ($products as $product)
-                    <div class="w-full h-96 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 relative">
-                            <img class="p-8 rounded-t-lg mx-auto" src="{{ asset('storage/' . $product->image) }}" alt="product image" />
-                        <div class="p-5 pt-3 absolute bottom-0 bg-white bg-opacity-40">
-                            <a href="#">
-                                <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ $product->name }}</h5>
-                                <span class="text-sm font-bold text-yellow-600 dark:text-white block">{{ $product->category->name }}</span>
-                            </a>
-                            <div class="flex items-center justify-between">
-                                <span class="text-lg font-bold text-gray-900 dark:text-white">Rp. {{ $product->harga }}</span>
-                                <form action="{{ route('ustore') }}" method="post" class="ml-36">
-                                @csrf
-                                 <input type="hidden" value="{{ $product->id }}" name="product_id">
-                                 <input type="submit" class="p-2 px-3  font-semibold rounded-md bg-blue-600 text-white hover:bg-yellow-400 cursor-pointer " value="Add to cart">
-                                </form>
-                            </div>
-                        </div>
+                <div class="w-full md:w-1/2 lg:w-1/4 shadow-lg ring-1 ring-slate-300 rounded-lg my-5 flex-col flex justify-between mx-3 relative">
+                    @if ($product->status === 'disable')
+                        
+                    <span class="bg-red-700 text-center text-white text-xl py-5 absolute w-full top-36 left-0">Stock Habis!</span>
+                    @endif
+
+                    <div class="flex items-center justify-center">
+                        <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-52">
                     </div>
+                    <div class="mx-5 mt-2 bg-white bg-opacity-60 border-t-2 ">
+                        <p class="text-2xl font-semibold">{{ $product->name }}</p>
+                        <p class="font-light"> {{ $product->desc }}</p>
+                        <span class="text-orange-500">{{ $product->category->name }}</span>
+                      <div class="flex justify-between mb-3 items-center">
+                        <span class="font-bold text-lg w-3/4">Rp. {{ $product->harga }}</span>
+                        @if ($product->status === 'enable')     
+                        <form action="{{ route('ustore') }}" method="post" class="ml-36 w-1/4">
+                            @csrf
+                            <input type="hidden" value="{{ $product->id }}" name="product_id">
+                            <input type="submit" class="p-2 px-3  font-semibold rounded-md bg-blue-600 text-white hover:bg-primary cursor-pointer duration-300 hover:ring-2 hover:ring-primary" value="Beli">
+                        </form>
+                        @endif
+                      </div>
+                    </div>
+                  </div>
                 @endforeach
                    
             </div>

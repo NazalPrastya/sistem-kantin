@@ -16,7 +16,8 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
         <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
-        
+        <!-- Link Swiper's CSS -->
+       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
         {{-- Midtrans --}}
          <!-- @TODO: replace SET_YOUR_CLIENT_KEY_HERE with your client key -->
         <script type="text/javascript"
@@ -34,8 +35,27 @@
             body {
                 font-family: 'Poppins', sans-serif;
             }
+            .swiper {
+              width: 100%;
+              height: 100%;
+          }
+
+          .swiper-slide {
+              text-align: center;
+              font-size: 18px;
+              background: #fff;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+          }
+
+        
+
         </style>
-          @vite('resources/css/app.css')
+        @vite('resources/css/app.css')
+          {{-- mystyle --}}
+        {{-- <link rel="preload" as="style" href="/build/assets/app-91987c3c.css" />
+        <link rel="stylesheet" href="/build/assets/app-91987c3c.css" /> --}}
     </head>
     <body>
       @include('sweetalert::alert')
@@ -148,8 +168,31 @@
             }
         } 
       </script>
-        @vite('resources/js/app.js')
+         {{-- my js --}}
+         @vite('resources/js/app.js')
+         {{-- <link rel="modulepreload" href="http://127.0.0.1:8000/build/assets/app-d4180086.js" />
+         <script type="module" src="http://127.0.0.1:8000/build/assets/app-d4180086.js"></script> --}}
+         <!-- Swiper JS -->
+          <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
+          <!-- Initialize Swiper -->
+          <script>
+            var swiper = new Swiper(".mySwiper", {
+              navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+              },
+              pagination: {
+              el: ".swiper-pagination",
+            },
+            loop:true,
+            autoplay: {
+              delay:3000,
+              disableOnInteraction: false,
+            }
+            
+            });
+          </script>
         <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.2/flowbite.min.js"></script>
         <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
