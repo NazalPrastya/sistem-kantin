@@ -23,57 +23,7 @@
                 object-fit: center; */
 
             }
-          
-
-            .swiper {
-                width: 240px;
-                height: 320px;
-            }
-
-            .swiper-slide {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                border-radius: 18px;
-                font-size: 22px;
-                font-weight: bold;
-                background-color: #fff;
-            }
-
-            .swiper-slide:nth-child(1n) {
-                background-color: rgb(206, 17, 17);
-            }
-
-            .swiper-slide:nth-child(2n) {
-                background-color: rgb(0, 140, 255);
-            }
-
-            .swiper-slide:nth-child(3n) {
-                background-color: rgb(10, 184, 111);
-            }
-
-            .swiper-slide:nth-child(4n) {
-                background-color: rgb(211, 122, 7);
-            }
-
-            .swiper-slide:nth-child(5n) {
-                background-color: rgb(118, 163, 12);
-            }
-
-            .swiper-slide:nth-child(6n) {
-                background-color: rgb(180, 10, 47);
-            }
-
-            .swiper-slide:nth-child(7n) {
-                background-color: rgb(35, 99, 19);
-            }
-
-            .swiper-slide:nth-child(8n) {
-                background-color: rgb(0, 68, 255);
-            }
-
-
+            
         </style>
         @vite('resources/css/app.css')
         
@@ -107,19 +57,19 @@
           <section id="home" class="min-h-screen relative bg-gradient-to-t from-white to-yellow-100">
             <img src="/img/landing/choco.svg" alt="choco" class="absolute bottom-20 left-0 scale-75 animate-wiggle  ">
             <img src="/img/landing/snack.svg" alt="choco" class="absolute top-16 right-5 scale-75 animate-wiggle z-20">
-            <img src="/img/landing/chips.svg" alt="choco" class="absolute bottom-16 right-5 scale-75 animate-wiggle md:z-10">
-              {{-- <div class="absolute right-0 bottom-0 opacity-70">
-                <img src="/img/landing/wave.png">
-              </div> --}}
+            <img src="/img/landing/bercak.png" class="absolute top-0 left-0 animate-pulse" >
+
             <div class="container pt-28 pb-10">
                <div class="flex  flex-col-reverse lg:flex-row relative z-30">
-                <div class="w-full lg:w-1/2 mb-16 text-center lg:text-start">
+                
+                <div class="w-full lg:w-1/2 mb-16 text-center lg:text-start relative" data-aos="fade-up" data-aos-duration="2000" >
+                  <img src="/img/landing/chips.svg" alt="choco" class="absolute hidden lg:block lg:bottom-16 lg:right-5 scale-75 animate-wiggle md:z-10">
                     <h1 class="font-semibold text-2xl md:text-[3rem] md:leading-[3rem]">Selamat datang <span class="font-extrabold ">Di 
                         Kantin SMK Negeri 1 Ciomas</span></h1>
                       <p class="font-medium text-lg mt-3 text-slate-900 md:w-[28rem]">ayo habiskan uang kalian untuk berbelanja di kantin kita tercinta... <span class="text-red-700">❤</span><span class="text-green-600">💸</span></p>
                      <a href="/barang" class="flex justify-between bg-primary w-fit px-5 py-2 mt-5 rounded-l-xl rounded-tr-xl items-center font-semibold text-lg ring-1 ring-oren hover:bg-oren hover:ring-primary hover:rounded-br-xl hover:rounded-tr-none duration-300 hover:shadow-xl hover:shadow-white"><span>Ayo Belanja</span> <i class='bx bx-right-arrow-alt ml-5 text-2xl'></i></a>
                 </div>
-                <div class="w-full lg:w-1/2 flex justify-center">
+                <div class="w-full lg:w-1/2 flex justify-center" data-aos="fade-up" data-aos-duration="2500">
                   <img src="/img/landing/character.png" alt="character" width="90%">
                 </div>
                </div>
@@ -128,22 +78,23 @@
         {{-- End Hero Section --}}
 
         {{-- Start Barang--}}
-          <section id="barang" class="pt-36">
+          <section id="barang" class="pt-36 relative">
+            <img src="/img/landing/dot.png" class="absolute top-0 -left-10">
+            <img src="/img/landing/rosemary.png" class="absolute bottom-0 right-0">
             <div class="container">
               <h2 class="text-center font-bold text-3xl ">Menu Kami</h2>
               <div class="flex flex-wrap justify-center mt-10">
                 @foreach ($products as $product)
-                  
-                <div class="w-full md:w-1/2 lg:w-1/4 shadow-lg ring-1 ring-slate-300 rounded-lg my-5 flex-col flex justify-between mx-3 relative">
+                <div class="w-full md:w-1/2 lg:w-1/4 shadow-lg ring-1 ring-slate-300 rounded-lg my-5 flex-col flex justify-between mx-3 relative" data-aos="fade-up" data-aos-duration="2000">
                   <span class="bg-primary w-fit absolute top-5 left-0 pr-5 rounded-r-lg">{{ $product->category->name }}</span>
                   <div class="flex items-center justify-center">
                     <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-52">
                   </div>
                   <div class="mx-5 mt-2 bg-white bg-opacity-60 border-t-2 ">
-                    <p class="text-2xl font-semibold">{{ $product->name }}</p>
-                    <p class="font-light"> {{ $product->desc }}</p>
+                    <p class="text-xl md:text-2xl font-semibold">{{ $product->name }}</p>
+                    <p class="font-light text-sm md:text-base"> {{ $product->desc }}</p>
                     <div class="flex justify-between mb-3 items-center">
-                      <span class="font-bold text-lg w-3/4">Rp. {{ $product->harga }}</span>
+                      <span class="font-bold text-base md:text-lg w-3/4">Rp. {{ $product->harga }}</span>
                       <form action="{{ route('ustore') }}" method="post" class="ml-36 w-1/4">
                         @csrf
                          <input type="hidden" value="{{ $product->id }}" name="product_id">
@@ -155,7 +106,7 @@
 
                 @endforeach
               </div>
-              <div class="flex items-center justify-center mt-6">
+              <div class="flex items-center justify-center mt-6" data-aos="fade-up" data-aos-duration="2000">
                 <a href="/barang" class="bg-orange-500 text-white font-semibold text-center px-6 py-3 rounded-full hover:bg-primary hover:ring-1 hover:ring-orange-500 duration-200 transition-all ease-in-out">Lihat Barang Lainnya...</a>
               </div>
             </div>
@@ -167,12 +118,12 @@
           <section id="panduan" class="py-36">
             <div class="container">
               <div class="flex flex-wrap justify-center">
-                <div class="w-full md:w-1/3 h-[14rem] mx-3 my-3">
+                <div class="w-full md:w-1/3 h-[14rem] mx-3 my-3"  data-aos="fade-up" data-aos-duration="2000">
                   <iframe class="w-full h-full" src="https://www.youtube.com/embed/g1490nuZnVg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <div class="w-full md:w-1/3 mx-3 my-3 ">
+                <div class="w-full md:w-1/3 mx-3 my-3" data-aos="fade-up" data-aos-duration="2500">
                   <h3 class="font-bold text-3xl">Panduan Penggunaan</h3>
-                  <article>
+                  <article  >
                     <p>Ingin tahu bagaimana cara menggunakan sistem kantin kami dengan lancar? Kami telah merilis video panduan singkat yang akan membimbing Anda melalui langkah-langkah mudah dalam memanfaatkan sistem ini secara efektif.</p>
                   </article>
                 </div>
@@ -197,9 +148,10 @@
                     disableOnInteraction: false,
                 },
                 });
-
-             
-                
+            </script>
+            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+            <script>
+              AOS.init();
             </script>
             @vite('resources/js/app.js')
     </body>

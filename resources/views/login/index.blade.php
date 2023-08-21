@@ -17,9 +17,7 @@
             }
             
         </style>
-          {{-- mystyle --}}
-        {{-- <link rel="preload" as="style" href="/build/assets/app-91987c3c.css" />
-        <link rel="stylesheet" href="/build/assets/app-91987c3c.css" /> --}}
+       
         @vite('resources/css/app.css')
     </head>
     <body class="bg-[#003146] bg-no-repeat">
