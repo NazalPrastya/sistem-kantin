@@ -18,9 +18,11 @@
             
         </style>
        
-        @vite('resources/css/app.css')
+        {{-- mystyle --}}
+        <link rel="preload" as="style" href="/build/assets/app-be74ee1a.css" />
+        <link rel="stylesheet" href="/build/assets/app-be74ee1a.css" />
     </head>
-    <body class="bg-[#003146] bg-no-repeat">
+<body class="bg-[#003146] bg-no-repeat">
         <div class="w-full h-full absolute z bg-bottom -bottom-20 bg-[url('/public/img/login/wave.svg')] bg-no-repeat  z-10 bg-cover">
         <section class="pt-10" >
             <div class="container text-white">
@@ -91,10 +93,10 @@
                 </div>  
             </div>
         </section>
-          {{-- my js --}}
-        <link rel="modulepreload" href="http://127.0.0.1:8000/build/assets/app-d4180086.js" />
-        <script type="module" src="http://127.0.0.1:8000/build/assets/app-d4180086.js"></script>
-        </div>
+    </div>
+        {{-- my js --}}
+        <link rel="modulepreload" href="/build/assets/app-d4180086.js" />
+        <script type="module" src="/build/assets/app-d4180086.js"></script>
 
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script>

@@ -27,8 +27,8 @@
         </style>
 
          {{-- mystyle --}}
-        <link rel="preload" as="style" href="/build/assets/app-91987c3c.css" />
-        <link rel="stylesheet" href="/build/assets/app-91987c3c.css" />
+        <link rel="preload" as="style" href="/build/assets/app-be74ee1a.css" />
+        <link rel="stylesheet" href="/build/assets/app-be74ee1a.css" />
     </head>
     <body>
         @include('layout.sidebar2')
@@ -87,9 +87,9 @@
 
       </script>
 
-         {{-- my js --}}
-         <link rel="modulepreload" href="http://127.0.0.1:8000/build/assets/app-d4180086.js" />
-         <script type="module" src="http://127.0.0.1:8000/build/assets/app-d4180086.js"></script>
+               {{-- my js --}}
+        <link rel="modulepreload" href="/build/assets/app-d4180086.js" />
+        <script type="module" src="/build/assets/app-d4180086.js"></script>
 
         <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.2/flowbite.min.js"></script>

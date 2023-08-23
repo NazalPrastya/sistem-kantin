@@ -18,8 +18,8 @@
             }
         </style>
         {{-- mystyle --}}
-        <link rel="preload" as="style" href="/build/assets/app-91987c3c.css" />
-        <link rel="stylesheet" href="/build/assets/app-91987c3c.css" />
+        <link rel="preload" as="style" href="/build/assets/app-be74ee1a.css" />
+        <link rel="stylesheet" href="/build/assets/app-be74ee1a.css" />
     </head>
     <body>
       <div id="loader"></div>
@@ -191,8 +191,8 @@
         </section>
 
         {{-- my js --}}
-        <link rel="modulepreload" href="http://127.0.0.1:8000/build/assets/app-d4180086.js" />
-        <script type="module" src="http://127.0.0.1:8000/build/assets/app-d4180086.js"></script>
+        <link rel="modulepreload" href="/build/assets/app-d4180086.js" />
+        <script type="module" src="/build/assets/app-d4180086.js"></script>
 
         <script src="../path/to/flowbite/dist/flowbite.js"></script>
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

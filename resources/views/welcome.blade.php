@@ -25,11 +25,10 @@
             }
             
         </style>
-        @vite('resources/css/app.css')
+       {{-- mystyle --}}
+       <link rel="preload" as="style" href="/build/assets/app-be74ee1a.css" />
+       <link rel="stylesheet" href="/build/assets/app-be74ee1a.css" />
         
-        {{-- mystyle
-        <link rel="preload" as="style" href="/build/assets/app-91987c3c.css" />
-        <link rel="stylesheet" href="/build/assets/app-91987c3c.css" /> --}}
     </head>
     <body>
         {{-- Start Navbar --}}
@@ -153,6 +152,8 @@
             <script>
               AOS.init();
             </script>
-            @vite('resources/js/app.js')
+         {{-- my js --}}
+        <link rel="modulepreload" href="/build/assets/app-d4180086.js" />
+        <script type="module" src="/build/assets/app-d4180086.js"></script>
     </body>
 </html>

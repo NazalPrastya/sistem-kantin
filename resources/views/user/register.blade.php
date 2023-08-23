@@ -8,8 +8,8 @@
 </head>
 <title>Sistem Informasi Kantin| Register</title>
 {{-- mystyle --}}
-<link rel="preload" as="style" href="/build/assets/app-91987c3c.css" />
-<link rel="stylesheet" href="/build/assets/app-91987c3c.css" />
+<link rel="preload" as="style" href="/build/assets/app-be74ee1a.css" />
+<link rel="stylesheet" href="/build/assets/app-be74ee1a.css" />
 <body>
     <!--  Application Details Start -->
     <div class="w-full bg-[#003146] ">
@@ -18,7 +18,10 @@
 
                 <div class="mx-16 py-4 px-8 text-black text-xl font-bold border-b border-grey-500">Registrasi
                 </div>
-
+                <a href="{{ route('goggle.redirect') }}" class="text-center flex justify-center gap-2 hover:text-yellow-400 text-sm items-center border border-white rounded-full py-2 hover:bg-slate-200 duration-300">
+                    Sign Up With Google
+                    <img src="/img/goggle.png" alt="google" width="30" class="inline" >
+                </a>
                 <form name="student_application" id="student_application" action="/register" method="post">
                     @csrf
                     <div class="py-4 px-8">
@@ -142,9 +145,9 @@
 
 
 
-    {{-- my js --}}
-    <link rel="modulepreload" href="http://127.0.0.1:8000/build/assets/app-d4180086.js" />
-    <script type="module" src="http://127.0.0.1:8000/build/assets/app-d4180086.js"></script>
+            {{-- my js --}}
+            <link rel="modulepreload" href="/build/assets/app-d4180086.js" />
+            <script type="module" src="/build/assets/app-d4180086.js"></script>
 </body>
 
 </html>

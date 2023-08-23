@@ -52,10 +52,10 @@
         
 
         </style>
-        @vite('resources/css/app.css')
-          {{-- mystyle --}}
-        {{-- <link rel="preload" as="style" href="/build/assets/app-91987c3c.css" />
-        <link rel="stylesheet" href="/build/assets/app-91987c3c.css" /> --}}
+        {{-- mystyle --}}
+        <link rel="preload" as="style" href="/build/assets/app-be74ee1a.css" />
+        <link rel="stylesheet" href="/build/assets/app-be74ee1a.css" />
+
     </head>
     <body>
       @include('sweetalert::alert')
@@ -89,8 +89,7 @@
                     </li>
 
                     <li class="group">
-                      <a href="/riwayat" class="text-4xl font-extrabold text-dark ml-8 py-2 text-green-400 hover:text-yellow-300"><i class="bx bx-time"></i>
-                      </a>
+                      <a href="/riwayat" class="text-lg text-dark py-2 mx-8 flex hover:text-primary active:font-bold active:text-black {{ Request::is('riwayat') ? 'font-bold text-oren' : '' }}">Riwayat</a>
                     </li>
 
                     <li class="group">
@@ -169,10 +168,8 @@
         } 
       </script>
          {{-- my js --}}
-         @vite('resources/js/app.js')
-         {{-- <link rel="modulepreload" href="http://127.0.0.1:8000/build/assets/app-d4180086.js" />
-         <script type="module" src="http://127.0.0.1:8000/build/assets/app-d4180086.js"></script> --}}
-         <!-- Swiper JS -->
+        <link rel="modulepreload" href="/build/assets/app-d4180086.js" />
+        <script type="module" src="/build/assets/app-d4180086.js"></script>
           <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
           <!-- Initialize Swiper -->

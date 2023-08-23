@@ -25,7 +25,7 @@ class CartController extends Controller
         $total = 100;
         ob_start();
         foreach ($user->carts as $c) {
-            $total += ($c->product->harga * $c->qty) - 100;
+            $total += ($c->product->harga * $c->qty) - 1;
         };
         // Set your Merchant Server Key
         \Midtrans\Config::$serverKey = config('midtrans.server_key');
@@ -47,7 +47,7 @@ class CartController extends Controller
         );
         // @dd($history->id);
         $snapToken = \Midtrans\Snap::getSnapToken($params);
-
+        // dd($snapToken);
 
         return view('user.cart.index', [
             'carts' => $user->carts,
@@ -109,28 +109,21 @@ class CartController extends Controller
 
     public function callback(Request $request)
     {
-        // $userId = Auth::id();
         $carts = Cart::where('user_id', auth()->id())->get();
         if ($carts->count() > 0) {
 
             $serverKey = config('midtrans.server_key');
             $hashed = hash("sha512", $request->order_id . $request->status_code . $request->gross_amount . $serverKey);
             if ($hashed == $request->signature_key) {
-                if ($request->transaction_status == 'capture') {
-                    // $transaction = Transaction::create([
-                    //     'user_id' => $userId,
-                    //     'total' => $request->gross_amount
-                    // ]);
-
-                    // foreach ($carts as $c) {
-                    //     $transaction->detail()->create([
-                    //         'product_id' => $c->product_id,
-                    //         'qty' => $c->qty,
-                    //     ]);
-                    // }
-                    // Cart::destroy($carts);
-                    // Alert::success('Pembelian Berhasil', 'Terimakasih telah berbelanja di sini');
-                    // return redirect('/keranjang');
+                if ($request->transaction_status == 'capture' or $request->transaction_status == 'settlement') {
+                    Transaction::create([
+                        'user_id' => Auth::id(),
+                        'metode_pembayaran' => 'digital payment',
+                        'total' => $request->input('total')
+                    ]);
+                    Cart::destroy($carts);
+                    Alert::success('Pembelian Berhasil', 'Silahkan bayar di kotak sebelah ya, ingat Allah maha melihat');
+                    return redirect('/keranjang');
                 }
             }
         }
